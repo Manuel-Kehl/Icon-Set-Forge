@@ -15,9 +15,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
+    iconsetview.cpp \
     flowlayout.cpp
 
 HEADERS  += mainwindow.h \
+    iconsetview.h \
     flowlayout.h
 
 FORMS    += mainwindow.ui
