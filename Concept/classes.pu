@@ -1,23 +1,25 @@
 @startuml
 package control {
-	abstract class IconScannerStrategy {
+	abstract class AbstractIconScannerStrategy {
 		{abstract} + scanIconDirectoryForCategories
 		{abstract} + scanIconDirectoryForResolutions
 	}
-	class FreedesktopIconScannerStrategy --|> IconScannerStrategy
+	package strategies {
+		class FreedesktopAbstractIconScannerStrategy --|> AbstractIconScannerStrategy
+	}
 }
 
-note top of FreedesktopIconScannerStrategy: First: An exemplary implementation that expects icon folders\narraged as often seen with Linux icon sets (category/resolution).\n\nNext step would be automatic parsing of theme.index files! 
+note top of FreedesktopAbstractIconScannerStrategy: First: An exemplary implementation that expects icon folders\narraged as often seen with Linux icon sets (category/resolution).\n\nNext step would be automatic parsing of theme.index files! 
 
 package view {
 	class CategoryView
 	class ResolutionView
 	class IconSetBrowser {
-		+ IconSetBrowser (iconScannerStrategy : IconScannerStrategy)
+		+ IconSetBrowser (iconScannerStrategy : AbstractAbstractIconScannerStrategy)
 	}
 }
 
-IconSetBrowser o-- IconScannerStrategy
+IconSetBrowser o-- AbstractIconScannerStrategy
 IconSetBrowser o-- ResolutionView
 IconSetBrowser o-- CategoryView
 
