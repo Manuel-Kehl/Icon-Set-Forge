@@ -8,10 +8,13 @@
 
 class IconSetView : public QScrollArea
 {
+    Q_OBJECT
+
+private:
     FlowLayout *galleryLayout;
     QWidget *galleryWidget;
     QSettings settings;
-    Q_OBJECT
+
 public:
     explicit IconSetView(QWidget *parent = 0);
     void addIconFromFile(QString pathToFile);
