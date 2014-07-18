@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="IconSetView" name="centralWidget"/>
+  <widget class="IconSetBrowser" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -49,9 +49,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>IconSetView</class>
+   <class>IconSetBrowser</class>
    <extends>QWidget</extends>
-   <header>iconsetview.h</header>
+   <header>iconsetbrowser.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

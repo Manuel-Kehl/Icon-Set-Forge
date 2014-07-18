@@ -4,7 +4,7 @@
 #include <QSettings>
 #include <QScrollArea>
 #include <QWidget>
-#include "flowlayout.h"
+#include "layouts/flowlayout.h"
 
 class IconSetView : public QScrollArea
 {
