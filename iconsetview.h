@@ -9,7 +9,7 @@
 class IconSetView : public QScrollArea
 {
     FlowLayout *galleryLayout;
-    QWidget *content;
+    QWidget *galleryWidget;
     QSettings settings;
     Q_OBJECT
 public:
