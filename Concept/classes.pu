@@ -11,8 +11,8 @@ end note
 
 package control {
 	abstract class AbstractScannerStrategy {
-		{abstract} + scanForIcons()
-		{abstract} + scanForCategories()
+		{abstract} + scanIcons()
+		{abstract} + scanCategories()
 	}
 	package strategies {
 		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
