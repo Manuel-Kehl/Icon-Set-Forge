@@ -1,4 +1,13 @@
 @startuml
+
+note as N1
+This diagram is meant to give a conceptual overview of the most important
+classes and relations. It does not resemble every detail nor do all types
+and names have to be the exact same ones as in the implementation.
+For example I am using a generic "List" whereas the implementation is done 
+via a QVector.
+end note
+
 package control {
 	abstract class AbstractIconScannerStrategy {
 		{abstract} + scanIconDirectoryForCategories()
@@ -30,6 +39,8 @@ package model {
 		+ boolean hasChildren()
 		+ IconClassification getParent()
 		+ List<IconClassification> getChildren()
+		+ addChild()
+		+ setParent()
 	}
 	
 	class IconSet {
