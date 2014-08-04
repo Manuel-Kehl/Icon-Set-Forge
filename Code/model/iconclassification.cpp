@@ -1,17 +1,26 @@
 #include "model/iconclassification.h"
 
-IconClassification::IconClassification(QString name)
+IconClassification::IconClassification()
 {
-    this->name = name;
     children = new QVector<IconClassification*>();
     //Initialize with null pointer
     parent = nullptr;
+}
+
+IconClassification::IconClassification(QString name) : IconClassification()
+{
+    this->setName(name);
 }
 
 void IconClassification::addChild(IconClassification *child)
 {
     children->append(child);
     child->setParent(this);
+}
+
+void IconClassification::setName(QString name)
+{
+    this->name = name;
 }
 
 void IconClassification::setParent(IconClassification *parent)
@@ -28,5 +37,7 @@ bool IconClassification::hasChildren()
 {
     return children->size() > 0;
 }
+
+
 
 //TODO: Write a proper destructor for releasingn allocated ressources.

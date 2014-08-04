@@ -12,6 +12,7 @@ private:
     QVector<IconClassification*> *children;
 
 public:
+    IconClassification();
     IconClassification(QString name);
     bool hasParent();
     bool hasChildren();
@@ -19,6 +20,7 @@ public:
     QVector<IconClassification> getChildren();
     void setParent(IconClassification *parent);
     void addChild(IconClassification *child);
+    void setName(QString name);
 };
 
 #endif // ICONCLASSIFICATION_H
