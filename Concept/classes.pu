@@ -23,6 +23,7 @@ package view {
 
 package model {
 	class IconClassification {
+		String name
 		IconClassification parent
 		List<IconClassification> children
 		+ boolean hasParent()
