@@ -12,7 +12,7 @@ end note
 package control {
 	abstract class AbstractScannerStrategy {
 		{abstract} + scanIcons()
-		{abstract} + scanCategories()
+		{abstract} + scanClassifications()
 	}
 	package strategies {
 		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
