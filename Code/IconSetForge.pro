@@ -20,8 +20,9 @@ SOURCES +=\
     view/mainwindow.cpp \
     view/layouts/borderlayout.cpp \
     view/layouts/flowlayout.cpp \
-    control/abstracticonscannerstrategy.cpp \
-    model/iconclassification.cpp
+    model/iconclassification.cpp \
+    model/icon.cpp \
+    control/abstractscannerstrategy.cpp
 
 HEADERS  += \
     view/iconsetbrowser.h \
@@ -29,8 +30,9 @@ HEADERS  += \
     view/mainwindow.h \
     view/layouts/borderlayout.h \
     view/layouts/flowlayout.h \
-    control/abstracticonscannerstrategy.h \
-    model/iconclassification.h
+    model/iconclassification.h \
+    model/icon.h \
+    control/abstractscannerstrategy.h
 
 FORMS    += mainwindow.ui
 
