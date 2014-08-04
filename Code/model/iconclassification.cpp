@@ -1,7 +1,8 @@
 #include "model/iconclassification.h"
 
-IconClassification::IconClassification()
+IconClassification::IconClassification(QString name)
 {
+    this->name = name;
     children = new QVector<IconClassification*>();
     //Initialize with null pointer
     parent = nullptr;

@@ -7,12 +7,12 @@
 class IconClassification
 {
 private:
-    QString *name;
+    QString name;
     IconClassification *parent;
     QVector<IconClassification*> *children;
 
 public:
-    IconClassification();
+    IconClassification(QString name);
     bool hasParent();
     bool hasChildren();
     IconClassification getParent();
