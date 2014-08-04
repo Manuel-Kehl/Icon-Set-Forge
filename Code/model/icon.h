@@ -11,7 +11,6 @@ class Icon
 private:
     QString file;
     QVector<IconClassification*> *classifications;
-    AbstractScannerStrategy *scannerStrategy;
 public:
     Icon();
 };
