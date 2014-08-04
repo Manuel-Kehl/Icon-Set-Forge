@@ -15,7 +15,7 @@ package control {
 		{abstract} + scanForCategories()
 	}
 	package strategies {
-		class AbstractScannerStrategy --|> AbstractScannerStrategy
+		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
 		class GenericXmlScannerStrategy --|> AbstractScannerStrategy
 	}
 }
@@ -68,7 +68,7 @@ IconSetBrowser -- IconSet
 
 note bottom of IconClassification: Ways of classifying and grouping icons within a set.\nFor example resolution, category or target device.\nNested classifications are possible (e.g. "high-resolution/256").
 
-note top of AbstractScannerStrategy: An exemplary implementation that parses theme files\nas often seen with Linux icon sets.
+note top of FreedesktopScannerStrategy: An exemplary implementation that parses theme files\nas often seen with Linux icon sets.
 
 note top of GenericXmlScannerStrategy: A generic way of defining icon set structures via XML.\nIn case no specific file format is existant.\nFollowing this apporach Icon Set Forge is hopefully useful\nfor many "non-programmers".
 
