@@ -1,27 +1,60 @@
 @startuml
 package control {
 	abstract class AbstractIconScannerStrategy {
-		{abstract} + scanIconDirectoryForCategories
-		{abstract} + scanIconDirectoryForResolutions
+		{abstract} + scanIconDirectoryForCategories()
+		{abstract} + scanIconDirectoryForResolutions()
 	}
 	package strategies {
 		class FreedesktopIconScannerStrategy --|> AbstractIconScannerStrategy
+		class GenericXmlIconScannerStrategy --|> AbstractIconScannerStrategy
 	}
 }
-
-note top of FreedesktopIconScannerStrategy: First: An exemplary implementation that parses theme-files\n as often seen with Linux icon sets.
 
 package view {
-	class CategoryView
-	class ResolutionView
+	class ClassificationFilterView
+	
 	class IconSetBrowser {
-		+ IconSetBrowser (iconScannerStrategy : AbstractAbstractIconScannerStrategy)
+		List<ClassificationFilterView> classificationFilters
+		+ IconSetBrowser (AbstractIconScannerStrategy iconScannerStrategy)
+		+ setIconSet (IconSet iconSet)
+		+ updateIconSet()
 	}
 }
 
+package model {
+	class IconClassification {
+		IconClassification parent
+		List<IconClassification> children
+		+ boolean hasParent()
+		+ boolean hasChildren()
+		+ IconClassification getParent()
+		+ List<IconClassification> getChildren()
+	}
+	
+	class IconSet {
+		List<Icon> icons
+		List<IconClassification> classifications
+	}
+	
+	class Icon {
+		String file
+		List<IconClassification> classifications
+	}
+}
 
 IconSetBrowser o-- AbstractIconScannerStrategy
-IconSetBrowser o-- ResolutionView
-IconSetBrowser o-- CategoryView
+IconSetBrowser o-- ClassificationFilterView
+
+Icon o-- IconClassification
+IconSet o-- Icon
+IconSet o-- IconClassification
+
+IconSetBrowser -- IconSet
+
+note bottom of IconClassification: Ways of classifying and grouping icons within a set.\nFor example resolution, category or target device.\nNested classifications are possible (e.g. "high-resolution/256").
+
+note top of FreedesktopIconScannerStrategy: An exemplary implementation that parses theme files\nas often seen with Linux icon sets.
+
+note top of GenericXmlIconScannerStrategy: A generic way of defining icon set structures via XML.\nIn case no specific file format is existant.\nFollowing this apporach Icon Set Forge is hopefully useful\nfor many "non-programmers".
 
 @enduml
