@@ -6,16 +6,17 @@ classes and relations. It does not resemble every detail nor do all types
 and names have to be the exact same ones as in the implementation.
 For example I am using a generic "List" whereas the implementation is done 
 via a QVector.
+
 end note
 
 package control {
-	abstract class AbstractIconScannerStrategy {
-		{abstract} + scanIconDirectoryForCategories()
-		{abstract} + scanIconDirectoryForResolutions()
+	abstract class AbstractScannerStrategy {
+		{abstract} + scanForIcons()
+		{abstract} + scanForCategories()
 	}
 	package strategies {
-		class FreedesktopIconScannerStrategy --|> AbstractIconScannerStrategy
-		class GenericXmlIconScannerStrategy --|> AbstractIconScannerStrategy
+		class FreedesktopIconScannerStrategy --|> AbstractScannerStrategy
+		class GenericXmlIconScannerStrategy --|> AbstractScannerStrategy
 	}
 }
 
@@ -24,7 +25,7 @@ package view {
 	
 	class IconSetBrowser {
 		List<ClassificationFilterView> classificationFilters
-		+ IconSetBrowser (AbstractIconScannerStrategy iconScannerStrategy)
+		+ IconSetBrowser (AbstractScannerStrategy iconScannerStrategy)
 		+ setIconSet (IconSet iconSet)
 		+ updateIconSet()
 	}
@@ -46,6 +47,7 @@ package model {
 	class IconSet {
 		List<Icon> icons
 		List<IconClassification> classifications
+		AbconScannerStrategy scannerStrategy 
 	}
 	
 	class Icon {
@@ -54,12 +56,13 @@ package model {
 	}
 }
 
-IconSetBrowser o-- AbstractIconScannerStrategy
+IconSetBrowser o-- AbstractScannerStrategy
 IconSetBrowser o-- ClassificationFilterView
 
 Icon o-- IconClassification
 IconSet o-- Icon
 IconSet o-- IconClassification
+IconSet o- AbstractScannerStrategy
 
 IconSetBrowser -- IconSet
 
