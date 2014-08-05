@@ -11,8 +11,8 @@ IconSetBrowser::IconSetBrowser(QWidget *parent) :
     BorderLayout *layout = new BorderLayout(this);
     IconSetView *testView = new IconSetView(this);
     QTreeView *treeView = new QTreeView(this);
-    //IconSetTreeModel *treeModel = new IconSetTreeModel();
-    //treeView->setModel(treeModel);
+    IconSetTreeModel *treeModel = new IconSetTreeModel();
+    treeView->setModel(treeModel);
 
     layout->addWidget(testView, BorderLayout::Center);
     layout->addWidget(treeView, BorderLayout::West);

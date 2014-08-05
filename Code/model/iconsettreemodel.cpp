@@ -51,8 +51,15 @@ QModelIndex IconSetTreeModel::parent(const QModelIndex &childIndex) const
 
 int IconSetTreeModel::rowCount(const QModelIndex &parentIndex) const
 {
-    //TODO: Think about potentially necessary checks
+    if (parentIndex.column() > 0) {
+        return 0;
+    }
+
     IconClassification *parent = indexToNode(parentIndex);
+    if (!parent) {
+        return 0;
+    }
+
     return parent->getChildren()->count();
 }
 
