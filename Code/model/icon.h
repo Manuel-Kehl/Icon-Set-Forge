@@ -11,6 +11,7 @@ private:
     QString file;
     QVector<IconClassification*> *classifications;
 public:
+    Icon();
     Icon(QString file);
     void addClassification(IconClassification *classification);
 };
