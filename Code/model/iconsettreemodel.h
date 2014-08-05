@@ -5,14 +5,14 @@
 
 class IconSetTreeModel : public QAbstractItemModel
 {
-    Q_OBJECT
+private:
+    Node *root;
+    Node *indexToNode(const QModelIndex &index) const;
+
 public:
-    explicit IconSetTreeModel(QObject *parent = 0);
-
-signals:
-
-public slots:
-
+    IconSetTreeModel(QObject *parent = 0);
+    ~IconSetTreeModel();
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
 };
 
 #endif // ICONSETTREEMODEL_H
