@@ -1,9 +1,27 @@
 #include "model/iconsettreemodel.h"
+#include "iostream"
 
-IconSetTreeModel::IconSetTreeModel(QObject *parent) :
-    QAbstractItemModel(parent)
+IconSetTreeModel::IconSetTreeModel(QObject *parent) : QAbstractItemModel(parent)
 {
     root = nullptr;
+
+    //TODO: Remove Testcode
+    //=========TESTCODE=================================//
+    IconClassification *child1 = new IconClassification("Child1");
+    IconClassification *child2 = new IconClassification("Child2");
+    IconClassification *child3 = new IconClassification("Child3");
+    IconClassification *parent1 = new IconClassification("Parent1");
+    IconClassification *parent2 = new IconClassification("Parent2");
+    IconClassification *root = new IconClassification("root");
+
+    parent1->addChild(child1);
+    parent1->addChild(child2);
+    parent2->addChild(child3);
+    root->addChild(parent1);
+    root->addChild(parent2);
+
+    setRoot(root);
+    //=========TESTCODE=================================//
 }
 
 IconSetTreeModel::~IconSetTreeModel()
@@ -46,7 +64,24 @@ QModelIndex IconSetTreeModel::index(int row, int column, const QModelIndex &pare
 
 QModelIndex IconSetTreeModel::parent(const QModelIndex &childIndex) const
 {
-    indexToNode(childIndex)->getParent();
+    IconClassification *child  = indexToNode(childIndex);
+    if (!child) {
+        return QModelIndex();
+    }
+
+    IconClassification *parent = child->getParent();
+    if (!parent) {
+        return QModelIndex();
+    }
+
+    //Parent's parent is necessary for finding out the parent's row
+    IconClassification *grandParent = parent->getParent();
+    if (!grandParent) {
+        return QModelIndex();
+    }
+    int row = grandParent->getChildren()->indexOf(parent);
+
+    return createIndex(row, 0, parent);
 }
 
 int IconSetTreeModel::rowCount(const QModelIndex &parentIndex) const
@@ -60,7 +95,8 @@ int IconSetTreeModel::rowCount(const QModelIndex &parentIndex) const
         return 0;
     }
 
-    return parent->getChildren()->count();
+    int childCount = parent->getChildren()->count();
+    return childCount;
 }
 
 int IconSetTreeModel::columnCount(const QModelIndex &parentIndex) const

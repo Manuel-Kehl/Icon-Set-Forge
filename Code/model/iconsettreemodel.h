@@ -12,7 +12,7 @@ private:
     IconClassification *indexToNode(const QModelIndex &index) const;
 
 public:
-    IconSetTreeModel(QObject *parent = 0);
+    IconSetTreeModel(QObject *parent = nullptr);
     ~IconSetTreeModel();
 
     void setRoot(IconClassification *node);
