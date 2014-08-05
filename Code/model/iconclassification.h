@@ -10,6 +10,8 @@ private:
     QString name;
     IconClassification *parent;
     QVector<IconClassification*> *children;
+    bool groupBy = false;
+    bool selected = false;
 
 public:
     IconClassification();
@@ -21,6 +23,9 @@ public:
     void setParent(IconClassification *parent);
     void addChild(IconClassification *child);
     void setName(QString name);
+    QString getName();
+    bool isSelected();
+    bool isGroupedBy();
 };
 
 #endif // ICONCLASSIFICATION_H

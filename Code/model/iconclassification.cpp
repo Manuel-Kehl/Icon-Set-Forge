@@ -23,6 +23,21 @@ void IconClassification::setName(QString name)
     this->name = name;
 }
 
+QString IconClassification::getName()
+{
+    return name;
+}
+
+bool IconClassification::isSelected()
+{
+    return selected;
+}
+
+bool IconClassification::isGroupedBy()
+{
+    return groupBy;
+}
+
 void IconClassification::setParent(IconClassification *parent)
 {
     this->parent = parent;
