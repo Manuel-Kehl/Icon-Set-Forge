@@ -2,17 +2,27 @@
 #define ICONSETTREEMODEL_H
 
 #include <QAbstractItemModel>
+#include "iconclassification.h"
 
 class IconSetTreeModel : public QAbstractItemModel
 {
 private:
-    Node *root;
-    Node *indexToNode(const QModelIndex &index) const;
+    IconClassification *root;
+
+    IconClassification *indexToNode(const QModelIndex &index) const;
 
 public:
     IconSetTreeModel(QObject *parent = 0);
     ~IconSetTreeModel();
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
+
+    void setRoot(IconClassification *node);
+
+    QModelIndex index(int row, int column, const QModelIndex &parentIndex = QModelIndex()) const;
+    QModelIndex parent(const QModelIndex &childIndex) const;
+    int rowCount(const QModelIndex &parentIndex) const;
+    int columnCount(const QModelIndex &parentIndex) const;
+    QVariant data(const QModelIndex &index, int role) const;
+
 };
 
 #endif // ICONSETTREEMODEL_H

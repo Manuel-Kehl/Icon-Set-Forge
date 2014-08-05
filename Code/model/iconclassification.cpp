@@ -38,6 +38,16 @@ bool IconClassification::hasChildren()
     return children->size() > 0;
 }
 
+IconClassification *IconClassification::getParent()
+{
+    return parent;
+}
+
+QVector<IconClassification *> *IconClassification::getChildren()
+{
+    return children;
+}
+
 
 
 //TODO: Write a proper destructor for releasingn allocated ressources.
