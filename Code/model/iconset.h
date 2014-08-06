@@ -4,7 +4,7 @@
 #include <QVector>
 #include "model/icon.h"
 #include "model/iconclassification.h"
-#include "control/abstractscannerstrategy.h"
+#include "control/scannerstrategies/abstractscannerstrategy.h"
 
 class IconSet
 {
