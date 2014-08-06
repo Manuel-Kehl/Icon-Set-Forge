@@ -6,7 +6,6 @@ classes and relations. It does not resemble every detail nor do all types
 and names have to be the exact same ones as in the implementation.
 For example I am using a generic "List" whereas the implementation is done 
 via a QVector.
-
 end note
 
 package control {
@@ -21,8 +20,6 @@ package control {
 }
 
 package view {
-	class ClassificationFilterView
-	
 	class IconSetBrowser {
 		List<ClassificationFilterView> classificationFilters
 		+ IconSetBrowser (AbstractScannerStrategy iconScannerStrategy)
@@ -47,24 +44,30 @@ package model {
 	class IconSet {
 		List<Icon> icons
 		List<IconClassification> classifications
-		AbconScannerStrategy scannerStrategy 
+		AbstractScannerStrategy scannerStrategy 
+		+ ClassificationTreeModel getClassificationTreeModel()
 	}
 	
 	class Icon {
 		String file
 		List<IconClassification> classifications
 	}
+	
+	class ClassificationTreeModel {
+		IconClassification root
+	}
 }
 
 IconSetBrowser o-- AbstractScannerStrategy
-IconSetBrowser o-- ClassificationFilterView
 
 Icon o-- IconClassification
 IconSet o-- Icon
 IconSet o-- IconClassification
 IconSet o- AbstractScannerStrategy
+IconSet --> ClassificationTreeModel : generates
 
 IconSetBrowser -- IconSet
+IconSetBrowser -- ClassificationTreeModel
 
 note bottom of IconClassification: Ways of classifying and grouping icons within a set.\nFor example resolution, category or target device.\nNested classifications are possible (e.g. "high-resolution/256").
 
