@@ -14,9 +14,11 @@ It contains a collection of all Icons + the structural information given by
 their categories. Upon loading / parsing an icon set an instance of this 
 class is to be created (on the heap). 
 
-All Icons and IconClassifications are meant to exist within the 
-scope of that specific instance as they are of no use, when the 
-icon set is unloaded.
+All Icons and IconClassifications are meant to exist within the scope of 
+that specific instance as they are of no use, when the icon set is unloaded.
+
+To implement this strategy QObject's parent/chilld ownership mechanism is 
+to be used whereever possible/reasonable.
 end note
 
 package control {
