@@ -1,11 +1,22 @@
 @startuml
 
 note as N1
+<b>General Information</b>
 This diagram is meant to give a conceptual overview of the most important
 classes and relations. It does not resemble every detail nor do all types
 and names have to be the exact same ones as in the implementation.
 For example I am using a generic "List" whereas the implementation is done 
 via a QVector.
+
+<b>Memory Management</b>
+The IconSet class is the model representation of an icon set.
+It contains a collection of all Icons + the structural information given by 
+their categories. Upon loading / parsing an icon set an instance of this 
+class is to be created (on the heap). 
+
+All Icons and IconClassifications are meant to exist within the 
+scope of that specific instance as they are of no use, when the 
+icon set is unloaded.
 end note
 
 package control {
@@ -69,7 +80,7 @@ IconSet --> ClassificationTreeModel : generates
 IconSetBrowser -- IconSet
 IconSetBrowser -- ClassificationTreeModel
 
-note bottom of IconClassification: Ways of classifying and grouping icons within a set.\nFor example resolution, category or target device.\nNested classifications are possible (e.g. "high-resolution/256").
+note bottom of IconClassification: Ways of classifying and grouping icons in a tree structure.For example "resolution, category or target" device.\nNested classifications are possible (e.g. "high-resolution/256").
 
 note top of FreedesktopScannerStrategy: An exemplary implementation that parses theme files\nas often seen with Linux icon sets.
 
