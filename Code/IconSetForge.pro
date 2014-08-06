@@ -24,7 +24,7 @@ SOURCES +=\
     model/icon.cpp \
     control/abstractscannerstrategy.cpp \
     model/iconset.cpp \
-    model/iconsettreemodel.cpp
+    model/classificationtreemodel.cpp
 
 HEADERS  += \
     view/iconsetbrowser.h \
@@ -36,7 +36,7 @@ HEADERS  += \
     model/icon.h \
     control/abstractscannerstrategy.h \
     model/iconset.h \
-    model/iconsettreemodel.h
+    model/classificationtreemodel.h
 
 FORMS    += mainwindow.ui
 

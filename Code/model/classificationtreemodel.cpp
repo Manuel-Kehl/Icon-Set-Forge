@@ -1,7 +1,7 @@
-#include "model/iconsettreemodel.h"
+#include "model/classificationtreemodel.h"
 #include "iostream"
 
-IconSetTreeModel::IconSetTreeModel(QObject *parent) : QAbstractItemModel(parent)
+ClassificationTreeModel::ClassificationTreeModel(QObject *parent) : QAbstractItemModel(parent)
 {
     root = nullptr;
 
@@ -24,19 +24,19 @@ IconSetTreeModel::IconSetTreeModel(QObject *parent) : QAbstractItemModel(parent)
     //=========TESTCODE=================================//
 }
 
-IconSetTreeModel::~IconSetTreeModel()
+ClassificationTreeModel::~ClassificationTreeModel()
 {
     delete root;
 }
 
-void IconSetTreeModel::setRoot(IconClassification *node)
+void ClassificationTreeModel::setRoot(IconClassification *node)
 {
     delete root;
     root = node;
     reset();
 }
 
-IconClassification *IconSetTreeModel::indexToNode(const QModelIndex &index) const
+IconClassification *ClassificationTreeModel::indexToNode(const QModelIndex &index) const
 {
     if (index.isValid()) {
         return static_cast<IconClassification *>(index.internalPointer());
@@ -45,7 +45,7 @@ IconClassification *IconSetTreeModel::indexToNode(const QModelIndex &index) cons
     }
 }
 
-QModelIndex IconSetTreeModel::index(int row, int column, const QModelIndex &parentIndex) const
+QModelIndex ClassificationTreeModel::index(int row, int column, const QModelIndex &parentIndex) const
 {
     //If no root is set or invalid row or column, return empty QModelIndex
     if (row < 0 || column < 0 || !root) {
@@ -62,7 +62,7 @@ QModelIndex IconSetTreeModel::index(int row, int column, const QModelIndex &pare
     }
 }
 
-QModelIndex IconSetTreeModel::parent(const QModelIndex &childIndex) const
+QModelIndex ClassificationTreeModel::parent(const QModelIndex &childIndex) const
 {
     IconClassification *child  = indexToNode(childIndex);
     if (!child) {
@@ -84,7 +84,7 @@ QModelIndex IconSetTreeModel::parent(const QModelIndex &childIndex) const
     return createIndex(row, 0, parent);
 }
 
-int IconSetTreeModel::rowCount(const QModelIndex &parentIndex) const
+int ClassificationTreeModel::rowCount(const QModelIndex &parentIndex) const
 {
     if (parentIndex.column() > 0) {
         return 0;
@@ -99,13 +99,13 @@ int IconSetTreeModel::rowCount(const QModelIndex &parentIndex) const
     return childCount;
 }
 
-int IconSetTreeModel::columnCount(const QModelIndex &parentIndex) const
+int ClassificationTreeModel::columnCount(const QModelIndex &parentIndex) const
 {
     //TODO: Proper implementation
     return 3;
 }
 
-QVariant IconSetTreeModel::data(const QModelIndex &index, int role) const
+QVariant ClassificationTreeModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return QVariant();
@@ -136,7 +136,7 @@ QVariant IconSetTreeModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-QVariant IconSetTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant ClassificationTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (section) {
@@ -157,7 +157,7 @@ QVariant IconSetTreeModel::headerData(int section, Qt::Orientation orientation, 
     return QVariant();
 }
 
-bool IconSetTreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool ClassificationTreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (!index.isValid()) {
         return false;
@@ -180,7 +180,7 @@ bool IconSetTreeModel::setData(const QModelIndex &index, const QVariant &value, 
     return true;
 }
 
-Qt::ItemFlags IconSetTreeModel::flags(const QModelIndex &index) const
+Qt::ItemFlags ClassificationTreeModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid()) {
              return 0;

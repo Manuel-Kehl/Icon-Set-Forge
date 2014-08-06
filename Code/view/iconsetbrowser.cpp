@@ -2,7 +2,7 @@
 #include <QTreeView>
 #include "iconsetbrowser.h"
 #include "iconsetview.h"
-#include "model/iconsettreemodel.h"
+#include "model/classificationtreemodel.h"
 
 IconSetBrowser::IconSetBrowser(QWidget *parent) :
     QWidget(parent)
@@ -11,7 +11,7 @@ IconSetBrowser::IconSetBrowser(QWidget *parent) :
     BorderLayout *layout = new BorderLayout(this);
     IconSetView *testView = new IconSetView(this);
     QTreeView *treeView = new QTreeView(this);
-    IconSetTreeModel *treeModel = new IconSetTreeModel();
+    ClassificationTreeModel *treeModel = new ClassificationTreeModel();
     treeView->setModel(treeModel);
 
     //Resize columns after the model has been set

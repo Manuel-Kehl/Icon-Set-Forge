@@ -4,7 +4,7 @@
 #include <QAbstractItemModel>
 #include "iconclassification.h"
 
-class IconSetTreeModel : public QAbstractItemModel
+class ClassificationTreeModel : public QAbstractItemModel
 {
 private:
     IconClassification *root;
@@ -12,8 +12,8 @@ private:
     IconClassification *indexToNode(const QModelIndex &index) const;
 
 public:
-    IconSetTreeModel(QObject *parent = nullptr);
-    ~IconSetTreeModel();
+    ClassificationTreeModel(QObject *parent = nullptr);
+    ~ClassificationTreeModel();
 
     void setRoot(IconClassification *node);
 
