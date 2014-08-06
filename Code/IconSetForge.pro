@@ -22,9 +22,9 @@ SOURCES +=\
     view/layouts/flowlayout.cpp \
     model/iconclassification.cpp \
     model/icon.cpp \
-    control/abstractscannerstrategy.cpp \
     model/iconset.cpp \
-    model/classificationtreemodel.cpp
+    model/classificationtreemodel.cpp \
+    control/scannerstrategies/abstractscannerstrategy.cpp
 
 HEADERS  += \
     view/iconsetbrowser.h \
@@ -34,9 +34,9 @@ HEADERS  += \
     view/layouts/flowlayout.h \
     model/iconclassification.h \
     model/icon.h \
-    control/abstractscannerstrategy.h \
     model/iconset.h \
-    model/classificationtreemodel.h
+    model/classificationtreemodel.h \
+    control/scannerstrategies/abstractscannerstrategy.h
 
 FORMS    += mainwindow.ui
 
