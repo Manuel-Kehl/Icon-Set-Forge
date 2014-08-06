@@ -102,10 +102,90 @@ int IconSetTreeModel::rowCount(const QModelIndex &parentIndex) const
 int IconSetTreeModel::columnCount(const QModelIndex &parentIndex) const
 {
     //TODO: Proper implementation
-    return 2;
+    return 3;
 }
 
 QVariant IconSetTreeModel::data(const QModelIndex &index, int role) const
 {
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
+    int column = index.column();
+
+    if (role == Qt::DisplayRole) {
+        if (column == 0) {
+            //First Column: Classification Name
+            return indexToNode(index)->getName();
+        }
+    }
+
+    if (role == Qt::CheckStateRole) {
+        IconClassification *node = indexToNode(index);
+
+        if (column == 1) {
+            return node->isSelected() ? Qt::Checked : Qt::Unchecked;
+        } else if (column == 2) {
+            //Grouping is only reasonable, if child classifications exist
+            if (node->hasChildren()) {
+                return node->isGroupedBy() ? Qt::Checked : Qt::Unchecked;
+            }
+        }
+    }
+
     return QVariant();
+}
+
+QVariant IconSetTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
+        switch (section) {
+        case 0:
+            return "Classification";
+            break;
+        case 1:
+            return "Select";
+            break;
+        case 2:
+            return "Group";
+            break;
+        default:
+            return QVariant();
+            break;
+        }
+    }
+    return QVariant();
+}
+
+bool IconSetTreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (!index.isValid()) {
+        return false;
+    }
+
+    int column = index.column();
+
+    if (role == Qt::CheckStateRole) {
+        IconClassification *node = indexToNode(index);
+        Qt::CheckState checked = static_cast<Qt::CheckState>(value.toInt());
+
+        if (column == 1) {
+            node->setSelected(checked == Qt::Checked);
+        } else if (column == 2) {
+            node->setGroupedBy(checked == Qt::Checked);
+        }
+    }
+    //To trigger a UI refresh emit the dataChanged signal
+    emit dataChanged(index, index);
+    return true;
+}
+
+Qt::ItemFlags IconSetTreeModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+             return 0;
+    }
+
+    //To enable user interaction with the checkboxes
+    return Qt::ItemIsEnabled | Qt::ItemIsUserCheckable;
 }

@@ -24,7 +24,9 @@ public:
     void addChild(IconClassification *child);
     void setName(QString name);
     QString getName();
+    void setSelected(bool selected);
     bool isSelected();
+    void setGroupedBy(bool groupBy);
     bool isGroupedBy();
 };
 

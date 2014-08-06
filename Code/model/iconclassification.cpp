@@ -28,9 +28,19 @@ QString IconClassification::getName()
     return name;
 }
 
+void IconClassification::setSelected(bool selected)
+{
+    this->selected = selected;
+}
+
 bool IconClassification::isSelected()
 {
     return selected;
+}
+
+void IconClassification::setGroupedBy(bool groupBy)
+{
+    this->groupBy = groupBy;
 }
 
 bool IconClassification::isGroupedBy()
