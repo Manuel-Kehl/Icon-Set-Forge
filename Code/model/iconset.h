@@ -10,7 +10,7 @@ class IconSet
 {
 private:
     QVector<Icon> icons;
-    QVector<IconClassification> classifications;
+    IconClassification classifications;
     AbstractScannerStrategy *scannerStrategy;
 public:
     IconSet(AbstractScannerStrategy *scannerStrategy);

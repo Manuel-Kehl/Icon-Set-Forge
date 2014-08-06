@@ -10,7 +10,7 @@ class AbstractScannerStrategy
 public:
     AbstractScannerStrategy();
     virtual QVector<Icon> scanIcons() = 0;
-    virtual QVector<IconClassification> scanClassifications() = 0;
+    virtual IconClassification scanClassifications() = 0;
 };
 
 #endif // ABSTRACTSCANNERSTRATEGY_H
