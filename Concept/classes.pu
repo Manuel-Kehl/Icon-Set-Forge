@@ -17,9 +17,23 @@ class is to be created (on the heap).
 All Icons and IconClassifications are meant to exist within the scope of 
 that specific instance as they are of no use, when the icon set is unloaded.
 
+The ownership relationships can be deduced from the accompanying diagram: 
+
+	-IconSet owns Icon + IconClassification (the root instance)
+	-IconClassification can own children of itself to ensure that the
+	 the tree structure gets resolved correctly
+	-ClassificationTreeModel is owned by IconSetBrowser (or rather the
+	 QTreeView Element it gets assigned to)
+
 To implement this strategy QObject's parent/chilld ownership mechanism is 
-to be used whereever possible/reasonable.
+to be used with all classes based on QObject or one of it's derivatives.
+That being said I decided not to build the model classes upon QObject as my
+internet resarch turned out that QObject comes with several disadvantages
+such as performance/memory overhead and a lack of thread safety.
+Thus the aforementioned ownership model has to be implemented via smart-
+pointers and/or manual memory management techniques.
 end note
+	 
 
 package control {
 	abstract class AbstractScannerStrategy {
