@@ -2,6 +2,7 @@
 #define ICONSET_H
 
 #include <QVector>
+#include <QSharedPointer>
 #include "model/icon.h"
 #include "model/iconclassification.h"
 #include "control/scannerstrategies/abstractscannerstrategy.h"
@@ -9,7 +10,7 @@
 class IconSet
 {
 private:
-    QVector<Icon> icons;
+    QVector<QSharedPointer<Icon>> icons;
     IconClassification classifications;
     AbstractScannerStrategy *scannerStrategy;
 public:
