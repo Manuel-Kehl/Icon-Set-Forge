@@ -6,9 +6,9 @@ Icon::Icon()
     // TODO: Find out if there is a more elegant solution
 }
 
-Icon::Icon(QString file)
+Icon::Icon(QImage image)
 {
-    this->file = file;
+    this->image = image;
 }
 
 void Icon::addClassification(IconClassification *classification)

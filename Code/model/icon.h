@@ -1,7 +1,7 @@
 #ifndef ICON_H
 #define ICON_H
 
-#include <QString>
+#include <QImage>
 #include "model/iconclassification.h"
 
 /*!
@@ -11,11 +11,11 @@
 class Icon
 {
 private:
-    QString file;
+    QImage image;
     IconClassification* classifications;
 public:
     Icon();
-    Icon(QString file);
+    Icon(QImage image);
     //!Adds a classification to the icon's classifications
     void addClassification(IconClassification *classification);
 };
