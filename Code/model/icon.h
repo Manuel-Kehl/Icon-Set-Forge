@@ -4,6 +4,10 @@
 #include <QString>
 #include "model/iconclassification.h"
 
+/*!
+ * Describes a single icon.
+ * Includes both the image itself as well as all associated classifications.
+ */
 class Icon
 {
 private:
@@ -12,6 +16,7 @@ private:
 public:
     Icon();
     Icon(QString file);
+    //!Adds a classification to the icon's classifications
     void addClassification(IconClassification *classification);
 };
 
