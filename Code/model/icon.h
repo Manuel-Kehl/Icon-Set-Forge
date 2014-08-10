@@ -2,14 +2,13 @@
 #define ICON_H
 
 #include <QString>
-#include <QVector>
 #include "model/iconclassification.h"
 
 class Icon
 {
 private:
     QString file;
-    QVector<IconClassification*> *classifications;
+    IconClassification* classifications;
 public:
     Icon();
     Icon(QString file);

@@ -13,5 +13,5 @@ Icon::Icon(QString file)
 
 void Icon::addClassification(IconClassification *classification)
 {
-    this->classifications->append(classification);
+    this->classifications->addChild(classification);
 }
