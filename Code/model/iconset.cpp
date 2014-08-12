@@ -1,13 +1,15 @@
 #include "model/iconset.h"
 
-IconSet::IconSet(AbstractScannerStrategy *scannerStrategy)
+IconSet::IconSet(std::unique_ptr<AbstractScannerStrategy> scannerStrategy)
 {
-    this->scannerStrategy = scannerStrategy;
+    // Transfer ownership from the argument to the member variable
+    this->scannerStrategy = std::move(scannerStrategy);
     updateIconSet();
 }
 
 void IconSet::updateIconSet()
 {
-    classifications = scannerStrategy->scanClassifications();
-    icons = scannerStrategy->scanIcons();
+    // Transfer ownership of return values. Rvalues are move implicitly
+    this->classifications = scannerStrategy->scanClassifications();
+    this->icons = scannerStrategy->scanIcons();
 }
