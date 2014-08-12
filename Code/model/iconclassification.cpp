@@ -52,7 +52,7 @@ bool IconClassification::isNameTakenByChild(QString childName)
     return false;
 }
 
-QString IconClassification::getName()
+const QString IconClassification::getName() const
 {
     return name;
 }
@@ -92,7 +92,7 @@ bool IconClassification::hasChildren()
     return !children.isEmpty();
 }
 
-const IconClassification *IconClassification::getParent()
+IconClassification *IconClassification::getParent()
 {
     return parent;
 }
@@ -100,4 +100,16 @@ const IconClassification *IconClassification::getParent()
 QVector<std::shared_ptr<IconClassification>> IconClassification::getChildren()
 {
     return children;
+}
+
+int IconClassification::getChildIndexOf(const IconClassification *child) const
+{
+    int index = -1;
+    for (int i = 0; i < children.size(); i++) {
+        // Comparing the name is enough as they must be unique on one level
+        if (children.value(i)->getName() == child->getName()) {
+            index = i;
+        }
+    }
+    return index;
 }

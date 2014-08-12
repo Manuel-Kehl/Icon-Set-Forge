@@ -54,14 +54,22 @@ public:
     /*!
      * Enables acces to the parent of this IconClassification node.
      * \return A pointer to the node's parent.
+     * Do <b>under no circumstances</b> delete the pointer returned by
+     * this function.
      */
-    const IconClassification *getParent();
+    IconClassification *getParent();
     /*!
      * Enables access to the children of this IconClassification node.
      * \return A QVector of std::shared_ptrs, that point towards this
      * IconClassification's children.
      */
     QVector<std::shared_ptr<IconClassification>> getChildren();
+    /*!
+     * Returns the index of the child that has been passed.
+     * \param child A pointer to the child index.
+     * \return The index of the child within the list of children.
+     */
+    int getChildIndexOf(const IconClassification *child) const;
     /*!
      * Adds a child to this particular IconClassification node.
      * \param child the child IconClassification to be added.
@@ -88,7 +96,7 @@ public:
      * \return true, if name is already taken, false if not
      */
     bool isNameTakenByChild(QString childName);
-    QString getName();
+    const QString getName() const;
     //! To be called when the user has selected icons by this classification
     void setSelected(bool selected);
     //! Returns if this classification has been selected or not

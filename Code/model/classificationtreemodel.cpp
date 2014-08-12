@@ -1,24 +1,32 @@
+#include <iostream>
+#include <memory>
 #include "model/classificationtreemodel.h"
-#include "iostream"
 
-ClassificationTreeModel::ClassificationTreeModel(QObject *parent) : QAbstractItemModel(parent)
+ClassificationTreeModel::ClassificationTreeModel(QObject *parent) :
+    QAbstractItemModel(parent)
 {
     root = nullptr;
 
     //TODO: Remove Testcode
     //=========TESTCODE=================================//
-    IconClassification *child1 = new IconClassification("Child1");
-    IconClassification *child2 = new IconClassification("Child2");
-    IconClassification *child3 = new IconClassification("Child3");
-    IconClassification *parent1 = new IconClassification("Parent1");
-    IconClassification *parent2 = new IconClassification("Parent2");
-    IconClassification *root = new IconClassification("root");
+    std::unique_ptr<IconClassification> child1(new IconClassification());
+    child1->setName("Child1");
+    std::unique_ptr<IconClassification> child2(new IconClassification());
+    child2->setName("Child2");
+    std::unique_ptr<IconClassification> child3(new IconClassification());
+    child3->setName("Child3");
+    std::unique_ptr<IconClassification> parent1(new IconClassification());
+    parent1->setName("Parent1");
+    std::unique_ptr<IconClassification> parent2(new IconClassification());
+    parent2->setName("Parent2");
+    IconClassification *root = new IconClassification();
+    root->setName("root");
 
-    parent1->addChild(child1);
-    parent1->addChild(child2);
-    parent2->addChild(child3);
-    root->addChild(parent1);
-    root->addChild(parent2);
+    parent1->addChild(std::move(child1));
+    parent1->addChild(std::move(child2));
+    parent2->addChild(std::move(child3));
+    root->addChild(std::move(parent1));
+    root->addChild(std::move(parent2));
 
     setRoot(root);
     //=========TESTCODE=================================//
@@ -36,7 +44,8 @@ void ClassificationTreeModel::setRoot(IconClassification *node)
     reset();
 }
 
-IconClassification *ClassificationTreeModel::indexToNode(const QModelIndex &index) const
+IconClassification *ClassificationTreeModel::indexToNode(
+        const QModelIndex &index) const
 {
     if (index.isValid()) {
         return static_cast<IconClassification *>(index.internalPointer());
@@ -45,7 +54,8 @@ IconClassification *ClassificationTreeModel::indexToNode(const QModelIndex &inde
     }
 }
 
-QModelIndex ClassificationTreeModel::index(int row, int column, const QModelIndex &parentIndex) const
+QModelIndex ClassificationTreeModel::index(int row, int column,
+                                           const QModelIndex &parentIndex) const
 {
     //If no root is set or invalid row or column, return empty QModelIndex
     if (row < 0 || column < 0 || !root) {
@@ -53,7 +63,8 @@ QModelIndex ClassificationTreeModel::index(int row, int column, const QModelInde
     }
 
     //Retrieve child classification via the row parameter
-    IconClassification *child = indexToNode(parentIndex)->getChildren()->value(row);
+    IconClassification *child = indexToNode(parentIndex)->
+            getChildren().value(row).get();
 
     if (!child) {
         return QModelIndex();
@@ -79,7 +90,7 @@ QModelIndex ClassificationTreeModel::parent(const QModelIndex &childIndex) const
     if (!grandParent) {
         return QModelIndex();
     }
-    int row = grandParent->getChildren()->indexOf(parent);
+    int row = grandParent->getChildIndexOf(parent);
 
     return createIndex(row, 0, parent);
 }
@@ -95,7 +106,7 @@ int ClassificationTreeModel::rowCount(const QModelIndex &parentIndex) const
         return 0;
     }
 
-    int childCount = parent->getChildren()->count();
+    int childCount = parent->getChildren().count();
     return childCount;
 }
 
@@ -136,7 +147,9 @@ QVariant ClassificationTreeModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-QVariant ClassificationTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant ClassificationTreeModel::headerData(int section,
+                                             Qt::Orientation orientation,
+                                             int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (section) {
@@ -157,7 +170,9 @@ QVariant ClassificationTreeModel::headerData(int section, Qt::Orientation orient
     return QVariant();
 }
 
-bool ClassificationTreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool ClassificationTreeModel::setData(const QModelIndex &index,
+                                      const QVariant &value,
+                                      int role)
 {
     if (!index.isValid()) {
         return false;

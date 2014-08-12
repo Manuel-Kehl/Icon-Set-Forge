@@ -11,9 +11,9 @@ Icon::Icon(QImage image)
     this->image = image;
 }
 
-void Icon::addClassification(IconClassification *classification)
+void Icon::addClassification(std::shared_ptr<IconClassification> classification)
 {
-    this->classifications->addChild(classification);
+    this->classifications.append(classification);
 }
 
 QImage Icon::getImage() const
