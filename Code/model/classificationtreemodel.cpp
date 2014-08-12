@@ -39,9 +39,10 @@ ClassificationTreeModel::~ClassificationTreeModel()
 
 void ClassificationTreeModel::setRoot(IconClassification *node)
 {
+    beginResetModel();
     delete root;
     root = node;
-    reset();
+    endResetModel();
 }
 
 IconClassification *ClassificationTreeModel::indexToNode(
