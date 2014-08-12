@@ -15,3 +15,8 @@ void Icon::addClassification(IconClassification *classification)
 {
     this->classifications->addChild(classification);
 }
+
+QImage Icon::getImage() const
+{
+    return image;
+}

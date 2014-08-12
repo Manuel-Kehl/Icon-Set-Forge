@@ -18,6 +18,7 @@ public:
     Icon(QImage image);
     //!Adds a classification to the icon's classifications
     void addClassification(IconClassification *classification);
+    QImage getImage() const;
 };
 
 #endif // ICON_H
