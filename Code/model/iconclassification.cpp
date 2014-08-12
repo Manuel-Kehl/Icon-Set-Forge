@@ -2,25 +2,54 @@
 
 IconClassification::IconClassification()
 {
-    children = new QVector<IconClassification*>();
     //Initialize with null pointer
     parent = nullptr;
 }
 
-IconClassification::IconClassification(QString name) : IconClassification()
+bool IconClassification::addChild(std::unique_ptr<IconClassification> child)
 {
-    this->setName(name);
+    // Transfer of ownership. std::move makes it an rvalue, so it can be moved
+    std::shared_ptr<IconClassification> childSharedPointer(std::move(child));
+
+    //Check if name is already taken and return if so, if so
+    if (isNameTakenByChild(childSharedPointer->getName())) {
+        return false;
+    }
+
+    // By setting a parent in this function it is ensured, that there are no
+    // "orphaned child nodes". Only the "root node" has no parent assigned to it
+    childSharedPointer->setParent(this);
+
+    children.append(childSharedPointer);
+
+    return true;
 }
 
-void IconClassification::addChild(IconClassification *child)
+bool IconClassification::setName(QString name)
 {
-    children->append(child);
-    child->setParent(this);
-}
+    // For distinguishability all IconClassifications on the same layer (with
+    // the same parent) must have different names: Check if name exists among
+    // siblings of this node and return "no success" (false), if so
+    if (parent) { // Only check if parent is existant
+        if (parent->isNameTakenByChild(name)) {
+            return false;
+        }
+    }
 
-void IconClassification::setName(QString name)
-{
+    // If possible, set the new name and return "success" (true)
     this->name = name;
+    return true;
+}
+
+bool IconClassification::isNameTakenByChild(QString childName)
+{
+    // Compare childName to the name of all children
+    for (auto child : children) {
+        if (child->getName() == childName) {
+            return true;
+        }
+    }
+    return false;
 }
 
 QString IconClassification::getName()
@@ -60,19 +89,15 @@ bool IconClassification::hasParent()
 
 bool IconClassification::hasChildren()
 {
-    return children->size() > 0;
+    return !children.isEmpty();
 }
 
-IconClassification *IconClassification::getParent()
+const IconClassification *IconClassification::getParent()
 {
     return parent;
 }
 
-QVector<IconClassification *> *IconClassification::getChildren()
+QVector<std::shared_ptr<IconClassification>> IconClassification::getChildren()
 {
     return children;
 }
-
-
-
-//TODO: Write a proper destructor for releasingn allocated ressources.
