@@ -102,6 +102,7 @@ As mentioned above, the whole concept of smart pointers, move semantics and Qt i
 - Implementation specific documentation (`// doc...`) is to be applied wherever the code does not explain itself
     - **but first:** check if restructuring (e.g. making 3 functions out of one) would make things clearer
 - Do not pollute namespaces by commands like `using namespace std` - especially in header files!
+- Lines must not be longer than 80 characters
 - **Generally:** It is advised to have a quick look as existing code to have an idea of what I would love to see
 - In case you have any more questions you can ask me
 - If you find myself violating the above, don't hesitate to tell me! :-)
