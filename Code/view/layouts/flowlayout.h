@@ -44,6 +44,13 @@
 #include <QLayout>
 #include <QRect>
 #include <QStyle>
+
+/*!
+ * FlowLayout implementation as can be found in the Qt examples.
+ * Consult the
+ * <a href="http://qt-project.org/doc/qt-4.8/layouts-flowlayout.html">
+ * Qt documentation</a> for further information.
+ */
 class FlowLayout : public QLayout
 {
 public:

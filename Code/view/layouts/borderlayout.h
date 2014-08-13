@@ -44,6 +44,12 @@
 #include <QLayout>
 #include <QRect>
 
+/*!
+ * BorderLayout implementation as can be found in the Qt examples.
+ * Consult the
+ * <a href="http://qt-project.org/doc/qt-4.8/layouts-borderlayout.html">
+ * Qt documentation</a> for further information.
+ */
 class BorderLayout : public QLayout
 {
 public:
