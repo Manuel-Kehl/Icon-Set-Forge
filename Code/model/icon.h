@@ -8,7 +8,8 @@
 
 /*!
  * Describes a single icon.
- * Includes both the image itself as well as pointers to associated classifications.
+ * Includes both the image itself as well as pointers to associated
+ * classifications.
  */
 class Icon
 {
