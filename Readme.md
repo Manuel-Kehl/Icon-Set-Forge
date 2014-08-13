@@ -9,6 +9,8 @@ A simple use case could look like this:
 - Apply filters for certain classifications (e.g. category)
 - Group icons by certain classifications (e.g. resolution, so you don't see each icon 5 times in 5 different sizes)
 
+![A mockup of the main window](Concept/GUI/MainWindow.png "A mockup of the main window")
+
 An icon set loaded like described above can then be edited in a convient way:
 
 - Remove/rename/copy/link an icon
@@ -32,9 +34,9 @@ I have not written C++ for quite a while (pre C++11) and never dealt with Qt bef
 
 Different parts of the project are available in documented form:
 
-- A (simplified) [class diagram](./Concept/classes.png) of the most important *model* and *control* compontents
+- A (simplified) [class diagram](./Concept/UML/classes.png) of the most important *model* and *control* compontents
 
-- A [mockup](./Concept/UI Design.pdf) of how the GUI could look like
+- A [mockup](./Concept/UI Design/UI Design.pdf) of how the GUI could look like
 
 - [Code Documentation](./Concept/Documentation/html/index.html)
 
@@ -61,6 +63,11 @@ The screen mockup has been created with the free and open source mockup tool [pe
 The UML class diagram has been created with [PlantUML](http://plantuml.sourceforge.net/) which can be called from the commandline for integration with your favourite buildscript / text editor.
 
 
+## Documentation
+
+[Doxygen](http://www.stack.nl/~dimitri/doxygen/) is used to generate docs from special documentation comments within the source code. To generate the projects documentation run `doxygen Doxyfile` in the `Concept/Documentation` folder.
+
+
 # Contributing
 
 **NOTE:** The project is currently in a very early stage where structural stages to base classes may be made. If you want to join development at this point, please ask about possible changes before writing code.
@@ -83,7 +90,7 @@ This is to ensure maintainability and readability of the whole project. That bei
         - e.g. use as function parameter, to indicate, that the functions "consumes ownership"
         - or use for class members, that must be allocated by `new` for whatever reason to bind them to the classes scope and life time
         - if `std::shared_ptr` is about to be used, check if it is the best options and double check for potential cyclic references!
-- Try to enforce [`const` correctness](http://www.parashift.com/c++-faq/overview-const.html) as strict as possible (yeah I know my code can also be improved regarding that :-)
+- Try to enforce [const correctness](http://www.parashift.com/c++-faq/overview-const.html) as strict as possible (yeah I know my code can also be improved regarding that :-)
 - Qt containers (`QVector, QList, ...`) are to be used for compatibility with the Qt library
 - STL smart pointers are to be used, as they support C++11's move semantics and should not induce any Qt compatibility problems
 
