@@ -32,15 +32,9 @@ ClassificationTreeModel::ClassificationTreeModel(QObject *parent) :
     //=========TESTCODE=================================//
 }
 
-ClassificationTreeModel::~ClassificationTreeModel()
-{
-    delete root;
-}
-
 void ClassificationTreeModel::setRoot(IconClassification *node)
 {
     beginResetModel();
-    delete root;
     root = node;
     endResetModel();
 }

@@ -13,7 +13,6 @@ private:
 
 public:
     ClassificationTreeModel(QObject *parent = nullptr);
-    ~ClassificationTreeModel();
 
     void setRoot(IconClassification *node);
 
