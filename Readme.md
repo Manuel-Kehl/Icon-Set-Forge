@@ -36,7 +36,7 @@ Different parts of the project are available in documented form:
 
 - A (simplified) [class diagram](./Concept/UML/classes.png) of the most important *model* and *control* compontents
 
-- A [mockup](./Concept/UI Design/UI Design.pdf) of how the GUI could look like
+- A [mockup](./Concept/GUI/UI Design.pdf) of how the GUI could look like
 
 - [Code Documentation](./Concept/Documentation/html/index.html)
 
