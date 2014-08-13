@@ -1,44 +1,9 @@
-@startuml
-
-note as N1
-<b>General Information</b>
-This diagram is meant to give a conceptual overview of the most important
-classes and relations. It does not resemble every detail nor do all types
-and names have to be the exact same ones as in the implementation.
-For example I am using a generic "List" whereas the implementation is done 
-via a QVector.
-
-<b>Memory Management</b>
-The IconSet class is the model representation of an icon set.
-It contains a collection of all Icons + the structural information given by 
-their categories. Upon loading / parsing an icon set an instance of this 
-class is to be created (on the heap). 
-
-All Icons and IconClassifications are meant to exist within the scope of 
-that specific instance as they are of no use, when the icon set is unloaded.
-
-The ownership relationships can be deduced from the accompanying diagram: 
-
-	-IconSet owns Icon + IconClassification (the root instance)
-	-IconClassification can own children of itself to ensure that the
-	 the tree structure gets resolved correctly
-	-ClassificationTreeModel is owned by IconSetBrowser (or rather the
-	 QTreeView Element it gets assigned to)
-
-To implement this strategy QObject's parent/chilld ownership mechanism is 
-to be used with all classes based on QObject or one of it's derivatives.
-That being said I decided not to build the model classes upon QObject as my
-internet resarch turned out that QObject comes with several disadvantages
-such as performance/memory overhead and a lack of thread safety.
-Thus the aforementioned ownership model has to be implemented via smart-
-pointers and/or manual memory management techniques.
-end note
-	 
+@startuml 
 
 package control {
 	abstract class AbstractScannerStrategy {
-		{abstract} + scanIcons()
-		{abstract} + scanClassifications()
+		+ {abstract} scanIcons()
+		+ {abstract} scanClassifications()
 	}
 	package strategies {
 		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
@@ -48,36 +13,35 @@ package control {
 
 package view {
 	class IconSetBrowser {
-		List<ClassificationFilterView> classificationFilters
-		+ IconSetBrowser (AbstractScannerStrategy iconScannerStrategy)
-		+ setIconSet (IconSet iconSet)
+		IconSetView iconSetView
+		QTreeView	classificationTreeView
 		+ updateIconSet()
 	}
+	
+	class MainWindow {
+	}
 }
+
+MainWindow *-- IconSetBrowser
 
 package model {
 	class IconClassification {
 		String name
-		IconClassification parent
-		List<IconClassification> children
-		+ boolean hasParent()
-		+ boolean hasChildren()
-		+ IconClassification getParent()
-		+ List<IconClassification> getChildren()
+		IconClassification* parent
+		QVector<shared_ptr<IconClassification>> children
+		- setParent()
 		+ addChild()
-		+ setParent()
 	}
 	
 	class IconSet {
-		List<Icon> icons
-		List<IconClassification> classifications
-		AbstractScannerStrategy scannerStrategy 
-		+ ClassificationTreeModel getClassificationTreeModel()
+		unique_ptr<QVector<Icon>> icons
+		unique_ptr<IconClassification> classifications
+		unique_ptr<AbstractScannerStrategy> scannerStrategy 
 	}
 	
 	class Icon {
-		String file
-		List<IconClassification> classifications
+		QImage image
+		QVector<shared_ptr<IconClassification>> classifications
 	}
 	
 	class ClassificationTreeModel {
@@ -85,21 +49,26 @@ package model {
 	}
 }
 
+ClassificationTreeModel <|- QAbstractItemModel
+
 IconSetBrowser o-- AbstractScannerStrategy
 
-Icon o-- IconClassification
-IconSet o-- Icon
-IconSet o-- IconClassification
+Icon -- IconClassification
+IconSet *-- Icon
+IconSet *-- IconClassification
 IconSet o- AbstractScannerStrategy
-IconSet --> ClassificationTreeModel : generates
+IconSet --> ClassificationTreeModel
+IconClassification *-- IconClassification
 
 IconSetBrowser -- IconSet
 IconSetBrowser -- ClassificationTreeModel
 
-note bottom of IconClassification: Ways of classifying and grouping icons in a tree structure.For example "resolution, category or target" device.\nNested classifications are possible (e.g. "high-resolution/256").
+note bottom of IconClassification: Ways of classifying and grouping icons. For example "resolution, category or target device".\nTree structure is realized via the list of children and the parent pointer.
 
-note top of FreedesktopScannerStrategy: An exemplary implementation that parses theme files\nas often seen with Linux icon sets.
+note top of FreedesktopScannerStrategy: An exemplary implementation\nthat parses index.theme files\nas often seen with Linux\nicon sets.
 
 note top of GenericXmlScannerStrategy: A generic way of defining icon set structures via XML.\nIn case no specific file format is existant.\nFollowing this apporach Icon Set Forge is hopefully useful\nfor many "non-programmers".
+
+note top of ClassificationTreeModel: Provides data for\nthe classification\nselection tree view
 
 @enduml
