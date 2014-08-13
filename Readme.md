@@ -79,7 +79,7 @@ This is to ensure maintainability and readability of the whole project. That bei
 - Memory management has to be taken care of by implementing strict ownership policies
     - whenever `QOBject` derived classes come into play use parent/child mechanism properly
     - use smart pointers *wisely* where they make sense (technically & semantically)
-        - prefer `std::unique_ptr` as it has the strictes form of ownership rule
+        - prefer `std::unique_ptr` as it has the strictest form of ownership rule
         - e.g. use as function parameter, to indicate, that the functions "consumes ownership"
         - or use for class members, that must be allocated by `new` for whatever reason to bind them to the classes scope and life time
         - if `std::shared_ptr` is about to be used, check if it is the best options and double check for potential cyclic references!
