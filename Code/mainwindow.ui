@@ -51,7 +51,7 @@
   <customwidget>
    <class>IconSetBrowser</class>
    <extends>QWidget</extends>
-   <header>iconsetbrowser.h</header>
+   <header>view/iconsetbrowser.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
