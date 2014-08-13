@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simplescannerstrategy',['SimpleScannerStrategy',['../classSimpleScannerStrategy.html',1,'']]]
+  ['mainwindow',['MainWindow',['../classMainWindow.html',1,'']]]
 ];

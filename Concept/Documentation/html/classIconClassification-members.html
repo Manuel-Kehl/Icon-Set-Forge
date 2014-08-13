@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,24 +88,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="classIconClassification.html">IconClassification</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>addChild</b>(IconClassification *child) (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getChildren</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getName</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getParent</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>hasChildren</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>hasParent</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>IconClassification</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>IconClassification</b>(QString name) (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>isGroupedBy</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>isSelected</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setGroupedBy</b>(bool groupBy) (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setName</b>(QString name) (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setParent</b>(IconClassification *parent) (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setSelected</b>(bool selected) (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIconClassification.html#a9fc0afc9b34b42c024d2e4c8a86762f9">addChild</a>(std::unique_ptr&lt; IconClassification &gt; child)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classIconClassification.html#a73c9929f067c5b01cec9e22005ee65bd">getChildIndexOf</a>(const IconClassification *child) const </td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIconClassification.html#a39f0a5f1d82e098657af59a6d1947941">getChildren</a>()</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getName</b>() const  (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIconClassification.html#a80cdc19c11ee1cc279ba916c2a6de40e">getParent</a>()</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>hasChildren</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>hasParent</b>() (defined in <a class="el" href="classIconClassification.html">IconClassification</a>)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classIconClassification.html#a8621b2619c06819f1bcf8ca578b29760">IconClassification</a>()</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIconClassification.html#a30a399afca7e1beed544ac5c41b0e95c">isGroupedBy</a>()</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classIconClassification.html#af872bcb606c05116083db888425aa417">isNameTakenByChild</a>(QString childName)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIconClassification.html#a17be4b4b7d547f7ce37288b39b1665bc">isSelected</a>()</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classIconClassification.html#a08a44d71c4107a80a1aac9e385d7e785">setGroupedBy</a>(bool groupBy)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIconClassification.html#ae61a39eec1a4f9cdae7f13e7dffe3d47">setName</a>(QString name)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classIconClassification.html#af36670e9e77b8243da6ba64437057330">setSelected</a>(bool selected)</td><td class="entry"><a class="el" href="classIconClassification.html">IconClassification</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 9 2014 15:38:11 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 13 2014 16:37:23 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

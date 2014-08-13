@@ -67,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,30 +90,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ICONSET_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QSharedPointer&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/icon.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;model/iconclassification.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;control/scannerstrategies/abstractscannerstrategy.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classIconSet.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconSet.html">IconSet</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    QVector&lt;QSharedPointer&lt;Icon&gt;&gt; icons;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classIconClassification.html">IconClassification</a> classifications;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a> *scannerStrategy;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classIconSet.html">IconSet</a>(<a class="code" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a> *scannerStrategy);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> updateIconSet();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif // ICONSET_H</span></div>
-<div class="ttc" id="classIconSet_html"><div class="ttname"><a href="classIconSet.html">IconSet</a></div><div class="ttdef"><b>Definition:</b> iconset.h:10</div></div>
-<div class="ttc" id="classIconClassification_html"><div class="ttname"><a href="classIconClassification.html">IconClassification</a></div><div class="ttdef"><b>Definition:</b> iconclassification.h:7</div></div>
-<div class="ttc" id="classAbstractScannerStrategy_html"><div class="ttname"><a href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a></div><div class="ttdef"><b>Definition:</b> abstractscannerstrategy.h:9</div></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classIconSet.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconSet.html">IconSet</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::unique_ptr&lt;QVector&lt;Icon&gt;&gt; icons;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::unique_ptr&lt;IconClassification&gt; classifications;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::unique_ptr&lt;AbstractScannerStrategy&gt; scannerStrategy;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classIconSet.html#afeecb618957b297b8cded65b52c24e53">IconSet</a>(std::unique_ptr&lt;AbstractScannerStrategy&gt; scannerStrategy);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIconSet.html#abdfaacce544f1c9a99bf1298bbccf00d">updateIconSet</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif // ICONSET_H</span></div>
+<div class="ttc" id="classIconSet_html_abdfaacce544f1c9a99bf1298bbccf00d"><div class="ttname"><a href="classIconSet.html#abdfaacce544f1c9a99bf1298bbccf00d">IconSet::updateIconSet</a></div><div class="ttdeci">void updateIconSet()</div><div class="ttdoc">Reloads all data corresponding to the IconSet&#39;s AbstractScannerStrategy. </div><div class="ttdef"><b>Definition:</b> iconset.cpp:10</div></div>
+<div class="ttc" id="classIconSet_html_afeecb618957b297b8cded65b52c24e53"><div class="ttname"><a href="classIconSet.html#afeecb618957b297b8cded65b52c24e53">IconSet::IconSet</a></div><div class="ttdeci">IconSet(std::unique_ptr&lt; AbstractScannerStrategy &gt; scannerStrategy)</div><div class="ttdoc">Creates an IconSet with a given AbstractScannerStrategy. </div><div class="ttdef"><b>Definition:</b> iconset.cpp:3</div></div>
+<div class="ttc" id="classIconSet_html"><div class="ttname"><a href="classIconSet.html">IconSet</a></div><div class="ttdoc">The model representation of an icon set. </div><div class="ttdef"><b>Definition:</b> iconset.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 9 2014 15:38:11 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 13 2014 16:37:23 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

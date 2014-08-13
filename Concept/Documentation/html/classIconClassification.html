@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,49 +88,223 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">IconClassification Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines a way of classifying icons.  
+ <a href="classIconClassification.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="iconclassification_8h_source.html">iconclassification.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a63a65be90e8f98529fac4a8a51746454"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63a65be90e8f98529fac4a8a51746454"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IconClassification</b> (QString name)</td></tr>
-<tr class="separator:a63a65be90e8f98529fac4a8a51746454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8621b2619c06819f1bcf8ca578b29760"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a8621b2619c06819f1bcf8ca578b29760">IconClassification</a> ()</td></tr>
+<tr class="memdesc:a8621b2619c06819f1bcf8ca578b29760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> class.  <a href="#a8621b2619c06819f1bcf8ca578b29760">More...</a><br/></td></tr>
+<tr class="separator:a8621b2619c06819f1bcf8ca578b29760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a770efd1af6aee5895189a54424b5ccda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a770efd1af6aee5895189a54424b5ccda"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasParent</b> ()</td></tr>
 <tr class="separator:a770efd1af6aee5895189a54424b5ccda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25702d4fdce2161b45696088f8f8232d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25702d4fdce2161b45696088f8f8232d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasChildren</b> ()</td></tr>
 <tr class="separator:a25702d4fdce2161b45696088f8f8232d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80cdc19c11ee1cc279ba916c2a6de40e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80cdc19c11ee1cc279ba916c2a6de40e"></a>
-<a class="el" href="classIconClassification.html">IconClassification</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getParent</b> ()</td></tr>
+<tr class="memitem:a80cdc19c11ee1cc279ba916c2a6de40e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIconClassification.html">IconClassification</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a80cdc19c11ee1cc279ba916c2a6de40e">getParent</a> ()</td></tr>
+<tr class="memdesc:a80cdc19c11ee1cc279ba916c2a6de40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables acces to the parent of this <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> node.  <a href="#a80cdc19c11ee1cc279ba916c2a6de40e">More...</a><br/></td></tr>
 <tr class="separator:a80cdc19c11ee1cc279ba916c2a6de40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aaa1d5d44725020d0b50571799d0558"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6aaa1d5d44725020d0b50571799d0558"></a>
-QVector&lt; <a class="el" href="classIconClassification.html">IconClassification</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getChildren</b> ()</td></tr>
-<tr class="separator:a6aaa1d5d44725020d0b50571799d0558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60b771f5dc3775dcfd929c0088aa283b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60b771f5dc3775dcfd929c0088aa283b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setParent</b> (<a class="el" href="classIconClassification.html">IconClassification</a> *parent)</td></tr>
-<tr class="separator:a60b771f5dc3775dcfd929c0088aa283b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72075cf10bab615487efdc753d488279"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72075cf10bab615487efdc753d488279"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addChild</b> (<a class="el" href="classIconClassification.html">IconClassification</a> *child)</td></tr>
-<tr class="separator:a72075cf10bab615487efdc753d488279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4eb733f82c0bb9f912cdedad7423b59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4eb733f82c0bb9f912cdedad7423b59"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (QString name)</td></tr>
-<tr class="separator:ae4eb733f82c0bb9f912cdedad7423b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bb22ff6dc96644ce919d0dd53f21830"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bb22ff6dc96644ce919d0dd53f21830"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> ()</td></tr>
-<tr class="separator:a8bb22ff6dc96644ce919d0dd53f21830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39f0a5f1d82e098657af59a6d1947941"><td class="memItemLeft" align="right" valign="top">QVector&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classIconClassification.html">IconClassification</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a39f0a5f1d82e098657af59a6d1947941">getChildren</a> ()</td></tr>
+<tr class="memdesc:a39f0a5f1d82e098657af59a6d1947941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables access to the children of this <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> node.  <a href="#a39f0a5f1d82e098657af59a6d1947941">More...</a><br/></td></tr>
+<tr class="separator:a39f0a5f1d82e098657af59a6d1947941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c9929f067c5b01cec9e22005ee65bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a73c9929f067c5b01cec9e22005ee65bd">getChildIndexOf</a> (const <a class="el" href="classIconClassification.html">IconClassification</a> *child) const </td></tr>
+<tr class="memdesc:a73c9929f067c5b01cec9e22005ee65bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the child that has been passed.  <a href="#a73c9929f067c5b01cec9e22005ee65bd">More...</a><br/></td></tr>
+<tr class="separator:a73c9929f067c5b01cec9e22005ee65bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc0afc9b34b42c024d2e4c8a86762f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a9fc0afc9b34b42c024d2e4c8a86762f9">addChild</a> (std::unique_ptr&lt; <a class="el" href="classIconClassification.html">IconClassification</a> &gt; child)</td></tr>
+<tr class="memdesc:a9fc0afc9b34b42c024d2e4c8a86762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a child to this particular <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> node.  <a href="#a9fc0afc9b34b42c024d2e4c8a86762f9">More...</a><br/></td></tr>
+<tr class="separator:a9fc0afc9b34b42c024d2e4c8a86762f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae61a39eec1a4f9cdae7f13e7dffe3d47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#ae61a39eec1a4f9cdae7f13e7dffe3d47">setName</a> (QString name)</td></tr>
+<tr class="memdesc:ae61a39eec1a4f9cdae7f13e7dffe3d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function for changing an <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a>'s name.  <a href="#ae61a39eec1a4f9cdae7f13e7dffe3d47">More...</a><br/></td></tr>
+<tr class="separator:ae61a39eec1a4f9cdae7f13e7dffe3d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af872bcb606c05116083db888425aa417"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#af872bcb606c05116083db888425aa417">isNameTakenByChild</a> (QString childName)</td></tr>
+<tr class="memdesc:af872bcb606c05116083db888425aa417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if one of the IconClassifications children has the given name.  <a href="#af872bcb606c05116083db888425aa417">More...</a><br/></td></tr>
+<tr class="separator:af872bcb606c05116083db888425aa417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7663c262186b233c29431eae3ff92f5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7663c262186b233c29431eae3ff92f5d"></a>
+const QString&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const </td></tr>
+<tr class="separator:a7663c262186b233c29431eae3ff92f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af36670e9e77b8243da6ba64437057330"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af36670e9e77b8243da6ba64437057330"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSelected</b> (bool selected)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#af36670e9e77b8243da6ba64437057330">setSelected</a> (bool selected)</td></tr>
+<tr class="memdesc:af36670e9e77b8243da6ba64437057330"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called when the user has selected icons by this classification. <br/></td></tr>
 <tr class="separator:af36670e9e77b8243da6ba64437057330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17be4b4b7d547f7ce37288b39b1665bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17be4b4b7d547f7ce37288b39b1665bc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSelected</b> ()</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a17be4b4b7d547f7ce37288b39b1665bc">isSelected</a> ()</td></tr>
+<tr class="memdesc:a17be4b4b7d547f7ce37288b39b1665bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if this classification has been selected or not. <br/></td></tr>
 <tr class="separator:a17be4b4b7d547f7ce37288b39b1665bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08a44d71c4107a80a1aac9e385d7e785"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08a44d71c4107a80a1aac9e385d7e785"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGroupedBy</b> (bool groupBy)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a08a44d71c4107a80a1aac9e385d7e785">setGroupedBy</a> (bool groupBy)</td></tr>
+<tr class="memdesc:a08a44d71c4107a80a1aac9e385d7e785"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called when the user has grouped icons by this classification. <br/></td></tr>
 <tr class="separator:a08a44d71c4107a80a1aac9e385d7e785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30a399afca7e1beed544ac5c41b0e95c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30a399afca7e1beed544ac5c41b0e95c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isGroupedBy</b> ()</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconClassification.html#a30a399afca7e1beed544ac5c41b0e95c">isGroupedBy</a> ()</td></tr>
+<tr class="memdesc:a30a399afca7e1beed544ac5c41b0e95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if this classification has been set to group icons by or not. <br/></td></tr>
 <tr class="separator:a30a399afca7e1beed544ac5c41b0e95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines a way of classifying icons. </p>
+<p>Possible "real life examples" include resolution, category or target device. It is used to filter and group icons by certain criteria. Organizing IconClassifications in a tree structure is possible by adding children. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8621b2619c06819f1bcf8ca578b29760"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IconClassification::IconClassification </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor of the <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> class. </p>
+<p>Always set a name after instantiating an <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a>. The only reason to separate these functions is the fact that setting the name must be done with a return value, that indicates success of the operation. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classIconClassification.html#ae61a39eec1a4f9cdae7f13e7dffe3d47" title="A function for changing an IconClassification&#39;s name. ">IconClassification::setName(QString)</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9fc0afc9b34b42c024d2e4c8a86762f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IconClassification::addChild </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classIconClassification.html">IconClassification</a> &gt;&#160;</td>
+          <td class="paramname"><em>child</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a child to this particular <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">child</td><td>the child <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> to be added. A std::unique_ptr is passed to indicate that ownership of the child is being taken by this function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the child has been added successfully. Adding a child may be refused in case a child of the same name already exists. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a73c9929f067c5b01cec9e22005ee65bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IconClassification::getChildIndexOf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIconClassification.html">IconClassification</a> *&#160;</td>
+          <td class="paramname"><em>child</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the index of the child that has been passed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">child</td><td>A pointer to the child index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the child within the list of children. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a39f0a5f1d82e098657af59a6d1947941"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt; std::shared_ptr&lt; <a class="el" href="classIconClassification.html">IconClassification</a> &gt; &gt; IconClassification::getChildren </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enables access to the children of this <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> node. </p>
+<dl class="section return"><dt>Returns</dt><dd>A QVector of std::shared_ptrs, that point towards this <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a>'s children. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a80cdc19c11ee1cc279ba916c2a6de40e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIconClassification.html">IconClassification</a> * IconClassification::getParent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enables acces to the parent of this <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> node. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the node's parent. Do <b>under no circumstances</b> delete the pointer returned by this function. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af872bcb606c05116083db888425aa417"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IconClassification::isNameTakenByChild </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>childName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if one of the IconClassifications children has the given name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">childName</td><td>The name to search for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true, if name is already taken, false if not </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae61a39eec1a4f9cdae7f13e7dffe3d47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IconClassification::setName </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function for changing an <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a>'s name. </p>
+<p>It is important, that IconClassifications have valid names, so always check the return statement of this function and handle potential problems </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The new name to be assigned to this <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Success state of the name change. false indicates, that the name is already taken by a sibling of the <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> node, which is not allowed. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/mank319/Code/Tools/IconSetForge/Code/model/<a class="el" href="iconclassification_8h_source.html">iconclassification.h</a></li>
 <li>/home/mank319/Code/Tools/IconSetForge/Code/model/iconclassification.cpp</li>
@@ -137,7 +312,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isGroupedBy</b> ()</t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 9 2014 15:38:11 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 13 2014 16:37:23 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
