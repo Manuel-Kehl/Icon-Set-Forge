@@ -13,6 +13,7 @@ class IconGroup : public IconComponent
 public:
     IconGroup();
     // TODO Implement!
+    const QImage& getRepresentativeImage() const;
 };
 
 #endif // ICONGROUP_H

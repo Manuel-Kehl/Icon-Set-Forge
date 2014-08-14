@@ -5,12 +5,13 @@
 #include <memory>
 #include "model/icon.h"
 #include "model/iconclassification.h"
+#include "model/icongroup.h"
 #include "control/scannerstrategies/abstractscannerstrategy.h"
 
 /*!
  * The model representation of an icon set.
- * Contains the set of icons, their corresponding classifications and an
- * AbstractScannerStrategy used to load the icon set.
+ * Contains the set of icons, their corresponding classifications and
+ * a QVector of groups, if grouping has been applied.
  * All data is owned by the IconSet instance and therefore its lifetime
  * bound to the scope of that class. To realise this, std::unique_ptrs are
  * being used for members.
@@ -25,17 +26,9 @@ private:
      * itself are represented by its children.
      */
     std::unique_ptr<IconClassification> classifications;
-    std::unique_ptr<AbstractScannerStrategy> scannerStrategy;
+    std::unique_ptr<QVector<IconGroup>> groups;
 public:
-    /*!
-     * Creates an IconSet with a given AbstractScannerStrategy
-     * \param scannerStrategy is a std::unique_ptr to communicate, that the
-     * function acts as a "parameter consuming sink" and therefore
-     * takes ownership of the passed strategy
-     */
-    IconSet(std::unique_ptr<AbstractScannerStrategy> scannerStrategy);
-    //! Reloads all data corresponding to the IconSet's AbstractScannerStrategy
-    void updateIconSet();
+    IconSet();
 };
 
 #endif // ICONSET_H
