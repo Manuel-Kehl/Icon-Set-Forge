@@ -4,7 +4,8 @@ package control {
 	class IconSetOperator {
 		unique_ptr<IconSet> iconSet
 		unique_ptr<AbstractScannerStrategy> scannerStrategy
-		+editIcon(referenceToAnIcon)
+		QUndoStack undoStack
+		+ void editIcon(referenceToIcon)
 	}
 	
 	package strategies {
@@ -18,13 +19,16 @@ package control {
 }
 
 package view {
+	class MainWindow {
+	}
+	
 	class IconSetBrowser {
 		IconSetView iconSetView
 		QTreeView	classificationTreeView
 		+ updateIconSet()
 	}
-	
-	class MainWindow {
+
+	class IconSetView {
 	}
 }
 
@@ -54,21 +58,28 @@ package model {
 		+isLinkType()
 	}
 	
-	class ClassificationTreeModel {
-		IconClassification root
+	package access {
+		class ClassificationTreeModel {
+				IconClassification* root
+			}
+			
+		class IconListModel {
+			IconSet* iconSet
+		}
 	}
 }
 
-ClassificationTreeModel <|- QAbstractItemModel
 Icon -- IconClassification
 IconSet *-- Icon
 IconSet *-- IconClassification
 IconSet <-- AbstractScannerStrategy : instantiates
-IconSet --> ClassificationTreeModel
+ClassificationTreeModel --> IconClassification
+IconListModel --> IconSet
 IconClassification *-- IconClassification
 MainWindow *-- IconSetBrowser
-IconSetBrowser -- IconSet
+IconSetView -- IconListModel
 IconSetBrowser -- ClassificationTreeModel
+IconSetView - IconSetBrowser
 IconSetOperator *-- IconSet
 IconSetOperator *-- AbstractScannerStrategy
 IconSetOperator -- IconSetBrowser
@@ -78,7 +89,5 @@ note bottom of IconClassification: Ways of classifying and grouping icons. For e
 note top of FreedesktopScannerStrategy: An exemplary implementation\nthat parses index.theme files\nas often seen with Linux\nicon sets.
 
 note top of GenericXmlScannerStrategy: A generic way of defining icon set structures via XML.\nIn case no specific file format is existant.\nFollowing this apporach Icon Set Forge is hopefully useful\nfor many "non-programmers".
-
-note right of ClassificationTreeModel: Provides data for\nthe classification\nselection tree view
 
 @enduml
