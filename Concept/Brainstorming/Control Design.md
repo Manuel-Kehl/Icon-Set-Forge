@@ -1,4 +1,4 @@
-# Control Design
+l# Control Design
 
 Goal of this document is to find out what functionality the `AbstractScannerStrategy` (or whatever name the class(es) will finally have) must provide to operate on icon sets of different kinds and what the most efficient/elegant way of implementation may look like. At the time being the main development focus has been on the `model` classes, which are now mature enough to proceed with the implementation of the `control` mechanisms.
 
@@ -56,7 +56,7 @@ It is represented by the `IconSetOperator`.
     - maybe add a **flag to `IconClassification`** that saves that info
         - **atomic:** necessary for the semantic structure and *I/O* of the icon set -> **cannot be altered**
     - either **hard coded** or **dynamically recognized** when loading
-- <spam style="color:red">Define **operations for specific classifications**when inserting new icons: `IconClassificationCommand`</span> 
+- Define **operations for specific classifications**when inserting new icons: `IconClassificationCommand`
 - Define **default group and select settings** for differnt categories (can be easily achieved, by setting the correct attributes upon creating the classifications)
 
 

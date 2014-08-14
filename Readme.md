@@ -43,7 +43,7 @@ Different parts of the project are available in documented form:
 
 #Roadmap
 
-- <span style="color:red">Implement the remaining `model` and `control` classes</span>
+- Implement the remaining `model` and `control` classes
     - See also my ["brainstorming documentation"](Concept/Brainstorming/Readme.md) for more details
     - A complete implementation of all advanced functionality is not necessary at this point
     - But the *"functional framework"* must be defined to a degree that avoids subsequent structural changes that would require code refactoring    
