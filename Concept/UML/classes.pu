@@ -11,7 +11,7 @@ package control {
 	package strategies {
 		abstract class AbstractScannerStrategy {
 			+ {abstract} unique_ptr<IconSet> loadIconSet()
-			+ {abstract} boolean saveIconSet(unique_ptr<IconSet> const &iconSet)
+			+ {abstract} boolean saveIconSet(const IconSet &iconSet)
 		}
 		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
 		class GenericXmlScannerStrategy --|> AbstractScannerStrategy

@@ -6,7 +6,6 @@
 #include "model/icon.h"
 #include "model/iconclassification.h"
 #include "model/icongroup.h"
-#include "control/scannerstrategies/abstractscannerstrategy.h"
 
 /*!
  * The model representation of an icon set.
