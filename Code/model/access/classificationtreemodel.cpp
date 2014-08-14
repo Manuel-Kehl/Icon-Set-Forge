@@ -1,6 +1,6 @@
 #include <iostream>
 #include <memory>
-#include "model/classificationtreemodel.h"
+#include "model/access/classificationtreemodel.h"
 
 ClassificationTreeModel::ClassificationTreeModel(QObject *parent) :
     QAbstractItemModel(parent)

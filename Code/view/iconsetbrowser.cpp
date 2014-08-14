@@ -2,7 +2,7 @@
 #include <QTreeView>
 #include "iconsetbrowser.h"
 #include "iconsetview.h"
-#include "model/classificationtreemodel.h"
+#include "model/access/classificationtreemodel.h"
 
 IconSetBrowser::IconSetBrowser(QWidget *parent) :
     QWidget(parent)

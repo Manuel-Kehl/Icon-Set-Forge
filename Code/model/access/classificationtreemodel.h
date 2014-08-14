@@ -1,8 +1,8 @@
-#ifndef ICONSETTREEMODEL_H
-#define ICONSETTREEMODEL_H
+#ifndef CLASSIFICATIONTREEMODEL_H
+#define CLASSIFICATIONTREEMODEL_H
 
 #include <QAbstractItemModel>
-#include "iconclassification.h"
+#include "../iconclassification.h"
 
 /*!
  * Provides access to the underlying IconClassification tree.
@@ -48,4 +48,4 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
 };
 
-#endif // ICONSETTREEMODEL_H
+#endif // CLASSIFICATIONTREEMODEL_H
