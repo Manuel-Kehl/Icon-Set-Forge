@@ -43,11 +43,16 @@ Different parts of the project are available in documented form:
 
 #Roadmap
 
+- <span style="color:red">Implement the remaining `model` and `control` classes</span>
+    - See also my ["brainstorming documentation"](Concept/Brainstorming/Readme.md) for more details
+    - A complete implementation of all advanced functionality is not necessary at this point
+    - But the *"functional framework"* must be defined to a degree that avoids subsequent structural changes that would require code refactoring    
 - Write an `AbstractScannerStrategy` implementation for parsing [Freedesktop index.theme files](http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html)
-- Implement an 'Open Icon Set Dialog' where the Type of icon set can be chosen
-- Implement filter mechanisms expressed by the tree view in the `IconSetView`
-- Implement basic operations like *removing, linking* and *renaming*
-
+- Implement the view classes to a degree that it is possible to observe the icon set (filtering + grouping)
+- Implement basic operations like copying, linking and renaming of icons
+- Implement basic operations on categories?
+- Implement advananced operations like inserting icons
+- Start implementing a general Parsing strategy that can be extended using a simple language like XML or JSON, so icon set definitions can be easily applied by *"non programmers"*
 
 # Technology Used
 
