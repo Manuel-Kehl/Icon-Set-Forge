@@ -1,4 +1,4 @@
-l# Control Design
+# Control Design
 
 Goal of this document is to find out what functionality the `AbstractScannerStrategy` (or whatever name the class(es) will finally have) must provide to operate on icon sets of different kinds and what the most efficient/elegant way of implementation may look like. At the time being the main development focus has been on the `model` classes, which are now mature enough to proceed with the implementation of the `control` mechanisms.
 
@@ -74,5 +74,5 @@ All operations are to be implemented using [Qt's command pattern implementation]
 - **Renaming** classifications
 - **Linking** classifications
 
-See also [Model Design](./Model Design.md) where I collected the changes that have to be made to the model to enable the ideas mentioned above.
+See also [Model Design](Model Design.md) where I collected the changes that have to be made to the model to enable the ideas mentioned above.
 
