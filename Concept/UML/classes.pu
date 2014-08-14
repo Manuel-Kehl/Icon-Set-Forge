@@ -1,11 +1,17 @@
 @startuml 
 
 package control {
-	abstract class AbstractScannerStrategy {
-		+ {abstract} scanIcons()
-		+ {abstract} scanClassifications()
+	class IconSetOperator {
+		unique_ptr<IconSet> iconSet
+		unique_ptr<AbstractScannerStrategy> scannerStrategy
+		+editIcon(referenceToAnIcon)
 	}
+	
 	package strategies {
+		abstract class AbstractScannerStrategy {
+			+ {abstract} unique_ptr<IconSet> loadIconSet()
+			+ {abstract} boolean saveIconSet(unique_ptr<IconSet> const &iconSet)
+		}
 		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
 		class GenericXmlScannerStrategy --|> AbstractScannerStrategy
 	}
@@ -36,7 +42,6 @@ package model {
 	class IconSet {
 		unique_ptr<QVector<Icon>> icons
 		unique_ptr<IconClassification> classifications
-		unique_ptr<AbstractScannerStrategy> scannerStrategy
 	}
 	
 	class Icon {
@@ -55,16 +60,18 @@ package model {
 }
 
 ClassificationTreeModel <|- QAbstractItemModel
-IconSetBrowser o-- AbstractScannerStrategy
 Icon -- IconClassification
 IconSet *-- Icon
 IconSet *-- IconClassification
-IconSet o- AbstractScannerStrategy
+IconSet <-- AbstractScannerStrategy : instantiates
 IconSet --> ClassificationTreeModel
 IconClassification *-- IconClassification
 MainWindow *-- IconSetBrowser
 IconSetBrowser -- IconSet
 IconSetBrowser -- ClassificationTreeModel
+IconSetOperator *-- IconSet
+IconSetOperator *-- AbstractScannerStrategy
+IconSetOperator -- IconSetBrowser
 
 note bottom of IconClassification: Ways of classifying and grouping icons. For example "resolution, category or target device".\nTree structure is realized via the list of children and the parent pointer.
 
@@ -72,6 +79,6 @@ note top of FreedesktopScannerStrategy: An exemplary implementation\nthat parses
 
 note top of GenericXmlScannerStrategy: A generic way of defining icon set structures via XML.\nIn case no specific file format is existant.\nFollowing this apporach Icon Set Forge is hopefully useful\nfor many "non-programmers".
 
-note top of ClassificationTreeModel: Provides data for\nthe classification\nselection tree view
+note right of ClassificationTreeModel: Provides data for\nthe classification\nselection tree view
 
 @enduml
