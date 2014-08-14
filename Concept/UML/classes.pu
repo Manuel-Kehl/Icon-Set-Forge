@@ -46,6 +46,13 @@ package model {
 	class IconSet {
 		unique_ptr<QVector<Icon>> icons
 		unique_ptr<IconClassification> classifications
+		unique_ptr<QVector<IconGroup>> groups
+	}
+	
+	class IconComponent
+	
+	class IconGroup {
+		QVector<IconComponent *> children
 	}
 	
 	class Icon {
@@ -83,6 +90,8 @@ IconSetView - IconSetBrowser
 IconSetOperator *-- IconSet
 IconSetOperator *-- AbstractScannerStrategy
 IconSetOperator -- IconSetBrowser
+IconComponent <|- Icon
+IconComponent <|- IconGroup
 
 note bottom of IconClassification: Ways of classifying and grouping icons. For example "resolution, category or target device".\nTree structure is realized via the list of children and the parent pointer.
 
