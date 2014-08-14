@@ -5,13 +5,14 @@
 #include <QVector>
 #include <memory>
 #include "model/iconclassification.h"
+#include "model/iconcomponent.h"
 
 /*!
  * Describes a single icon.
  * Includes both the image itself as well as pointers to associated
  * classifications.
  */
-class Icon
+class Icon : public IconComponent
 {
 private:
     //! The image data of the Icon
@@ -27,7 +28,7 @@ public:
     Icon(QImage image);
     //! Adds a classification to the Icon's classifications
     void addClassification(std::shared_ptr<IconClassification> classification);
-    QImage getImage() const;
+    const QImage &getRepresentativeImage() const;
 };
 
 #endif // ICON_H

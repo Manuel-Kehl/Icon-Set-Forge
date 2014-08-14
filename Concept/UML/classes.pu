@@ -49,7 +49,9 @@ package model {
 		unique_ptr<QVector<IconGroup>> groups
 	}
 	
-	class IconComponent
+	class IconComponent {
+		{abstract} const &QImage getRepresentativeImage()
+	}
 	
 	class IconGroup {
 		QVector<IconComponent *> children

@@ -16,7 +16,7 @@ void Icon::addClassification(std::shared_ptr<IconClassification> classification)
     this->classifications.append(classification);
 }
 
-QImage Icon::getImage() const
+QImage const &Icon::getRepresentativeImage() const
 {
     return image;
 }
