@@ -12,3 +12,4 @@ Thinking about the `AbstractScannerImplementation` a few details and additions c
 ## Additions to the `IconClassification` class
 - `IconClassification` needs an **atomic** flag
 - `IconClassification` needs a list of **`IconClassificationCommands`** that define **how to operate on new items** upon inserting them (or moving them) into a particular classification (e.g. resizing, when moving to low resolution classification)
+- `IconClassificationCommand` should be implemented as a nested inner class: `IconClassification::Command` to avoid unnecessarily verbose class names

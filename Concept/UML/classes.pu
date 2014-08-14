@@ -22,13 +22,13 @@ package view {
 	}
 }
 
-MainWindow *-- IconSetBrowser
-
 package model {
 	class IconClassification {
 		String name
+		boolean atomic
 		IconClassification* parent
 		QVector<shared_ptr<IconClassification>> children
+		QVector<IconClassification::Command> commands
 		- setParent()
 		+ addChild()
 	}
@@ -36,12 +36,17 @@ package model {
 	class IconSet {
 		unique_ptr<QVector<Icon>> icons
 		unique_ptr<IconClassification> classifications
-		unique_ptr<AbstractScannerStrategy> scannerStrategy 
+		unique_ptr<AbstractScannerStrategy> scannerStrategy
 	}
 	
 	class Icon {
+		QString name
 		QImage image
+		Icon* link
 		QVector<shared_ptr<IconClassification>> classifications
+		+setImage(QImage image)
+		+setLink(QLink link)
+		+isLinkType()
 	}
 	
 	class ClassificationTreeModel {
@@ -50,16 +55,14 @@ package model {
 }
 
 ClassificationTreeModel <|- QAbstractItemModel
-
 IconSetBrowser o-- AbstractScannerStrategy
-
 Icon -- IconClassification
 IconSet *-- Icon
 IconSet *-- IconClassification
 IconSet o- AbstractScannerStrategy
 IconSet --> ClassificationTreeModel
 IconClassification *-- IconClassification
-
+MainWindow *-- IconSetBrowser
 IconSetBrowser -- IconSet
 IconSetBrowser -- ClassificationTreeModel
 
