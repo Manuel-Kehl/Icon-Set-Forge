@@ -40,6 +40,8 @@ Different parts of the project are available in documented form:
 
 - [Code Documentation](./Concept/Documentation/html/index.html)
 
+- ["Brainstorming Documentation"](Concept/Brainstorming/Readme.md)
+
 
 # Roadmap
 
