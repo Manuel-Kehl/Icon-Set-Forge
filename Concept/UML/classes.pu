@@ -37,7 +37,7 @@ package model {
 		String name
 		IconClassification* parent
 		QVector<shared_ptr<IconClassification>> children
-		QVector<IconClassification::Command> commands
+		QVector<shared_ptr<IconClassification::InsertCommand>> insertCommandChain
 		bool immutable
 		bool groupBy
 		bool selected
@@ -67,6 +67,8 @@ package model {
 		+setImage(QImage image)
 		+setLink(QLink link)
 		+isLinkType()
+		+addClassification(shared_ptr<IconClassification classification)
+		+insertIntoClassification(shared_ptr<IconClassification classification)
 	}
 	
 	package access {
