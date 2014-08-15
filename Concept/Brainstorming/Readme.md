@@ -9,3 +9,4 @@ Thus it is to be expected that some of the files may seem rather cryptic or conf
 - [Model Design](Model Design.md)
 - [View Design](View Design.md)
 - [Grouping](Grouping.md)
+- [Linking Icons](Linking Icons.md)
