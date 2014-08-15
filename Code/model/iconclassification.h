@@ -13,6 +13,26 @@
  */
 class IconClassification
 {
+    /*!
+     * Defines actions to be applied to Icons upon adding them to the
+     * IconClassification. The most prominent example is probably the
+     * resisizing to be performed when inserting Icons into a certain
+     * "resolution" classification. Basically every kind of image processing
+     * can be done.
+     */
+    class InsertCommand
+    {
+    public:
+        /*!
+         * To define a command just overwrite this function and perform all
+         * necessary operations on the passed Icon pointer.
+         * \param icon A pointer to the Icon to operate on.
+         * Under no circumsrtances, must the memory be deleted.
+         * Ownership is not passed to this function!
+         */
+        virtual void execute(Icon* icon) = 0;
+    };
+
 private:
     QString name;
     /*!
@@ -88,8 +108,8 @@ public:
      * problems
      * \param name The new name to be assigned to this IconClassification
      * \return Success state of the name change. false indicates, that the
-     * name is already taken by a sibling of the IconClassification node, which
-     * is not allowed.
+     * name is already taken by a sibling of the IconClassification node, or
+     * the classification is defined as 'immutable'
      */
     bool setName(QString name);
     /*!
@@ -107,6 +127,13 @@ public:
     void setGroupedBy(bool groupBy);
     //! Return if this classification has been set to group icons by or not
     bool isGroupedBy();
+    //! Whether or not the classification is allowed to be modified
+    bool isImmutable() const;
+    /*!
+     * Sets the immutable state of the IconClassification.
+     * Beware: Once set immutable, it cannot be changed anymore.
+     */
+    void setImmutable();
 };
 
 #endif // ICONCLASSIFICATION_H

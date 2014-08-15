@@ -27,6 +27,10 @@ bool IconClassification::addChild(std::unique_ptr<IconClassification> child)
 
 bool IconClassification::setName(QString name)
 {
+    if (immutable) {
+        return false;
+    }
+
     // For distinguishability all IconClassifications on the same layer (with
     // the same parent) must have different names: Check if name exists among
     // siblings of this node and return "no success" (false), if so
@@ -41,7 +45,7 @@ bool IconClassification::setName(QString name)
     return true;
 }
 
-bool IconClassification::isNameTakenByChild(QString childName)
+bool IconClassification::isNameTakenByChild(QString childName) const
 {
     // Compare childName to the name of all children
     for (auto child : children) {
@@ -62,7 +66,7 @@ void IconClassification::setSelected(bool selected)
     this->selected = selected;
 }
 
-bool IconClassification::isSelected()
+bool IconClassification::isSelected() const
 {
     return selected;
 }
@@ -75,6 +79,16 @@ void IconClassification::setGroupedBy(bool groupBy)
 bool IconClassification::isGroupedBy()
 {
     return groupBy;
+}
+
+bool IconClassification::isImmutable() const
+{
+    return immutable;
+}
+
+void IconClassification::setImmutable()
+{
+    immutable = true;
 }
 
 void IconClassification::setParent(IconClassification *parent)
