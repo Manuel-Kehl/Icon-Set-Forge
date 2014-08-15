@@ -34,18 +34,23 @@ public:
      * InsertCommands will not be performed on the Icon which will result
      * in Icons that do not meet the IconClassification's requirements.
      * E.g. a 128x128 pixel Icon in the 24x24 resolution IconClassification.
+     * Moreover a check for possible conflicts is done beforehand.
+     * \sa IconClassification::isConflicting()
      * \param classification
      * \sa Icon::insertIntoClassification()
      */
-    void addClassification(std::shared_ptr<IconClassification> classification);
+    bool addClassification(std::shared_ptr<IconClassification> newClassification);
     /*!
      * Assigns this Icon to the specified IconClassification and performs the
      * chain of InsertCommands defined by the IconClassification.
      * Use this function for inserting new Icons or moving/copying existing
      * Icons into another IconClassification.
+     * Moreover a check for possible conflicts is done beforehand.
+     * \sa IconClassification::isConflicting()
      * \param classification
+     * \return Whether or not the assignment was successful.
      */
-    void insertIntoClassification(
+    bool insertIntoClassification(
             std::shared_ptr<IconClassification> classification);
     const QImage &getRepresentativeImage() const;
 };

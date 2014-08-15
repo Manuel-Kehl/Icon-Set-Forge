@@ -143,7 +143,7 @@ public:
      * \param other The other IconClassification to compare to.
      * \return If the compared IconClassifications conflict one another or not.
      */
-    bool isConflictingClassification(IconClassification* other) const;
+    bool isConflicting(const IconClassification *other) const;
     const QString getName() const;
     //! To be called when the user has selected icons by this classification
     void setSelected(bool selected);

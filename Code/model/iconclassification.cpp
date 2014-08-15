@@ -61,16 +61,16 @@ bool IconClassification::isNameTakenByChild(QString childName) const
     return false;
 }
 
-bool IconClassification::isSibling(IconClassification *other) const
+bool IconClassification::isConflicting(IconClassification const *other) const
 {
     if (!parent->isRootNode()) {
         // siblings on topmost layer do not "conflict", therefore do not
-        // count as "real sibling", if parent is root node
+        // count as "conflicting sibling", if parent is root node
         return false;
     }
 
     // If both share the same parent, they are siblings
-    return (other->getParent() == parent);
+    return ((*other).parent == parent);
 }
 
 const QString IconClassification::getName() const

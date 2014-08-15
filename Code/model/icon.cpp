@@ -11,16 +11,30 @@ Icon::Icon(QImage image)
     this->image = image;
 }
 
-void Icon::addClassification(std::shared_ptr<IconClassification> classification)
+bool Icon::addClassification(
+        std::shared_ptr<IconClassification> newClassification)
 {
-    this->classifications.append(classification);
+    // Check all existing classifications for possible conflicts
+    for (std::shared_ptr<IconClassification> classification : classifications) {
+        if(newClassification->isConflicting(classification.get())) {
+            return false;
+        }
+    }
+
+    this->classifications.append(newClassification);
+    return true;
 }
 
-void Icon::insertIntoClassification(std::shared_ptr<IconClassification> classification)
+bool Icon::insertIntoClassification(
+            std::shared_ptr<IconClassification> newClassification)
 {
-    addClassification(classification);
-    // Perform InsertCommands on Icon's image data upon insertion
-    classification->performInsertCommandChain(image);
+    bool success = addClassification(newClassification);
+    if (success) {
+        // Perform InsertCommands on Icon's image data upon insertion
+        newClassification->performInsertCommandChain(image);
+    }
+
+    return success;
 }
 
 QImage const &Icon::getRepresentativeImage() const
