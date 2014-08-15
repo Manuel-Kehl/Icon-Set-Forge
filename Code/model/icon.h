@@ -23,6 +23,8 @@ private:
      * parent and this Icon instance. Therefore std::shared_ptr is used.
      */
     QVector<std::shared_ptr<IconClassification>> classifications;
+    //! Stores a link to another Icon instance for representing linked icons
+    Icon* link;
 public:
     Icon();
     Icon(QImage image);
@@ -39,6 +41,7 @@ public:
      * \param classification
      * \sa Icon::insertIntoClassification()
      */
+    Icon(Icon *linkTo);
     bool addClassification(std::shared_ptr<IconClassification> newClassification);
     /*!
      * Assigns this Icon to the specified IconClassification and performs the
@@ -52,6 +55,12 @@ public:
      */
     bool insertIntoClassification(
             std::shared_ptr<IconClassification> classification);
+    /*!
+     * Returns whether the Icon is of type "link" or provides own image data.
+     * \return true if link; false if it has an own QImage
+     */
+    bool isOfLinkType() const;
+    //! Returns an QImage that can be used for displaying this particular Icon
     const QImage &getRepresentativeImage() const;
 };
 

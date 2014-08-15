@@ -8,7 +8,13 @@ Icon::Icon()
 
 Icon::Icon(QImage image)
 {
+    link = nullptr;
     this->image = image;
+}
+
+Icon::Icon(Icon* linkTo)
+{
+    link = linkTo;
 }
 
 bool Icon::addClassification(
@@ -37,7 +43,22 @@ bool Icon::insertIntoClassification(
     return success;
 }
 
+bool Icon::isOfLinkType() const
+{
+    // If link is set, then the Icon is of "link" type
+    if (link) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 QImage const &Icon::getRepresentativeImage() const
 {
-    return image;
+    // If icon is link, return original icon's image data
+    if (isOfLinkType()) {
+        return link->getRepresentativeImage();
+    } else {
+        return image;
+    }
 }
