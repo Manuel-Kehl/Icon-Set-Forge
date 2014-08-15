@@ -25,4 +25,18 @@ The user shall always be asked if he wants to create a copy before modifying a l
 ## Implementation
 
 - The original `Icon` must act as [Observable](https://en.wikipedia.org/wiki/Observer_pattern), that notifies its all its links upon changes.
-- Whenever an `Icon's` image data is accessed with *write* privilidges it has to be assured, that a check for the above situations is run. This can be implemented by proper isolation of the image data with strictly defined access functions.
+- Whenever an `Icon's` image data is accessed with *write* privileges it has to be assured, that a check for the above situations is run. This can be implemented by proper isolation of the image data with strictly defined access functions.
+
+### Additions/Changes to the Icon Class
+
+#### To Do Soon
+
+- Add `link` attribute
+- Write special constructor for *link type* `Icon` instances
+
+#### To Do when Modifying Operations are Implemented
+- define `editRename, editDelete, editMove, ...` functions
+- declare ways of ensuring a check is done when write acces to an icon image data is claimed
+- Properly implement Observer pattern, so linked icons actually get notified of changes
+    - `QVector<Icon*> observingLinks`  attribute and `notify(Modification)` function
+

@@ -51,7 +51,7 @@ Different parts of the project are available in documented form:
     - But the *"functional framework"* must be defined to a degree that avoids subsequent structural changes that would require code refactoring    
 - Write an `AbstractScannerStrategy` implementation for parsing [Freedesktop index.theme files](http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html)
 - Implement the view classes to a degree that it is possible to observe the icon set (filtering + grouping)
-- Implement basic operations like copying, linking and renaming of icons
+- Implement basic operations like copying, linking and renaming of icons (do not forget to implement observer pattern for icon links as described [here](Concept/Brainstorming/Linking Icons.md))
 - Implement basic operations on categories?
 - Implement advananced operations like inserting icons
 - Start implementing a general Parsing strategy that can be extended using a simple language like XML or JSON, so icon set definitions can be easily applied by *"non programmers"*
