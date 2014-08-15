@@ -35,10 +35,12 @@ package view {
 package model {
 	class IconClassification {
 		String name
-		boolean atomic
 		IconClassification* parent
 		QVector<shared_ptr<IconClassification>> children
 		QVector<IconClassification::Command> commands
+		bool atomic
+		bool groupBy
+		bool selected
 		- setParent()
 		+ addChild()
 	}
