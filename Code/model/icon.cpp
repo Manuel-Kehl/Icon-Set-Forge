@@ -16,6 +16,13 @@ void Icon::addClassification(std::shared_ptr<IconClassification> classification)
     this->classifications.append(classification);
 }
 
+void Icon::insertIntoClassification(std::shared_ptr<IconClassification> classification)
+{
+    addClassification(classification);
+    // Perform InsertCommands on Icon's image data upon insertion
+    classification->performInsertCommandChain(image);
+}
+
 QImage const &Icon::getRepresentativeImage() const
 {
     return image;

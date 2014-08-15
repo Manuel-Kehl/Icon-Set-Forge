@@ -76,7 +76,7 @@ void IconClassification::setGroupedBy(bool groupBy)
     this->groupBy = groupBy;
 }
 
-bool IconClassification::isGroupedBy()
+bool IconClassification::isGroupedBy() const
 {
     return groupBy;
 }
@@ -126,4 +126,18 @@ int IconClassification::getChildIndexOf(const IconClassification *child) const
         }
     }
     return index;
+}
+
+void IconClassification::addInsertCommand(
+        std::unique_ptr<InsertCommand> command)
+{
+    std::shared_ptr<InsertCommand> commandPointer = std::move(command);
+    insertCommandChain.append(commandPointer);
+}
+
+void IconClassification::performInsertCommandChain(QImage &icon) const
+{
+    for (auto command : insertCommandChain) {
+        command->execute(icon);
+    }
 }

@@ -2,6 +2,7 @@
 #define ICONCLASSIFICATION_H
 
 #include <memory>
+#include <QImage>
 #include <QVector>
 #include <QString>
 
@@ -26,11 +27,9 @@ class IconClassification
         /*!
          * To define a command just overwrite this function and perform all
          * necessary operations on the passed Icon pointer.
-         * \param icon A pointer to the Icon to operate on.
-         * Under no circumsrtances, must the memory be deleted.
-         * Ownership is not passed to this function!
+         * \param icon A reference to the Icon to operate on.
          */
-        virtual void execute(Icon* icon) = 0;
+        virtual void execute(QImage &icon) = 0;
     };
 
 private:
@@ -46,6 +45,17 @@ private:
     IconClassification *parent;
     //! Children are being added to this vector
     QVector<std::shared_ptr<IconClassification>> children;
+    /*!
+     * The QVector to store the InsertCommands of this IconClassification in.
+     * Because of InsertCommand's abstract nature one cannot create a
+     * QVector<InsertCommand> as instead pointers are necessary.
+     * Using std::unique_ptr would seem natural as IconClassification
+     * is obviously the sole owner, but unfortunately Qt containers require
+     * a copy constructor, which is why i have chosen std::shared_ptr.
+     * TODO: Keep an eye on Qt's development and replace by std::unique_ptr,
+     * as soon as Qt containers support C++11's move semantics properly.
+     */
+    QVector<std::shared_ptr<InsertCommand>> insertCommandChain;
     //! Defines if the icon set allows modification of this IconClassification
     bool immutable = false;
     //! indicates if the IconClassification is used for gropuing icons
@@ -117,16 +127,16 @@ public:
      * \param childName The name to search for
      * \return true, if name is already taken, false if not
      */
-    bool isNameTakenByChild(QString childName);
+    bool isNameTakenByChild(QString childName) const;
     const QString getName() const;
     //! To be called when the user has selected icons by this classification
     void setSelected(bool selected);
     //! Returns if this classification has been selected or not
-    bool isSelected();
+    bool isSelected() const;
     //! To be called when the user has grouped icons by this classification
     void setGroupedBy(bool groupBy);
     //! Return if this classification has been set to group icons by or not
-    bool isGroupedBy();
+    bool isGroupedBy() const;
     //! Whether or not the classification is allowed to be modified
     bool isImmutable() const;
     /*!
@@ -134,6 +144,16 @@ public:
      * Beware: Once set immutable, it cannot be changed anymore.
      */
     void setImmutable();
+    // InsertCommand related functions
+    /*!
+     * Adds a command to the insert command chain.
+     * \param command The command to be added.
+     * std::unique_ptr has been chosen to clarify that ownership is taken
+     * by this class.
+     */
+    void addInsertCommand(std::unique_ptr<InsertCommand> command);
+    //! Applies all commands in the insert command chain to the specified icon
+    void performInsertCommandChain(QImage &icon) const;
 };
 
 #endif // ICONCLASSIFICATION_H
