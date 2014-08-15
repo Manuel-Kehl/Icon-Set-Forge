@@ -82,7 +82,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classIconSet-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">IconSet Class Reference</div>  </div>
@@ -93,53 +92,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="classIconSet.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="iconset_8h_source.html">iconset.h</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:afeecb618957b297b8cded65b52c24e53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconSet.html#afeecb618957b297b8cded65b52c24e53">IconSet</a> (std::unique_ptr&lt; <a class="el" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a> &gt; scannerStrategy)</td></tr>
-<tr class="memdesc:afeecb618957b297b8cded65b52c24e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> with a given <a class="el" href="classAbstractScannerStrategy.html" title="An abstract specification for scanning a particular icon set type. ">AbstractScannerStrategy</a>.  <a href="#afeecb618957b297b8cded65b52c24e53">More...</a><br/></td></tr>
-<tr class="separator:afeecb618957b297b8cded65b52c24e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdfaacce544f1c9a99bf1298bbccf00d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdfaacce544f1c9a99bf1298bbccf00d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIconSet.html#abdfaacce544f1c9a99bf1298bbccf00d">updateIconSet</a> ()</td></tr>
-<tr class="memdesc:abdfaacce544f1c9a99bf1298bbccf00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads all data corresponding to the <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a>'s <a class="el" href="classAbstractScannerStrategy.html" title="An abstract specification for scanning a particular icon set type. ">AbstractScannerStrategy</a>. <br/></td></tr>
-<tr class="separator:abdfaacce544f1c9a99bf1298bbccf00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The model representation of an icon set. </p>
-<p>Contains the set of icons, their corresponding classifications and an <a class="el" href="classAbstractScannerStrategy.html" title="An abstract specification for scanning a particular icon set type. ">AbstractScannerStrategy</a> used to load the icon set. All data is owned by the <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> instance and therefore its lifetime bound to the scope of that class. To realise this, std::unique_ptrs are being used for members. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afeecb618957b297b8cded65b52c24e53"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">IconSet::IconSet </td>
-          <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a> &gt;&#160;</td>
-          <td class="paramname"><em>scannerStrategy</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates an <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> with a given <a class="el" href="classAbstractScannerStrategy.html" title="An abstract specification for scanning a particular icon set type. ">AbstractScannerStrategy</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">scannerStrategy</td><td>is a std::unique_ptr to communicate, that the function acts as a "parameter consuming sink" and therefore takes ownership of the passed strategy </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<p>Contains the set of icons, their corresponding classifications and a QVector of groups, if grouping has been applied. All data is owned by the <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> instance and therefore its lifetime bound to the scope of that class. To realise this, std::unique_ptrs are being used for members. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/mank319/Code/Tools/IconSetForge/Code/model/<a class="el" href="iconset_8h_source.html">iconset.h</a></li>
 <li>/home/mank319/Code/Tools/IconSetForge/Code/model/iconset.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 14 2014 00:52:22 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 15 2014 16:08:31 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

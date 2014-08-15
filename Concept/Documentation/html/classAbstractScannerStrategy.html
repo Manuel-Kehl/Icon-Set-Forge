@@ -96,20 +96,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a26242de7644d7da403df79fb72764c85"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr<br class="typebreak"/>
-&lt; QVector&lt; <a class="el" href="classIcon.html">Icon</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractScannerStrategy.html#a26242de7644d7da403df79fb72764c85">scanIcons</a> ()=0</td></tr>
-<tr class="memdesc:a26242de7644d7da403df79fb72764c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns all icons contained in an icon set.  <a href="#a26242de7644d7da403df79fb72764c85">More...</a><br/></td></tr>
-<tr class="separator:a26242de7644d7da403df79fb72764c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6ce987cb27d410442c7621b59566640"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr<br class="typebreak"/>
-&lt; <a class="el" href="classIconClassification.html">IconClassification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractScannerStrategy.html#ac6ce987cb27d410442c7621b59566640">scanClassifications</a> ()=0</td></tr>
-<tr class="memdesc:ac6ce987cb27d410442c7621b59566640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns all classifications contained in an icon set.  <a href="#ac6ce987cb27d410442c7621b59566640">More...</a><br/></td></tr>
-<tr class="separator:ac6ce987cb27d410442c7621b59566640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fc70c566d81a403545de269bb9aaebb"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="classIconSet.html">IconSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractScannerStrategy.html#a0fc70c566d81a403545de269bb9aaebb">loadIconSet</a> ()=0</td></tr>
+<tr class="memdesc:a0fc70c566d81a403545de269bb9aaebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that loads an icon set from a persistent storage.  <a href="#a0fc70c566d81a403545de269bb9aaebb">More...</a><br/></td></tr>
+<tr class="separator:a0fc70c566d81a403545de269bb9aaebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ef1140dfa316decbe033f6d5f61af6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractScannerStrategy.html#a04ef1140dfa316decbe033f6d5f61af6">saveIconSet</a> (const <a class="el" href="classIconSet.html">IconSet</a> &amp;iconSet)=0</td></tr>
+<tr class="memdesc:a04ef1140dfa316decbe033f6d5f61af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that saves an icon set to a persistent storage.  <a href="#a04ef1140dfa316decbe033f6d5f61af6">More...</a><br/></td></tr>
+<tr class="separator:a04ef1140dfa316decbe033f6d5f61af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract specification for scanning a particular icon set type. </p>
-<p>By extending this class and overwriting the abstract functions one can define strategies for parsing and accessing different icon sets. This is a good point to join development: Define a scanner strategy for a particular icon set type / structure / format you would like to use manage with <a class="el" href="classIcon.html" title="Describes a single icon. ">Icon</a> Set Forge. </p>
+<p>By extending this class and overwriting the abstract functions one can define strategies for parsing and accessing different icon sets. This is a good point to join development: Define a scanner strategy for a particular icon set type / structure / format you would like to use with <a class="el" href="classIcon.html" title="Describes a single icon. ">Icon</a> Set Forge. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac6ce987cb27d410442c7621b59566640"></a>
+<a class="anchor" id="a0fc70c566d81a403545de269bb9aaebb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -117,7 +115,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::unique_ptr&lt;<a class="el" href="classIconClassification.html">IconClassification</a>&gt; AbstractScannerStrategy::scanClassifications </td>
+          <td class="memname">virtual std::unique_ptr&lt;<a class="el" href="classIconSet.html">IconSet</a>&gt; AbstractScannerStrategy::loadIconSet </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -130,12 +128,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Function that returns all classifications contained in an icon set. </p>
-<dl class="section return"><dt>Returns</dt><dd>the root <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> with all classifications assigned as children organized in a tree structure. std::unique_ptr has been chosen to communicate that an ownership transferation to the caller of this method takes place. </dd></dl>
+<p>Function that loads an icon set from a persistent storage. </p>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> instance that represents the icon set. std::unique_ptr has been chosen to communicate that an ownership transferation to the caller of this method takes place. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a26242de7644d7da403df79fb72764c85"></a>
+<a class="anchor" id="a04ef1140dfa316decbe033f6d5f61af6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -143,9 +141,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::unique_ptr&lt;QVector&lt;<a class="el" href="classIcon.html">Icon</a>&gt; &gt; AbstractScannerStrategy::scanIcons </td>
+          <td class="memname">virtual bool AbstractScannerStrategy::saveIconSet </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classIconSet.html">IconSet</a> &amp;&#160;</td>
+          <td class="paramname"><em>iconSet</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -156,8 +155,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Function that returns all icons contained in an icon set. </p>
-<dl class="section return"><dt>Returns</dt><dd>the QVector of icons contained in an icon set. std::unique_ptr has been chosen to communicate that an ownership transferation to the caller of this method takes place. </dd></dl>
+<p>Function that saves an icon set to a persistent storage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iconSet</td><td>A reference to the iconset to be saved. It is passed by reference, to avoid copying, because <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> instances could tend to be rather big. It is of const nature, to communicate that the function will not modify the referenced object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful; false if not </dd></dl>
 
 </div>
 </div>
@@ -168,7 +173,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 14 2014 00:52:22 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 15 2014 16:08:31 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

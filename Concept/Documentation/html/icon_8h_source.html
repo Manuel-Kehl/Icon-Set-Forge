@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_23fdee2f6995db16c755697cdf620cf4.html">Code</a></li><li class="navelem"><a class="el" href="dir_a97d35b535b8178474d1d1f002503b39.html">model</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_25df93d0bc8158b162e151c518337ee1.html">Code</a></li><li class="navelem"><a class="el" href="dir_eefa9e7cfb50cdcab5e6e03644458118.html">model</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -93,26 +93,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;model/iconclassification.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classIcon.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIcon.html">Icon</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    QImage image;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QVector&lt;std::shared_ptr&lt;IconClassification&gt;&gt; classifications;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classIcon.html">Icon</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classIcon.html">Icon</a>(QImage image);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIcon.html#a76b1a1afc04f0acdf9db482e50c90141">addClassification</a>(std::shared_ptr&lt;IconClassification&gt; classification);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QImage getImage() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif // ICON_H</span></div>
-<div class="ttc" id="classIcon_html_a76b1a1afc04f0acdf9db482e50c90141"><div class="ttname"><a href="classIcon.html#a76b1a1afc04f0acdf9db482e50c90141">Icon::addClassification</a></div><div class="ttdeci">void addClassification(std::shared_ptr&lt; IconClassification &gt; classification)</div><div class="ttdoc">Adds a classification to the Icon&#39;s classifications. </div><div class="ttdef"><b>Definition:</b> icon.cpp:14</div></div>
-<div class="ttc" id="classIcon_html"><div class="ttname"><a href="classIcon.html">Icon</a></div><div class="ttdoc">Describes a single icon. </div><div class="ttdef"><b>Definition:</b> icon.h:14</div></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;model/iconcomponent.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classIcon.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIcon.html">Icon</a> : <span class="keyword">public</span> <a class="code" href="classIconComponent.html">IconComponent</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QImage image;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QVector&lt;std::shared_ptr&lt;IconClassification&gt;&gt; classifications;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classIcon.html">Icon</a>* link;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classIcon.html">Icon</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classIcon.html">Icon</a>(QImage image);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classIcon.html">Icon</a>(<a class="code" href="classIcon.html">Icon</a> *linkTo);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> addClassification(std::shared_ptr&lt;IconClassification&gt; newClassification);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classIcon.html#a9fbfde0b288570bfad2853d80dc1c8ad">insertIntoClassification</a>(</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::shared_ptr&lt;IconClassification&gt; classification);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classIcon.html#accc90470c939e37efedd1e929c143ee7">isOfLinkType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">const</span> QImage &amp;<a class="code" href="classIcon.html#ae2fa48e08ef9ee7bb8b182ce5a72816e">getRepresentativeImage</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // ICON_H</span></div>
+<div class="ttc" id="classIcon_html_a9fbfde0b288570bfad2853d80dc1c8ad"><div class="ttname"><a href="classIcon.html#a9fbfde0b288570bfad2853d80dc1c8ad">Icon::insertIntoClassification</a></div><div class="ttdeci">bool insertIntoClassification(std::shared_ptr&lt; IconClassification &gt; classification)</div><div class="ttdoc">Assigns this Icon to the specified IconClassification and performs the chain of InsertCommands define...</div><div class="ttdef"><b>Definition:</b> icon.cpp:34</div></div>
+<div class="ttc" id="classIconComponent_html"><div class="ttname"><a href="classIconComponent.html">IconComponent</a></div><div class="ttdoc">The component base class for the Icon composite pattern. </div><div class="ttdef"><b>Definition:</b> iconcomponent.h:12</div></div>
+<div class="ttc" id="classIcon_html_accc90470c939e37efedd1e929c143ee7"><div class="ttname"><a href="classIcon.html#accc90470c939e37efedd1e929c143ee7">Icon::isOfLinkType</a></div><div class="ttdeci">bool isOfLinkType() const </div><div class="ttdoc">Returns whether the Icon is of type &quot;link&quot; or provides own image data. </div><div class="ttdef"><b>Definition:</b> icon.cpp:46</div></div>
+<div class="ttc" id="classIcon_html"><div class="ttname"><a href="classIcon.html">Icon</a></div><div class="ttdoc">Describes a single icon. </div><div class="ttdef"><b>Definition:</b> icon.h:15</div></div>
+<div class="ttc" id="classIcon_html_ae2fa48e08ef9ee7bb8b182ce5a72816e"><div class="ttname"><a href="classIcon.html#ae2fa48e08ef9ee7bb8b182ce5a72816e">Icon::getRepresentativeImage</a></div><div class="ttdeci">const QImage &amp; getRepresentativeImage() const </div><div class="ttdoc">Returns an QImage that can be used for displaying this particular Icon. </div><div class="ttdef"><b>Definition:</b> icon.cpp:56</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 14 2014 00:52:22 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 15 2014 16:08:31 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

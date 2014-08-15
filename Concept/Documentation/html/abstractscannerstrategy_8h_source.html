@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_23fdee2f6995db16c755697cdf620cf4.html">Code</a></li><li class="navelem"><a class="el" href="dir_0e28980f4760bb35bac6c7687504becd.html">control</a></li><li class="navelem"><a class="el" href="dir_76751c3c0ba1e73ff5cab0a6756b2442.html">scannerstrategies</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_25df93d0bc8158b162e151c518337ee1.html">Code</a></li><li class="navelem"><a class="el" href="dir_1c35d9063ab073ec45726aa552a1e5d0.html">control</a></li><li class="navelem"><a class="el" href="dir_47b8287c2a67f9aa52a0ce2ca8c62389.html">scannerstrategies</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -93,23 +93,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/iconclassification.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;model/icon.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classAbstractScannerStrategy.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt;QVector&lt;Icon&gt;&gt; <a class="code" href="classAbstractScannerStrategy.html#a26242de7644d7da403df79fb72764c85">scanIcons</a>() = 0;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt;IconClassification&gt; <a class="code" href="classAbstractScannerStrategy.html#ac6ce987cb27d410442c7621b59566640">scanClassifications</a>() = 0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif // ABSTRACTSCANNERSTRATEGY_H</span></div>
-<div class="ttc" id="classAbstractScannerStrategy_html_ac6ce987cb27d410442c7621b59566640"><div class="ttname"><a href="classAbstractScannerStrategy.html#ac6ce987cb27d410442c7621b59566640">AbstractScannerStrategy::scanClassifications</a></div><div class="ttdeci">virtual std::unique_ptr&lt; IconClassification &gt; scanClassifications()=0</div><div class="ttdoc">Function that returns all classifications contained in an icon set. </div></div>
-<div class="ttc" id="classAbstractScannerStrategy_html"><div class="ttname"><a href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a></div><div class="ttdoc">An abstract specification for scanning a particular icon set type. </div><div class="ttdef"><b>Definition:</b> abstractscannerstrategy.h:17</div></div>
-<div class="ttc" id="classAbstractScannerStrategy_html_a26242de7644d7da403df79fb72764c85"><div class="ttname"><a href="classAbstractScannerStrategy.html#a26242de7644d7da403df79fb72764c85">AbstractScannerStrategy::scanIcons</a></div><div class="ttdeci">virtual std::unique_ptr&lt; QVector&lt; Icon &gt; &gt; scanIcons()=0</div><div class="ttdoc">Function that returns all icons contained in an icon set. </div></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;model/iconset.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classAbstractScannerStrategy.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt;IconSet&gt; <a class="code" href="classAbstractScannerStrategy.html#a0fc70c566d81a403545de269bb9aaebb">loadIconSet</a>() = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classAbstractScannerStrategy.html#a04ef1140dfa316decbe033f6d5f61af6">saveIconSet</a>(<span class="keyword">const</span> <a class="code" href="classIconSet.html">IconSet</a> &amp;iconSet) = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif // ABSTRACTSCANNERSTRATEGY_H</span></div>
+<div class="ttc" id="classAbstractScannerStrategy_html_a0fc70c566d81a403545de269bb9aaebb"><div class="ttname"><a href="classAbstractScannerStrategy.html#a0fc70c566d81a403545de269bb9aaebb">AbstractScannerStrategy::loadIconSet</a></div><div class="ttdeci">virtual std::unique_ptr&lt; IconSet &gt; loadIconSet()=0</div><div class="ttdoc">Function that loads an icon set from a persistent storage. </div></div>
+<div class="ttc" id="classIconSet_html"><div class="ttname"><a href="classIconSet.html">IconSet</a></div><div class="ttdoc">The model representation of an icon set. </div><div class="ttdef"><b>Definition:</b> iconset.h:18</div></div>
+<div class="ttc" id="classAbstractScannerStrategy_html_a04ef1140dfa316decbe033f6d5f61af6"><div class="ttname"><a href="classAbstractScannerStrategy.html#a04ef1140dfa316decbe033f6d5f61af6">AbstractScannerStrategy::saveIconSet</a></div><div class="ttdeci">virtual bool saveIconSet(const IconSet &amp;iconSet)=0</div><div class="ttdoc">Function that saves an icon set to a persistent storage. </div></div>
+<div class="ttc" id="classAbstractScannerStrategy_html"><div class="ttname"><a href="classAbstractScannerStrategy.html">AbstractScannerStrategy</a></div><div class="ttdoc">An abstract specification for scanning a particular icon set type. </div><div class="ttdef"><b>Definition:</b> abstractscannerstrategy.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 14 2014 00:52:22 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 15 2014 16:08:31 for Icon Set Forge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

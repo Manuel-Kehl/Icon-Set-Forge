@@ -1,8 +1,12 @@
 var searchData=
 [
+  ['icon',['Icon',['../classIcon.html#a12a4c2b9440a981c234862f23e32ca4d',1,'Icon']]],
   ['iconclassification',['IconClassification',['../classIconClassification.html#a8621b2619c06819f1bcf8ca578b29760',1,'IconClassification']]],
-  ['iconset',['IconSet',['../classIconSet.html#afeecb618957b297b8cded65b52c24e53',1,'IconSet']]],
-  ['isgroupedby',['isGroupedBy',['../classIconClassification.html#a30a399afca7e1beed544ac5c41b0e95c',1,'IconClassification']]],
-  ['isnametakenbychild',['isNameTakenByChild',['../classIconClassification.html#af872bcb606c05116083db888425aa417',1,'IconClassification']]],
-  ['isselected',['isSelected',['../classIconClassification.html#a17be4b4b7d547f7ce37288b39b1665bc',1,'IconClassification']]]
+  ['insertintoclassification',['insertIntoClassification',['../classIcon.html#a9fbfde0b288570bfad2853d80dc1c8ad',1,'Icon']]],
+  ['isconflicting',['isConflicting',['../classIconClassification.html#a4f06340d6fedfc8d281e1e4276adec85',1,'IconClassification']]],
+  ['isgroupedby',['isGroupedBy',['../classIconClassification.html#a22a890e1c4a0375aba058ff0c3c41924',1,'IconClassification']]],
+  ['isimmutable',['isImmutable',['../classIconClassification.html#a1c557f8d07dc9c5de5873de9ec58020f',1,'IconClassification']]],
+  ['isnametakenbychild',['isNameTakenByChild',['../classIconClassification.html#aae2cc1291d740f86283ce593ea2abc3c',1,'IconClassification']]],
+  ['isoflinktype',['isOfLinkType',['../classIcon.html#accc90470c939e37efedd1e929c143ee7',1,'Icon']]],
+  ['isselected',['isSelected',['../classIconClassification.html#a50f2db3ae8c599ade904782bab80653b',1,'IconClassification']]]
 ];
