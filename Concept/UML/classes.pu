@@ -38,7 +38,7 @@ package model {
 		IconClassification* parent
 		QVector<shared_ptr<IconClassification>> children
 		QVector<IconClassification::Command> commands
-		bool atomic
+		bool immutable
 		bool groupBy
 		bool selected
 		- setParent()

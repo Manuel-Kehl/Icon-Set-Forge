@@ -26,6 +26,8 @@ private:
     IconClassification *parent;
     //! Children are being added to this vector
     QVector<std::shared_ptr<IconClassification>> children;
+    //! Defines if the icon set allows modification of this IconClassification
+    bool immutable = false;
     //! indicates if the IconClassification is used for gropuing icons
     bool groupBy = false;
     //! indicates if icons of this IconClassification are to be displayed

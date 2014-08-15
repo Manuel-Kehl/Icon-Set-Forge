@@ -57,7 +57,7 @@ It is represented by the `IconSetOperator`.
 - Define **constraints** that limit the possible interactions with the icon set
     - e.g. disallow renaming particular classifciations (or display an alert)
     - maybe add a **flag to `IconClassification`** that saves that info
-        - **atomic:** necessary for the semantic structure and *I/O* of the icon set -> **cannot be altered**
+        - **immutable:** necessary for the semantic structure and *I/O* of the icon set -> **cannot be altered**
     - either **hard coded** or **dynamically recognized** when loading
 - Define **operations for specific classifications**when inserting new icons: `IconClassificationCommand`
 - Define **default group and select settings** for differnt categories (can be easily achieved, by setting the correct attributes upon creating the classifications)
