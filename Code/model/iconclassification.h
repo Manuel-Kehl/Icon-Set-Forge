@@ -62,6 +62,8 @@ private:
     bool groupBy = false;
     //! indicates if icons of this IconClassification are to be displayed
     bool selected = false;
+    //! indicates if the IconClassification is the root node of the tree
+    bool isRoot = false;
 
     /*!
      * Sets the parent of this IconClassification node.
@@ -81,8 +83,10 @@ public:
      * \sa IconClassification::setName(QString)
      */
     IconClassification();
-    bool hasParent();
-    bool hasChildren();
+    IconClassification(bool isRoot);
+    bool hasParent() const;
+    bool isRootNode() const;
+    bool hasChildren() const;
     /*!
      * Enables acces to the parent of this IconClassification node.
      * \return A pointer to the node's parent.
@@ -128,6 +132,18 @@ public:
      * \return true, if name is already taken, false if not
      */
     bool isNameTakenByChild(QString childName) const;
+    /*!
+     * Checks if two IconClassification instances are conflictingsiblings
+     * within the tree (e.g. one and the same Icon can not be low
+     * and high resolution at the same time, if the user really desired
+     * to do so, he would have to create a linked icon to indicate that
+     * intention). Due to the fact that the topmost IconClassifications (located
+     * directly under the root node) do not conflict, siblings on that layer
+     * would result in a false result.
+     * \param other The other IconClassification to compare to.
+     * \return If the compared IconClassifications conflict one another or not.
+     */
+    bool isConflictingClassification(IconClassification* other) const;
     const QString getName() const;
     //! To be called when the user has selected icons by this classification
     void setSelected(bool selected);

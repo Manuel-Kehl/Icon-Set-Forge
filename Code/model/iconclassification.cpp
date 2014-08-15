@@ -6,6 +6,11 @@ IconClassification::IconClassification()
     parent = nullptr;
 }
 
+IconClassification::IconClassification(bool isRoot) : IconClassification()
+{
+    this->isRoot = isRoot;
+}
+
 bool IconClassification::addChild(std::unique_ptr<IconClassification> child)
 {
     // Transfer of ownership. std::move makes it an rvalue, so it can be moved
@@ -56,6 +61,18 @@ bool IconClassification::isNameTakenByChild(QString childName) const
     return false;
 }
 
+bool IconClassification::isSibling(IconClassification *other) const
+{
+    if (!parent->isRootNode()) {
+        // siblings on topmost layer do not "conflict", therefore do not
+        // count as "real sibling", if parent is root node
+        return false;
+    }
+
+    // If both share the same parent, they are siblings
+    return (other->getParent() == parent);
+}
+
 const QString IconClassification::getName() const
 {
     return name;
@@ -96,12 +113,17 @@ void IconClassification::setParent(IconClassification *parent)
     this->parent = parent;
 }
 
-bool IconClassification::hasParent()
+bool IconClassification::isRootNode() const
+{
+    return isRoot;
+}
+
+bool IconClassification::hasParent() const
 {
     return !(parent == nullptr);
 }
 
-bool IconClassification::hasChildren()
+bool IconClassification::hasChildren() const
 {
     return !children.isEmpty();
 }

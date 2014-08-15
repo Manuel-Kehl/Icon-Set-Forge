@@ -19,7 +19,7 @@ ClassificationTreeModel::ClassificationTreeModel(QObject *parent) :
     parent1->setName("Parent1");
     std::unique_ptr<IconClassification> parent2(new IconClassification());
     parent2->setName("Parent2");
-    IconClassification *root = new IconClassification();
+    IconClassification *root = new IconClassification(true);
     root->setName("root");
 
     parent1->addChild(std::move(child1));
