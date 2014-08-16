@@ -28,6 +28,9 @@ private:
     std::unique_ptr<QVector<IconGroup>> groups;
 public:
     IconSet();
+    //! Returns the icon at the given index
+    const Icon &getIcon(int index) const;
+    const int iconCount() const;
 };
 
 #endif // ICONSET_H
