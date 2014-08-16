@@ -16,7 +16,7 @@ private:
     IconSet*  iconSet;
 
 public:
-    IconListModel(QObject *parent, IconSet *iconSet);
+    IconListModel(QObject *parent, IconSet *dataSource);
 
     /*
      * QAbstractItemModel <i>Overrides</i> begin here. Consult the

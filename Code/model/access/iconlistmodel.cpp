@@ -2,10 +2,10 @@
 #include "model/icon.h"
 #include <QImage>
 
-IconListModel::IconListModel(QObject *parent, IconSet *iconSet)
+IconListModel::IconListModel(QObject *parent, IconSet *dataSource)
     : QAbstractListModel(parent)
 {
-    this->iconSet = iconSet;
+    this->iconSet = dataSource;
 }
 
 QVariant IconListModel::data(const QModelIndex &index, int role) const
