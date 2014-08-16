@@ -17,3 +17,9 @@ int IconSet::iconCount() const
 {
     return icons->size();
 }
+
+IconClassification *IconSet::getClassifications()
+{
+    // Return a pointer without releasing ownership
+    return classifications.get();
+}

@@ -30,7 +30,14 @@ public:
     IconSet();
     //! Returns the icon at the given index
     const Icon &getIcon(int index) const;
+    //! Returns the number of icons contained in the IconSet
     int iconCount() const;
+    /*!
+     * Returns a pointer to the the root classification of this IconSet.
+     * The pointer is to be considered as a weak reference, as ownership
+     * of the classifications is retained by IconSet.
+     */
+    IconClassification* getClassifications();
 };
 
 #endif // ICONSET_H
