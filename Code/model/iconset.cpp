@@ -1,8 +1,11 @@
 #include "model/iconset.h"
 
-IconSet::IconSet() :
-    icons(new QVector<Icon>),
-    classifications(new IconClassification),
+IconSet::IconSet(
+        std::unique_ptr<QVector<Icon>> icons,
+        std::unique_ptr<IconClassification> classifications
+        ) :
+    icons(std::move(icons)),
+    classifications(std::move(classifications)),
     groups(new QVector<IconGroup>)
 {
 

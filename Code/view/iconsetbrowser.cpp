@@ -14,7 +14,9 @@ IconSetBrowser::IconSetBrowser(QWidget *parent) :
 
     // List View
     QListView *listView = new QListView(this);
-    IconSet *iconSet = new IconSet();
+    IconSet *iconSet = new IconSet(
+                std::unique_ptr<QVector<Icon>>(new QVector<Icon>),
+                std::unique_ptr<IconClassification>(new IconClassification(true)));
     IconListModel *listModel = new IconListModel(this, iconSet);
     listView->setModel(listModel);
 

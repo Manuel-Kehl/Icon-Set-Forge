@@ -27,7 +27,10 @@ private:
     std::unique_ptr<IconClassification> classifications;
     std::unique_ptr<QVector<IconGroup>> groups;
 public:
-    IconSet();
+    IconSet(
+            std::unique_ptr<QVector<Icon>> icons,
+            std::unique_ptr<IconClassification> classifications
+            );
     //! Returns the icon at the given index
     const Icon &getIcon(int index) const;
     //! Returns the number of icons contained in the IconSet
