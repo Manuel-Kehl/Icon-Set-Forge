@@ -18,7 +18,7 @@ QVariant IconListModel::data(const QModelIndex &index, int role) const
         return imageData;
     }
 
-    // Retrun empty QVariant if not display role
+    // Return empty QVariant if not display role
     return QVariant();
 }
 
