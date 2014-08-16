@@ -30,7 +30,7 @@ public:
     IconSet();
     //! Returns the icon at the given index
     const Icon &getIcon(int index) const;
-    const int iconCount() const;
+    int iconCount() const;
 };
 
 #endif // ICONSET_H
