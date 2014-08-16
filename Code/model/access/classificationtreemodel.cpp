@@ -2,41 +2,11 @@
 #include <memory>
 #include "model/access/classificationtreemodel.h"
 
-ClassificationTreeModel::ClassificationTreeModel(QObject *parent) :
-    QAbstractItemModel(parent)
+ClassificationTreeModel::ClassificationTreeModel(
+        QObject *parent,
+        IconSet* dataSource) : QAbstractItemModel(parent)
 {
-    root = nullptr;
-
-    //TODO: Remove Testcode
-    //=========TESTCODE=================================//
-    std::unique_ptr<IconClassification> child1(new IconClassification());
-    child1->setName("Child1");
-    std::unique_ptr<IconClassification> child2(new IconClassification());
-    child2->setName("Child2");
-    std::unique_ptr<IconClassification> child3(new IconClassification());
-    child3->setName("Child3");
-    std::unique_ptr<IconClassification> parent1(new IconClassification());
-    parent1->setName("Parent1");
-    std::unique_ptr<IconClassification> parent2(new IconClassification());
-    parent2->setName("Parent2");
-    IconClassification *root = new IconClassification(true);
-    root->setName("root");
-
-    parent1->addChild(std::move(child1));
-    parent1->addChild(std::move(child2));
-    parent2->addChild(std::move(child3));
-    root->addChild(std::move(parent1));
-    root->addChild(std::move(parent2));
-
-    setRoot(root);
-    //=========TESTCODE=================================//
-}
-
-void ClassificationTreeModel::setRoot(IconClassification *node)
-{
-    beginResetModel();
-    root = node;
-    endResetModel();
+    root = dataSource->getClassifications();
 }
 
 IconClassification *ClassificationTreeModel::indexToNode(

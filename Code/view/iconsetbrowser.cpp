@@ -20,7 +20,7 @@ IconSetBrowser::IconSetBrowser(QWidget *parent) :
 
     // Tree View
     QTreeView *treeView = new QTreeView(this);
-    ClassificationTreeModel *treeModel = new ClassificationTreeModel(this);
+    ClassificationTreeModel *treeModel = new ClassificationTreeModel(this, iconSet);
     treeView->setModel(treeModel);
 
     // Resize columns after the model has been set

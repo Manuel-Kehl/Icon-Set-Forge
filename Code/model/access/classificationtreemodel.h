@@ -2,7 +2,8 @@
 #define CLASSIFICATIONTREEMODEL_H
 
 #include <QAbstractItemModel>
-#include "../iconclassification.h"
+#include "model/iconset.h"
+#include "model/iconclassification.h"
 
 /*!
  * Provides access to the underlying IconClassification tree.
@@ -29,9 +30,7 @@ private:
     IconClassification *indexToNode(const QModelIndex &index) const;
 
 public:
-    ClassificationTreeModel(QObject *parent = nullptr);
-    //! Sets a differnt root node
-    void setRoot(IconClassification *node);
+    ClassificationTreeModel(QObject *parent, IconSet* dataSource);
 
     /*
      * QAbstractItemModel <i>Overrides</i> begin here. Consult the
