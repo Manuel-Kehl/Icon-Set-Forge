@@ -1,6 +1,9 @@
 #include "model/iconset.h"
 
-IconSet::IconSet()
+IconSet::IconSet() :
+    icons(new QVector<Icon>),
+    classifications(new IconClassification),
+    groups(new QVector<IconGroup>)
 {
 
 }
