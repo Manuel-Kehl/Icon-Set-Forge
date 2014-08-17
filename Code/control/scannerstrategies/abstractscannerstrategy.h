@@ -24,6 +24,7 @@ public:
      * \return The IconSet instance that represents the icon set.
      * std::unique_ptr has been chosen to communicate that an ownership
      * transferation to the caller of this method takes place.
+     * A nullptr return statement is to be interpreted as an I/O error.
      */
     virtual std::unique_ptr<IconSet> loadIconSet() = 0;
     /*!
