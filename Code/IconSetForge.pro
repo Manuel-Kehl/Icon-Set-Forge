@@ -27,7 +27,8 @@ SOURCES +=\
     model/access/classificationtreemodel.cpp \
     model/iconcomponent.cpp \
     model/icongroup.cpp \
-    model/access/iconlistmodel.cpp
+    model/access/iconlistmodel.cpp \
+    control/scannerstrategies/freedesktopscannerstrategy.cpp
 
 HEADERS  += \
     view/iconsetbrowser.h \
@@ -42,7 +43,8 @@ HEADERS  += \
     model/access/classificationtreemodel.h \
     model/iconcomponent.h \
     model/icongroup.h \
-    model/access/iconlistmodel.h
+    model/access/iconlistmodel.h \
+    control/scannerstrategies/freedesktopscannerstrategy.h
 
 FORMS    += mainwindow.ui
 
