@@ -107,14 +107,18 @@ public:
      */
     int getChildIndexOf(const IconClassification *child) const;
     /*!
-     * Adds a child to this particular IconClassification node.
+     * Adds a child to this particular IconClassification node, if no child
+     * with a conflicting (equal) name already exists under that node.
      * \param child the child IconClassification to be added.
      * A std::unique_ptr is passed to indicate that ownership of the child
      * is being taken by this function.
-     * \return If the child has been added successfully. Adding a child may be
-     * refused in case a child of the same name already exists.
+     * \return A pointer that represents either the newly added child or, in
+     * case of a name conflict, the already existant child with that name.
+     * A std::shared_ptr has been chosen to communicate, that ownership
+     * is still in the hands of the parent class but also shared with the
+     * caller of this function.
      */
-    bool addChild(std::unique_ptr<IconClassification> child);
+    std::shared_ptr<IconClassification> addChild(std::unique_ptr<IconClassification> child);
     /*!
      * A function for changing an IconClassification's name.
      * It is important, that IconClassifications have valid names, so always
@@ -127,11 +131,15 @@ public:
      */
     bool setName(QString name);
     /*!
-     * Checks if one of the IconClassifications children has the given name.
+     * Searches and returns the child with the given name.
      * \param childName The name to search for
-     * \return true, if name is already taken, false if not
+     * \return A pointer to the child with the specified name, or nullptr if
+     * no child of such name was found.
+     * A std::shared_ptr has been chosen to communicate, that ownership
+     * is still in the hands of the parent class but also shared with the
+     * caller of this function.
      */
-    bool isNameTakenByChild(QString childName) const;
+    std::shared_ptr<IconClassification> findChildWithName(QString childName);
     /*!
      * Checks if two IconClassification instances are conflictingsiblings
      * within the tree (e.g. one and the same Icon can not be low

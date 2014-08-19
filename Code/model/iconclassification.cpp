@@ -11,23 +11,36 @@ IconClassification::IconClassification(bool isRoot) : IconClassification()
     this->isRoot = isRoot;
 }
 
-bool IconClassification::addChild(std::unique_ptr<IconClassification> child)
+std::shared_ptr<IconClassification> IconClassification::addChild(
+        std::unique_ptr<IconClassification> child)
 {
-    // Transfer of ownership. std::move makes it an rvalue, so it can be moved
-    std::shared_ptr<IconClassification> childSharedPointer(std::move(child));
+    // TODO: Proper handling of "double classifications"
+    // Return shared_ptr to child.
+    // Receiver does not have to care if already existant or not!
+    // Maybe change isNameTakenByChild to findChildwithName that returns
+    // either a nullptr, if not taken or a shared_ptr to the child
 
-    //Check if name is already taken and return if so, if so
-    if (isNameTakenByChild(childSharedPointer->getName())) {
-        return false;
+    // Transfer of ownership. std::move makes it an rvalue, so it can be moved
+    std::shared_ptr<IconClassification> newChild(child.release());
+
+    // Check if name is already taken
+    std::shared_ptr<IconClassification> childWithSameName =
+            findChildWithName(newChild->getName());
+    // If this is the case, return already existant instance
+    if (childWithSameName) {
+        // TODO: Maybe transfer children from newChild to childWithSameName.
+        // Not necessary for current implementation, but behaviour may be
+        // expected by others. --> Brainstorm / Poll on that topic
+        return childWithSameName;
     }
 
     // By setting a parent in this function it is ensured, that there are no
     // "orphaned child nodes". Only the "root node" has no parent assigned to it
-    childSharedPointer->setParent(this);
+    newChild->setParent(this);
 
-    children.append(childSharedPointer);
+    children.append(newChild);
 
-    return true;
+    return newChild;
 }
 
 bool IconClassification::setName(QString name)
@@ -40,7 +53,7 @@ bool IconClassification::setName(QString name)
     // the same parent) must have different names: Check if name exists among
     // siblings of this node and return "no success" (false), if so
     if (parent) { // Only check if parent is existant
-        if (parent->isNameTakenByChild(name)) {
+        if (parent->findChildWithName(name)) {
             return false;
         }
     }
@@ -50,15 +63,16 @@ bool IconClassification::setName(QString name)
     return true;
 }
 
-bool IconClassification::isNameTakenByChild(QString childName) const
+std::shared_ptr<IconClassification> IconClassification::findChildWithName(
+        QString childName)
 {
     // Compare childName to the name of all children
     for (auto child : children) {
         if (child->getName() == childName) {
-            return true;
+            return child;
         }
     }
-    return false;
+    return nullptr;
 }
 
 bool IconClassification::isConflicting(IconClassification const *other) const
