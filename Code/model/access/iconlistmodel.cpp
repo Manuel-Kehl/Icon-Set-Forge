@@ -10,12 +10,17 @@ IconListModel::IconListModel(QObject *parent, IconSet *dataSource)
 
 QVariant IconListModel::data(const QModelIndex &index, int role) const
 {
-    if (role == Qt::DisplayRole) {
-        // Return the requested image
-        int i = index.row();
-        const QImage imageData = iconSet->getIcon(i).getRepresentativeImage();
+    int i = index.row();
 
+    // DecorationRole: The Image itself
+    if (role == Qt::DecorationRole) {
+        // Return the requested image
+        const QImage imageData = iconSet->getIcon(i).getRepresentativeImage();
         return imageData;
+    // DisplayRole: The text to be displayed under the image
+    } else if (role == Qt::DisplayRole) {
+        const QString name = iconSet->getIcon(i).getName();
+        return name;
     }
 
     // Return empty QVariant if not display role
