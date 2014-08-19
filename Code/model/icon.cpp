@@ -21,7 +21,7 @@ bool Icon::addClassification(
         std::shared_ptr<IconClassification> newClassification)
 {
     // Check all existing classifications for possible conflicts
-    for (std::shared_ptr<IconClassification> classification : classifications) {
+    for (auto classification : classifications) {
         if(newClassification->isConflicting(classification.get())) {
             return false;
         }
