@@ -184,7 +184,7 @@ void FreedesktopScannerStrategy::readIconsFromDirectory(
         // Only proceed, if reading was successful
         // TODO: Maybe add proper error / exception handling
         if (!image.isNull()) {
-            Icon newIcon(image);
+            Icon newIcon(image, file);
             newIcon.addClassification(
                         std::shared_ptr<IconClassification>(context));
             newIcon.addClassification(

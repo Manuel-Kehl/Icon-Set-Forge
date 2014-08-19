@@ -6,10 +6,11 @@ Icon::Icon()
     // TODO: Find out if there is a more elegant solution
 }
 
-Icon::Icon(QImage image)
+Icon::Icon(QImage image, QString name)
 {
     link = nullptr;
     this->image = image;
+    this->name = name;
 }
 
 Icon::Icon(Icon* linkTo)
@@ -61,4 +62,9 @@ QImage const &Icon::getRepresentativeImage() const
     } else {
         return image;
     }
+}
+
+QString Icon::getName() const
+{
+    return name;
 }

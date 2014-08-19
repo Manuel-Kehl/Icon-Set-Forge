@@ -3,6 +3,7 @@
 
 #include <QImage>
 #include <QVector>
+#include <QString>
 #include <memory>
 #include "model/iconclassification.h"
 #include "model/iconcomponent.h"
@@ -15,6 +16,8 @@
 class Icon : public IconComponent
 {
 private:
+    //! The representative name of the icon
+    QString name;
     //! The image data of the Icon
     QImage image;
     /*!
@@ -27,7 +30,7 @@ private:
     Icon* link;
 public:
     Icon();
-    Icon(QImage image);
+    Icon(QImage image, QString name);
     /*!
      * Assigns this Icon to the specified IconClassification.
      * This function is to be used upon scanning an IconSet, but <b>not</b>
@@ -62,6 +65,7 @@ public:
     bool isOfLinkType() const;
     //! Returns an QImage that can be used for displaying this particular Icon
     const QImage &getRepresentativeImage() const;
+    QString getName() const;
 };
 
 #endif // ICON_H
