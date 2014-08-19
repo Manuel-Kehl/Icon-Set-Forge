@@ -34,6 +34,14 @@ private:
             IconClassification* size
             );
 
+    /*!
+     * Checks if a line starts with a certain string and removes that string
+     * from the passed line. CAUTION: Modifies the line, that has been passed!
+     * \param line The line to be check and trimmed.
+     * \param startsWith The start string to search for
+     * \return true if line starts with specified string, false otherwise
+     */
+    bool startsWithAndTrim(QString& line, QString startsWith);
 public:
     /*!
      * Creates a FreedesktopScannerStrategy for the given theme location.
