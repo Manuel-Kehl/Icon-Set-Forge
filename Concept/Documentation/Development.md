@@ -42,13 +42,13 @@ The UML class diagram has been created with [PlantUML](http://plantuml.sourcefor
 
 
 # Contributing
-## Where can I start to help?
+## Where Can I start to Help?
 
 Implementing an `AbstractScannerStrategy` for the icon set type of your interest is always a great opportunity to contribute to this project.
 
 If you want to join general development have a look at the roadmap and development that has been going on lately or ask where a helping hand could be of use.
 
-## How can I join?
+## How Can I Join?
 Just leave a comment on what you are about to implement or at least commit to your fork asap (.e.g on a branch with self-explanatory name) so other developers are aware that that particular feature is taken care of by you. Before contributing make sure to have a look at the following guidelines and conventions.
 
 
