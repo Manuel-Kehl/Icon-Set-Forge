@@ -1,0 +1,24 @@
+/**
+ * \mainpage Code Documentation
+ * <p>
+ * Thanks for your interest in contributing to this project!
+ * </p>
+ *
+ * <h2>Adapting a Particular Icon Set</h2>
+ * <p>
+ * If you want to make <i>%Icon Set Forge</i> work with a particular icon set 
+ * type of your interested, you have to implement an AbstractScannerStrategy
+ * for that icon set type. 
+ * To accomplish that you may want to have a look the following classes:
+ * IconSet, IconClassification and Icon
+ * </p>
+ *
+ * <h2>GUI Mockup</h2>
+ * \image html MainWindow.png
+ *
+ * <h2>Conceptual Overview of the Most Important Classes</h2>
+ * It has to be noted, that this diagram is neither complete nor 100% correct.
+ * Its sole purpose is to resemble the structural relations between the most
+ * relevant core classes.
+ * \image html classes.png
+ */
