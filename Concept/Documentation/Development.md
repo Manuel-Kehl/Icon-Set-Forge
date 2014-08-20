@@ -10,7 +10,7 @@ Different parts of the project are available in documented form:
 
 - A [mockup](./Concept/GUI/UI Design.pdf) of how the GUI could look like
 
-- [Code Documentation](http://mank319/.github.io/Icon-Set-Forge)
+- [Code Documentation](http://mank319.github.io/Icon-Set-Forge)
 
 - ["Brainstorming Documentation"](Concept/Brainstorming/Readme.md) of specific problems or thoughts
 
