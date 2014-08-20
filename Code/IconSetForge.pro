@@ -47,3 +47,7 @@ HEADERS  += \
 FORMS    += mainwindow.ui
 
 QMAKE_CXXFLAGS += -std=c++11
+
+# Mac flags
+QMAKE_CXXFLAGS += -mmacosx-version-min=10.7 -stdlib=libc++
+LIBS += -mmacosx-version-min=10.7 -stdlib=libc++
