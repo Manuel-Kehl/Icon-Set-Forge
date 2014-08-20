@@ -29,7 +29,7 @@ An icon set loaded like described above can then be edited in a convient way. So
 ## Does It Work with My Particular Icon Set?
 
 The underlying data structures and operations are designed to be flexible and extensible. By writing an own `AbstractScannerStrategy` implementation you can provide parsers for all kinds of icon sets.
-No knowledge of the core code is necessary, except a basic understanding of the (imho well documented) model classes.
+No knowledge of the core code is necessary, except a basic understanding of the (imho [well documented](http://mank319/.github.io/Icon-Set-Forge)) model classes.
 
 This is where I especially hope to see fellow developers join the party! Implement your icon set type of choice to make *Icon Set Forge* as versatile as possible!
 
