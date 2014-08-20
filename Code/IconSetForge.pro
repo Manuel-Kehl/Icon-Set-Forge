@@ -15,7 +15,6 @@ TEMPLATE = app
 
 SOURCES +=\
     view/iconsetbrowser.cpp \
-    view/iconsetview.cpp \
     control/main.cpp \
     view/mainwindow.cpp \
     view/layouts/borderlayout.cpp \
@@ -32,7 +31,6 @@ SOURCES +=\
 
 HEADERS  += \
     view/iconsetbrowser.h \
-    view/iconsetview.h \
     view/mainwindow.h \
     view/layouts/borderlayout.h \
     view/layouts/flowlayout.h \
