@@ -4,7 +4,7 @@
  * Thanks for your interest in contributing to this project!
  * </p>
  *
- * <h2>Adapting a Particular Icon Set</h2>
+ * <h2>Adapting a Particular %Icon Set</h2>
  * <p>
  * If you want to make <i>%Icon Set Forge</i> work with a particular icon set 
  * type of your interested, you have to implement an AbstractScannerStrategy
