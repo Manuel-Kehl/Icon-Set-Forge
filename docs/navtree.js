@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "Icon Set Forge", "index.html", [
+    [ "Code Documentation", "index.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
