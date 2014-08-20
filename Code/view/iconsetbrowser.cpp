@@ -30,8 +30,9 @@ IconSetBrowser::IconSetBrowser(QWidget *parent) :
 
     // Set up List View to display Icons
     listView->setViewMode(QListView::IconMode);
-    listView->setIconSize(QSize(100, 100));
+    listView->setGridSize(QSize(100, 100));
     listView->setResizeMode(QListView::Adjust);
+    listView->setWordWrap(true);
 
     IconListModel *listModel = new IconListModel(this, iconSet);
     listView->setModel(listModel);
