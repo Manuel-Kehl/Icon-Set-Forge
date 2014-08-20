@@ -1,4 +1,0 @@
-Copyright 2014 Manuel Kehl (manuel-kehl.de) - core application
-
-Feel free to add your copyright notice and/or contribution description here, 
-if you have added something to Icon Set Forge.
