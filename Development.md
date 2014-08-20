@@ -38,7 +38,8 @@ The UML class diagram has been created with [PlantUML](http://plantuml.sourcefor
 
 ## Documentation
 
-[Doxygen](http://www.stack.nl/~dimitri/doxygen/) is used to generate docs from special documentation comments within the source code. To generate the projects documentation run `doxygen Doxyfile` in the `Concept/Documentation` folder.
+[Doxygen](http://www.stack.nl/~dimitri/doxygen/) is used to generate docs from special documentation comments within the source code. 
+To generate the project's documentation run `doxygen Doxyfile` in the top level folder of the `gh-pages` branch, as this branch is used to display *Icon Set Forge's* `github.io` page.
 
 
 # Contributing

@@ -45,6 +45,6 @@ This is where I especially hope to see fellow developers join the party! Impleme
 I have not written C++ for quite a while (pre C++11) and never dealt with Qt before. So this whole code base is, besides its original aim, also to be considered a "learning project" for myself. I tried to explain what I did as good as possible and hope that most of my decisions have been somewhat reasonable, keeping in mind my limited experience with the aforementioned technologies. I am always open for recommendations on both *technical details* and *(style) conventions*.
 
 # Join Development
-Information for developers can be found [here](Concept/Documentation/Development.md).
+Information for developers can be found [here](Development.md).
 
 Every kind of help is appreciated :-)
