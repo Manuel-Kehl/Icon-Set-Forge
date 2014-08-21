@@ -14,12 +14,6 @@ IconClassification::IconClassification(bool isRoot) : IconClassification()
 std::shared_ptr<IconClassification> IconClassification::addChild(
         std::unique_ptr<IconClassification> child)
 {
-    // TODO: Proper handling of "double classifications"
-    // Return shared_ptr to child.
-    // Receiver does not have to care if already existant or not!
-    // Maybe change isNameTakenByChild to findChildwithName that returns
-    // either a nullptr, if not taken or a shared_ptr to the child
-
     // Transfer of ownership. std::move makes it an rvalue, so it can be moved
     std::shared_ptr<IconClassification> newChild(child.release());
 
