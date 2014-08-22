@@ -11,3 +11,6 @@ One major advantage is the fact, that one can make use of [Qt's Model/View frame
 
 Maybe one can handle **filtering** by adding an implementation of [QAbstractProxyModel](http://qt-project.org/doc/qt-4.8/qabstractproxymodel.html). Further investigation has to be done in that regard.
 
+### Edit
+
+No ProxyModel classes are necessary, as the [`access` model classes](MVC.md) could easily vary the returned data according to the connected `IconSet` instances' classifications' filter and group flags.

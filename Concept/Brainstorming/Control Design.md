@@ -1,4 +1,7 @@
-# Control Design
+### ===This Document Does Not Reflect The Current State Of Development===
+It is only here "for the record", so others can reproduce the thoughts that led to certain decisions.
+
+# Control Design and Scanner Strategies
 
 Goal of this document is to find out what functionality the `AbstractScannerStrategy` (or whatever name the class(es) will finally have) must provide to operate on icon sets of different kinds and what the most efficient/elegant way of implementation may look like. At the time being the main development focus has been on the `model` classes, which are now mature enough to proceed with the implementation of the `control` mechanisms.
 
