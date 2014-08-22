@@ -13,12 +13,13 @@
  * IconSet, IconClassification and Icon
  * </p>
  *
- * <h2>GUI Mockup</h2>
- * \image html MainWindow.png
- *
  * <h2>Conceptual Overview of the Most Important Classes</h2>
  * It has to be noted, that this diagram is neither complete nor 100% correct.
  * Its sole purpose is to resemble the structural relations between the most
  * relevant core classes.
  * \image html classes.png
+ *
+ * <h2>GUI Mockup</h2>
+ * \image html MainWindow.png
+ *
  */
