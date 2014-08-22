@@ -1,37 +1,5 @@
 @startuml 
 
-package control {
-	class IconSetOperator {
-		unique_ptr<IconSet> iconSet
-		unique_ptr<AbstractScannerStrategy> scannerStrategy
-		QUndoStack undoStack
-		+ void editIcon(referenceToIcon)
-	}
-	
-	package strategies {
-		abstract class AbstractScannerStrategy {
-			+ {abstract} unique_ptr<IconSet> loadIconSet()
-			+ {abstract} boolean saveIconSet(const IconSet &iconSet)
-		}
-		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
-		class GenericXmlScannerStrategy --|> AbstractScannerStrategy
-	}
-}
-
-package view {
-	class MainWindow {
-	}
-	
-	class IconSetBrowser {
-		IconSetView iconSetView
-		QTreeView	classificationTreeView
-		+ updateIconSet()
-	}
-
-	class IconSetView {
-	}
-}
-
 package model {
 	class IconClassification {
 		String name
@@ -73,36 +41,80 @@ package model {
 	
 	package access {
 		class ClassificationTreeModel {
-				IconClassification* root
+				IconSet* iconSet
 			}
 			
 		class IconListModel {
 			IconSet* iconSet
 		}
 	}
+	
+	Icon -- IconClassification
+	IconSet *-- Icon
+	IconSet *-- IconClassification
+	IconClassification *-- IconClassification : organized as a tree
+	IconComponent <|- Icon
+	IconComponent <|-- IconGroup
+	ClassificationTreeModel --> IconSet
+	IconListModel --> IconSet
 }
 
-Icon -- IconClassification
-IconSet *-- Icon
-IconSet *-- IconClassification
-IconSet <-- AbstractScannerStrategy : instantiates
-ClassificationTreeModel --> IconClassification
-IconListModel --> IconSet
-IconClassification *-- IconClassification
+
+package view {
+	class MainWindow {
+	}
+	
+	class IconSetBrowser {
+		QListView iconSetView
+		QTreeView	classificationTreeView
+	}
+}
+
+
+package control {
+	class Coordinator {
+		int activeIconSetIndex;
+		QVector<IconSetOperator> openIconSets
+		+openIconSet(AbstractScannerStrategy scannerStrategy)
+		..slots..
+		+setActiveIconSet(int index);
+		+applyOperation(some action)
+	}
+	class IconSetOperator {
+		unique_ptr<IconSet> iconSet
+		unique_ptr<AbstractScannerStrategy> scannerStrategy
+		QUndoStack undoStack
+		+ IconSetOperator(AbstractScannerStrategy scannerStrategy)
+		+ void applyOperation(some action)
+	}
+	
+	Coordinator *-IconSetOperator
+}
+
+
+package scannerstrategies {
+		abstract class AbstractScannerStrategy {
+			+ {abstract} unique_ptr<IconSet> loadIconSet()
+			+ {abstract} boolean saveIconSet(const IconSet &iconSet)
+		}
+		class FreedesktopScannerStrategy --|> AbstractScannerStrategy
+		class GenericXmlScannerStrategy --|> AbstractScannerStrategy
+	}
+
+
+MainWindow .. Coordinator : sends action signals >
 MainWindow *-- IconSetBrowser
-IconSetView -- IconListModel
-IconSetBrowser -- ClassificationTreeModel
-IconSetView - IconSetBrowser
-IconSetOperator *-- IconSet
+IconSetBrowser .. IconListModel : < provides data
+IconSetBrowser .. ClassificationTreeModel : < provides data
+IconSetOperator *-- IconSet : owns >
+AbstractScannerStrategy --> IconSet : instantiates >
 IconSetOperator *-- AbstractScannerStrategy
-IconSetOperator -- IconSetBrowser
-IconComponent <|- Icon
-IconComponent <|- IconGroup
 
-note bottom of IconClassification: Ways of classifying and grouping icons. For example "resolution, category or target device".\nTree structure is realized via the list of children and the parent pointer.
 
-note top of FreedesktopScannerStrategy: An exemplary implementation\nthat parses index.theme files\nas often seen with Linux\nicon sets.
-
-note top of GenericXmlScannerStrategy: A generic way of defining icon set structures via XML.\nIn case no specific file format is existant.\nFollowing this apporach Icon Set Forge is hopefully useful\nfor many "non-programmers".
+note top of GenericXmlScannerStrategy
+A generic way of defining simple icon set structures 
+via XML (or JSON?). Following this apporach <i>Icon Set Forge</i>
+is hopefully useful for many "non-programmers".
+endnote
 
 @enduml
