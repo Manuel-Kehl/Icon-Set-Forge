@@ -16,7 +16,8 @@ Different parts of the project are available in documented form:
 
 
 # Roadmap
-- Implement the view classes to a degree that it is possible to observe the icon set (filtering + grouping)
+- Implement stricter MVC pattern before adding operations as described [here](./Concept/Brainstorming/MVC.md)
+    - All changes are to be commited to the `mvc` feature branch until complete and runnable
 - Implement basic operations like copying, linking and renaming of icons (do not forget to implement observer pattern for icon links as described [here](Concept/Brainstorming/Linking Icons.md))
 - Implement basic operations on categories?
 - Implement advananced operations like inserting icons

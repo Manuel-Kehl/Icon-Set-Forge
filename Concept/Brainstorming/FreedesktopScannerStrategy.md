@@ -1,3 +1,6 @@
+### ===This Document Does Not Reflect The Current State Of Development===
+It is only here "for the record", so others can reproduce the thoughts that led to certain decisions.
+
 # FreedesktopScannerStrategy
 
 This is the first concrete implementation of the `AbstractScannerStrategy` class, which is supposed to parse [index.theme](http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html) files.
