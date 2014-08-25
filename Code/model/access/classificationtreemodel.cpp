@@ -77,7 +77,6 @@ int ClassificationTreeModel::rowCount(const QModelIndex &parentIndex) const
 
 int ClassificationTreeModel::columnCount(const QModelIndex &parentIndex) const
 {
-    //TODO: Proper implementation
     return 3;
 }
 

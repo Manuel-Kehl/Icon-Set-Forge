@@ -22,12 +22,12 @@ SOURCES +=\
     model/iconclassification.cpp \
     model/icon.cpp \
     model/iconset.cpp \
-    control/scannerstrategies/abstractscannerstrategy.cpp \
+    scannerstrategies/abstractscannerstrategy.cpp \
     model/access/classificationtreemodel.cpp \
     model/iconcomponent.cpp \
     model/icongroup.cpp \
     model/access/iconlistmodel.cpp \
-    control/scannerstrategies/freedesktopscannerstrategy.cpp
+    scannerstrategies/freedesktopscannerstrategy.cpp
 
 HEADERS  += \
     view/iconsetbrowser.h \
@@ -37,12 +37,12 @@ HEADERS  += \
     model/iconclassification.h \
     model/icon.h \
     model/iconset.h \
-    control/scannerstrategies/abstractscannerstrategy.h \
+    scannerstrategies/abstractscannerstrategy.h \
     model/access/classificationtreemodel.h \
     model/iconcomponent.h \
     model/icongroup.h \
     model/access/iconlistmodel.h \
-    control/scannerstrategies/freedesktopscannerstrategy.h
+    scannerstrategies/freedesktopscannerstrategy.h
 
 FORMS    += mainwindow.ui
 

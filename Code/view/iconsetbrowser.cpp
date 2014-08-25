@@ -7,7 +7,7 @@
 #include "model/iconset.h"
 #include "model/access/classificationtreemodel.h"
 #include "model/access/iconlistmodel.h"
-#include "control/scannerstrategies/freedesktopscannerstrategy.h"
+#include "scannerstrategies/freedesktopscannerstrategy.h"
 
 IconSetBrowser::IconSetBrowser(QWidget *parent) :
     QWidget(parent)
