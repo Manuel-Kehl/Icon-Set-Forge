@@ -17,3 +17,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionOpen_triggered()
 {
 }
+
+void MainWindow::displayNewIconSet(IconListModel *iconModel,
+                                   ClassificationTreeModel *classificationModel)
+{
+    IconSetBrowser *newTab =
+            new IconSetBrowser(iconModel, classificationModel, this);
+    ui->tabWidget->addTab(newTab, "Icon Set");
+}

@@ -5,6 +5,8 @@
 #include <memory>
 #include "model/iconset.h"
 #include "scannerstrategies/abstractscannerstrategy.h"
+#include "model/access/classificationtreemodel.h"
+#include "model/access/iconlistmodel.h"
 
 class IconSetOperator
 {

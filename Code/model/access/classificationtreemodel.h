@@ -2,8 +2,8 @@
 #define CLASSIFICATIONTREEMODEL_H
 
 #include <QAbstractItemModel>
-#include "model/iconset.h"
 #include "model/iconclassification.h"
+#include "model/iconset.h"
 
 /*!
  * Provides access to the underlying IconClassification tree.

@@ -14,6 +14,7 @@ void Coordinator::openIconSet(std::unique_ptr<AbstractScannerStrategy> scannerSt
     std::shared_ptr<IconSetOperator> newOperator(
                 new IconSetOperator(std::move(scannerStrategy)));
     openedIconSets.append(newOperator);
+    emit newIconSetOpened();
 }
 
 void Coordinator::openIconSet()
@@ -27,5 +28,5 @@ void Coordinator::openIconSet()
     std::unique_ptr<FreedesktopScannerStrategy> scanner(
                 new FreedesktopScannerStrategy(fileName));
 
-    openIconSet(std::move(scanner));w
+    openIconSet(std::move(scanner));
 }

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "model/access/classificationtreemodel.h"
+#include "model/access/iconlistmodel.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,15 +18,22 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    Ui::MainWindow *ui;
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private slots:
+public slots:
     void on_actionOpen_triggered();
 
-private:
-    Ui::MainWindow *ui;
+public slots:
+    void displayNewIconSet(IconListModel *iconModel,
+                           ClassificationTreeModel *classificationModel);
+signals:
+    void actionOpenIconSet();
+
 };
 
 #endif // MAINWINDOW_H
