@@ -11,8 +11,15 @@
 class IconSetOperator
 {
 private:    
+    //! The scanner used for loading and saving the maintained IconSet
     std::unique_ptr<AbstractScannerStrategy> scannerStrategy;
+    //! The IconSet maintained by this IconSetOperator
     std::unique_ptr<IconSet> iconSet;
+    //! Provides acces to the icon data for the view classes
+    std::unique_ptr<IconListModel> iconModel;
+    //! Provides acces to the classifications for the view classes
+    std::unique_ptr<ClassificationTreeModel> classificationModel;
+    //! Keeps track of applied actions to allow undo/redo
     QUndoStack undoStack;
 
 public:
@@ -23,6 +30,9 @@ public:
      */
     IconSetOperator(std::unique_ptr<AbstractScannerStrategy> scannerStrategy);
     //TODO: Define functions for operations on IconSets
+
+    IconListModel* getIconListModel();
+    ClassificationTreeModel* getClassificationTreeModel();
 };
 
 #endif // ICONSETOPERATOR_H
