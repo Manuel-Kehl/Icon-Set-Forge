@@ -4,13 +4,14 @@
 #include <QAbstractItemModel>
 #include "model/iconclassification.h"
 #include "model/iconset.h"
+#include "model/access/iconsetobserver.h"
 
 /*!
  * Provides access to the underlying IconClassification tree.
  * Can be passed to a QTreeView for visualising.
  *
  */
-class ClassificationTreeModel : public QAbstractItemModel
+class ClassificationTreeModel : public QAbstractItemModel, IconSetObserver
 {
 private:
     /*!
@@ -31,7 +32,8 @@ private:
 
 public:
     ClassificationTreeModel(QObject *parent, IconSet* dataSource);
-
+    //! Observer's update function, that emits the dataChanged signal
+    void update();
     /*
      * QAbstractItemModel <i>Overrides</i> begin here. Consult the
      * <a href="http://qt-project.org/doc/qt-4.8/qabstractitemmodel.html">
