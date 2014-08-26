@@ -26,9 +26,17 @@ public:
     ~MainWindow();
 
 public slots:
+    /*!
+     * To be called when an IconSet is to be displayed in a new Tab.
+     * \param iconModel The Icon data.
+     * \param classificationModel The IconClassification data.
+     */
     void displayNewIconSet(IconListModel *iconModel,
                            ClassificationTreeModel *classificationModel);
 signals:
+    /*!
+     * This signal is emitted when the "openIconSet" action has been triggered.
+     */
     void actionOpenIconSet();
 
 };

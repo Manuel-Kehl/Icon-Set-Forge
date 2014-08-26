@@ -9,6 +9,11 @@
 #include "model/access/classificationtreemodel.h"
 #include "model/access/iconlistmodel.h"
 
+/*!
+ * The central maintainer of all currently opened IconSets.
+ * It also keeps track of which IconSet is active and automatically
+ * routes operations to the correct IconSet.
+ */
 class Coordinator : public QObject
 {
     Q_OBJECT
@@ -32,6 +37,12 @@ public slots:
     void openIconSet();
 
 signals:
+    /*!
+     * This signal is emitted, whenever a new IconSet has been opened to inform
+     * potential view classes, that are meant to display that IconSet.
+     * \param iconModel Provides Icon data.
+     * \param ClassificationModel Provices IconClassification data.
+     */
     void newIconSetOpened(IconListModel *iconModel,
                           ClassificationTreeModel *ClassificationModel);
 

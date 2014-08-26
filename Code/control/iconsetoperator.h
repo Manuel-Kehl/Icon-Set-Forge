@@ -8,6 +8,15 @@
 #include "model/access/classificationtreemodel.h"
 #include "model/access/iconlistmodel.h"
 
+/*!
+ * Each instance of this class is responsible for loading, owning, maintaining
+ * and applying operations on one specific IconSet object.
+ * Therefore it also maintains the AbstractScannerStrategy that the IconSet
+ * has been loaded with, the IconListModel and ClassificationTreeModel instances
+ * that belong to the particular IconSet and a QUndoStack that keeps track
+ * of the operations that have been applied.
+ * It is to be addressed when changes are to be made to the particular IconSet.
+ */
 class IconSetOperator
 {
 private:    
