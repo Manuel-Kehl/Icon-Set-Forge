@@ -27,7 +27,9 @@ SOURCES +=\
     model/iconcomponent.cpp \
     model/icongroup.cpp \
     model/access/iconlistmodel.cpp \
-    scannerstrategies/freedesktopscannerstrategy.cpp
+    scannerstrategies/freedesktopscannerstrategy.cpp \
+    control/coordinator.cpp \
+    control/iconsetoperator.cpp
 
 HEADERS  += \
     view/iconsetbrowser.h \
@@ -42,7 +44,9 @@ HEADERS  += \
     model/iconcomponent.h \
     model/icongroup.h \
     model/access/iconlistmodel.h \
-    scannerstrategies/freedesktopscannerstrategy.h
+    scannerstrategies/freedesktopscannerstrategy.h \
+    control/coordinator.h \
+    control/iconsetoperator.h
 
 FORMS    += mainwindow.ui
 
