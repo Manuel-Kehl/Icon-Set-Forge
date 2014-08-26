@@ -16,5 +16,4 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    ui->tabWidget->addTab(new IconSetBrowser(this), "Icon Set");
 }
