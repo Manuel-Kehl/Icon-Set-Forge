@@ -7,15 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // Connect the action's trigger signal to this classes public "open" signal
+    QObject::connect(ui->actionOpen, SIGNAL(triggered()),
+                     this, SIGNAL(actionOpenIconSet()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_actionOpen_triggered()
-{
 }
 
 void MainWindow::displayNewIconSet(IconListModel *iconModel,

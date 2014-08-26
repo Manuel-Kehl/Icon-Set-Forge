@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
     // Connect the corresponding signals and slots
     QObject::connect(&w, SIGNAL(actionOpenIconSet()),
                      &c, SLOT(openIconSet()));
-    QObject::connect(&c, SIGNAL(newIconSetOpened()),
+    QObject::connect(&c, SIGNAL(newIconSetOpened(IconListModel*,
+                                                 ClassificationTreeModel*)),
                      &w, SLOT(displayNewIconSet(IconListModel*,
                                                 ClassificationTreeModel*)));
 

@@ -3,7 +3,7 @@
 IconSetOperator::IconSetOperator(
         std::unique_ptr<AbstractScannerStrategy> scannerStrategy) :
     scannerStrategy(std::move(scannerStrategy)),
-    iconSet(std::move(scannerStrategy->loadIconSet())),
+    iconSet(std::move(this->scannerStrategy->loadIconSet())),
     iconModel(new  IconListModel(nullptr, iconSet.get())),
     classificationModel(new ClassificationTreeModel(nullptr, iconSet.get()))
 {

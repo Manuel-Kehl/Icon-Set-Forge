@@ -26,9 +26,6 @@ public:
     ~MainWindow();
 
 public slots:
-    void on_actionOpen_triggered();
-
-public slots:
     void displayNewIconSet(IconListModel *iconModel,
                            ClassificationTreeModel *classificationModel);
 signals:
