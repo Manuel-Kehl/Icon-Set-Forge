@@ -26,3 +26,15 @@ IconClassification *IconSet::getClassifications()
     // Return a pointer without releasing ownership
     return classifications.get();
 }
+
+void IconSet::addObserver(IconSetObserver *observer)
+{
+    this->observers.append(observer);
+}
+
+void IconSet::notifyObservers()
+{
+    for (auto observer : observers) {
+        observer->update();
+    }
+}

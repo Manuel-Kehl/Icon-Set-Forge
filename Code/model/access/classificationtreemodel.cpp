@@ -9,6 +9,14 @@ ClassificationTreeModel::ClassificationTreeModel(
     root = dataSource->getClassifications();
 }
 
+void ClassificationTreeModel::update()
+{
+    QModelIndex start = createIndex(0, 0, root);
+    QModelIndex end = createIndex(rowCount(start), columnCount(start), root);
+    //TODO think about optmization by not updating ALL classifications
+    emit dataChanged(start, end);
+}
+
 IconClassification *ClassificationTreeModel::indexToNode(
         const QModelIndex &index) const
 {
@@ -77,7 +85,6 @@ int ClassificationTreeModel::rowCount(const QModelIndex &parentIndex) const
 
 int ClassificationTreeModel::columnCount(const QModelIndex &parentIndex) const
 {
-    //TODO: Proper implementation
     return 3;
 }
 

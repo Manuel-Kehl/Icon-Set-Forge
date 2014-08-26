@@ -1,29 +1,17 @@
 #include <QLabel>
 #include <QTreeView>
 #include <QListView>
-#include <QFileDialog>
 #include <memory>
 #include "iconsetbrowser.h"
-#include "model/iconset.h"
 #include "model/access/classificationtreemodel.h"
 #include "model/access/iconlistmodel.h"
-#include "control/scannerstrategies/freedesktopscannerstrategy.h"
 
-IconSetBrowser::IconSetBrowser(QWidget *parent) :
-    QWidget(parent)
+IconSetBrowser::IconSetBrowser(IconListModel *iconModel,
+                               ClassificationTreeModel *classificationModel,
+                               QWidget *parent) :    QWidget(parent)
 {
     // TODO: A lot :-) This is basically to be considered testing code
     BorderLayout *layout = new BorderLayout(this);
-
-    //Filechooser
-    QString fileName = QFileDialog::getOpenFileName(this,
-        "Open Icon Set", "/usr/share/icons",
-            "Freedesktop index.theme Files (index.theme)");
-
-    FreedesktopScannerStrategy scanner =
-            FreedesktopScannerStrategy(fileName);
-
-    IconSet* iconSet = scanner.loadIconSet().release();
 
     // List View
     QListView *listView = new QListView(this);
@@ -33,15 +21,11 @@ IconSetBrowser::IconSetBrowser(QWidget *parent) :
     listView->setGridSize(QSize(100, 100));
     listView->setResizeMode(QListView::Adjust);
     listView->setWordWrap(true);
-
-    IconListModel *listModel = new IconListModel(this, iconSet);
-    listView->setModel(listModel);
+    listView->setModel(iconModel);
 
     // Tree View
     QTreeView *treeView = new QTreeView(this);
-    ClassificationTreeModel *treeModel =
-            new ClassificationTreeModel(this, iconSet);
-    treeView->setModel(treeModel);
+    treeView->setModel(classificationModel);
 
     // Resize columns after the model has been set
     treeView->resizeColumnToContents(0);

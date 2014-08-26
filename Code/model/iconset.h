@@ -6,6 +6,7 @@
 #include "model/icon.h"
 #include "model/iconclassification.h"
 #include "model/icongroup.h"
+#include "model/access/iconsetobserver.h"
 
 /*!
  * The model representation of an icon set.
@@ -26,6 +27,8 @@ private:
      */
     std::unique_ptr<IconClassification> classifications;
     std::unique_ptr<QVector<IconGroup>> groups;
+    //! The IconSetObservers to be notified upon data change
+    QVector<IconSetObserver*> observers;
 public:
     IconSet(
             std::unique_ptr<QVector<Icon>> icons,
@@ -41,6 +44,10 @@ public:
      * of the classifications is retained by IconSet.
      */
     IconClassification* getClassifications();
+    //! Adds an IconSetObserver to this IconSet
+    void addObserver(IconSetObserver* observer);
+    //! Notifies all attachted IconSetObservers that data may have changed
+    void notifyObservers();
 };
 
 #endif // ICONSET_H

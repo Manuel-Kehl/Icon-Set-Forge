@@ -8,6 +8,14 @@ IconListModel::IconListModel(QObject *parent, IconSet *dataSource)
     this->iconSet = dataSource;
 }
 
+void IconListModel::update()
+{
+    QModelIndex start = createIndex(0,0);
+    QModelIndex end = createIndex(rowCount(), 0);
+    //TODO think about optmization by not emitting dataChanged for ALL icons
+    emit dataChanged(start, end);
+}
+
 QVariant IconListModel::data(const QModelIndex &index, int role) const
 {
     int i = index.row();
