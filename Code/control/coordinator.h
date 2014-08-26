@@ -21,6 +21,11 @@ public:
      * The resulting instance is thereafter maintained by this class.
      */
     void openIconSet(std::unique_ptr<AbstractScannerStrategy> scannerStrategy);
+    /*!
+     * This function displays a filechooser and opens the selected IconSet.
+     * The resulting instance is thereafter maintained by this class.
+     */
+    void openIconSet();
 
 public slots:
     //TODO: Define slots as described in the class diagram
