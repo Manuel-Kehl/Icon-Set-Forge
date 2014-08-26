@@ -47,11 +47,18 @@ package model {
 		class IconListModel {
 			IconSet* iconSet
 		}
+		
+		class IconSetObserver {
+			+ {abstract} update()
+		}
+		ClassificationTreeModel --|> IconSetObserver
+		IconListModel --|> IconSetObserver
 	}
 	
 	Icon -- IconClassification
 	IconSet *-- Icon
 	IconSet *-- IconClassification
+	IconSet .. IconSetObserver : notifies >
 	IconClassification *-- IconClassification : organized as a tree
 	IconComponent <|- Icon
 	IconComponent <|-- IconGroup
@@ -83,6 +90,8 @@ package control {
 	class IconSetOperator {
 		unique_ptr<IconSet> iconSet
 		unique_ptr<AbstractScannerStrategy> scannerStrategy
+		unique_ptr<IconListModel> iconModel
+		unique_ptr<ClassificationTreeModel> classificationModel
 		QUndoStack undoStack
 		+ IconSetOperator(AbstractScannerStrategy scannerStrategy)
 		+ void applyOperation(some action)
@@ -103,12 +112,15 @@ package scannerstrategies {
 
 
 MainWindow .. Coordinator : sends action signals >
+MainWindow .. Coordinator : < sends update signals when active set switched
 MainWindow *-- IconSetBrowser
 IconSetBrowser .. IconListModel : < provides data
 IconSetBrowser .. ClassificationTreeModel : < provides data
 IconSetOperator *-- IconSet : owns >
+IconSetOperator *-- AbstractScannerStrategy : owns >
+IconSetOperator *-- IconListModel : owns >
+IconSetOperator *-- ClassificationTreeModel : owns >
 AbstractScannerStrategy --> IconSet : instantiates >
-IconSetOperator *-- AbstractScannerStrategy
 
 
 note top of GenericXmlScannerStrategy
