@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     // Connect the action's trigger signal to this classes public "open" signal
     QObject::connect(ui->actionOpen, SIGNAL(triggered()),
                      this, SIGNAL(actionOpenIconSet()));
+    QObject::connect(ui->actionDeleteIcon, SIGNAL(triggered()),
+                     this, SIGNAL(actionDeleteIcon()));
 }
 
 MainWindow::~MainWindow()

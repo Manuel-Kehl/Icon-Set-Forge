@@ -38,6 +38,7 @@ signals:
      * This signal is emitted when the "openIconSet" action has been triggered.
      */
     void actionOpenIconSet();
+    void actionDeleteIcon();
 
 };
 
