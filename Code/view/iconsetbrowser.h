@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "layouts/borderlayout.h"
+#include "model/access/classificationtreemodel.h"
+#include "model/access/iconlistmodel.h"
 
 /*!
  * A special QWidget derivate that contains an IconSetView and a QTreeView
@@ -14,7 +16,9 @@ class IconSetBrowser : public QWidget
 {
     Q_OBJECT
 public:
-    explicit IconSetBrowser(QWidget *parent = 0);
+    explicit IconSetBrowser(IconListModel *iconModel,
+                            ClassificationTreeModel *classificationModel,
+                            QWidget *parent = 0);
 
 signals:
 
