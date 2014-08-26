@@ -53,8 +53,7 @@ as possible!
 sets
 - A simple implementation of `AbstractScannerStrategy` to load 
 [Freedesktop Icon Themes](http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html)
-- A **rudimentary** user interface to show that the underlying code is of 
-practical relevance
+- A simple user interface that can display icon sets and classifications
 
 ## From the original author:
 
