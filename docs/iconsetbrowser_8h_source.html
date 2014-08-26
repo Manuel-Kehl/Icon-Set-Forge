@@ -95,28 +95,34 @@ $(document).ready(function(){initNavTree('iconsetbrowser_8h_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;layouts/borderlayout.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classIconSetBrowser.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconSetBrowser.html">IconSetBrowser</a> : <span class="keyword">public</span> QWidget</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classIconSetBrowser.html">IconSetBrowser</a>(QWidget *parent = 0);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;signals:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/access/classificationtreemodel.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;model/access/iconlistmodel.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classIconSetBrowser.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconSetBrowser.html">IconSetBrowser</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classIconSetBrowser.html">IconSetBrowser</a>(<a class="code" href="classIconListModel.html">IconListModel</a> *iconModel,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                            <a class="code" href="classClassificationTreeModel.html">ClassificationTreeModel</a> *classificationModel,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                            QWidget *parent = 0);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;signals:</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif // ICONSETBROWSER_H</span></div>
-<div class="ttc" id="classIconSetBrowser_html"><div class="ttname"><a href="classIconSetBrowser.html">IconSetBrowser</a></div><div class="ttdoc">A special QWidget derivate that contains an IconSetView and a QTreeView for filtering and grouping th...</div><div class="ttdef"><b>Definition:</b> iconsetbrowser.h:13</div></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // ICONSETBROWSER_H</span></div>
+<div class="ttc" id="classClassificationTreeModel_html"><div class="ttname"><a href="classClassificationTreeModel.html">ClassificationTreeModel</a></div><div class="ttdoc">Provides access to the underlying IconClassification tree. </div><div class="ttdef"><b>Definition:</b> classificationtreemodel.h:14</div></div>
+<div class="ttc" id="classIconListModel_html"><div class="ttname"><a href="classIconListModel.html">IconListModel</a></div><div class="ttdoc">This class provides data from an IconSet to be displayed in a QListView widget. </div><div class="ttdef"><b>Definition:</b> iconlistmodel.h:12</div></div>
+<div class="ttc" id="classIconSetBrowser_html"><div class="ttname"><a href="classIconSetBrowser.html">IconSetBrowser</a></div><div class="ttdoc">A special QWidget derivate that contains an IconSetView and a QTreeView for filtering and grouping th...</div><div class="ttdef"><b>Definition:</b> iconsetbrowser.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_25df93d0bc8158b162e151c518337ee1.html">Code</a></li><li class="navelem"><a class="el" href="dir_4eeb526b70dc28783c107a71e06d4bee.html">view</a></li><li class="navelem"><b>iconsetbrowser.h</b></li>
-    <li class="footer">Generated on Tue Aug 26 2014 14:27:01 for Icon Set Forge by
+    <li class="navelem"><a class="el" href="dir_b09cf65497ffb28d9c5f26abf2090a4f.html">Code</a></li><li class="navelem"><a class="el" href="dir_282f6c9569ad03c2b30bc8751f8e493b.html">view</a></li><li class="navelem"><b>iconsetbrowser.h</b></li>
+    <li class="footer">Generated on Tue Aug 26 2014 14:35:23 for Icon Set Forge by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

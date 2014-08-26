@@ -8,5 +8,6 @@ var classClassificationTreeModel =
     [ "index", "classClassificationTreeModel.html#a944d64289687de9c1395a6d9352a6360", null ],
     [ "parent", "classClassificationTreeModel.html#aecd9f7acf7a1d3e8ec7053d07d18ce7b", null ],
     [ "rowCount", "classClassificationTreeModel.html#a4a4319b33257557d8ef6ce5c84cefb58", null ],
-    [ "setData", "classClassificationTreeModel.html#a2da1774f6d3e6de53f2030e49d636a5e", null ]
+    [ "setData", "classClassificationTreeModel.html#a2da1774f6d3e6de53f2030e49d636a5e", null ],
+    [ "update", "classClassificationTreeModel.html#a91cffd25ad43a939f4fc3fb0b71d9996", null ]
 ];

@@ -87,6 +87,8 @@ $(document).ready(function(){initNavTree('classMainWindow.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Public Slots</a> &#124;
+<a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classMainWindow-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -107,6 +109,19 @@ Inheritance diagram for MainWindow:</div>
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Public Slots</h2></td></tr>
+<tr class="memitem:ae01b3256ca7c2de4cc6d5a7773e55354"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ae01b3256ca7c2de4cc6d5a7773e55354">displayNewIconSet</a> (<a class="el" href="classIconListModel.html">IconListModel</a> *iconModel, <a class="el" href="classClassificationTreeModel.html">ClassificationTreeModel</a> *classificationModel)</td></tr>
+<tr class="memdesc:ae01b3256ca7c2de4cc6d5a7773e55354"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called when an <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> is to be displayed in a new Tab.  <a href="#ae01b3256ca7c2de4cc6d5a7773e55354">More...</a><br/></td></tr>
+<tr class="separator:ae01b3256ca7c2de4cc6d5a7773e55354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:a4c0056a0187f3b03180496c5e6441f53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c0056a0187f3b03180496c5e6441f53"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#a4c0056a0187f3b03180496c5e6441f53">actionOpenIconSet</a> ()</td></tr>
+<tr class="memdesc:a4c0056a0187f3b03180496c5e6441f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">This signal is emitted when the "openIconSet" action has been triggered. <br/></td></tr>
+<tr class="separator:a4c0056a0187f3b03180496c5e6441f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8b244be8b7b7db1b08de2a2acb9409db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b244be8b7b7db1b08de2a2acb9409db"></a>
@@ -116,7 +131,51 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The main user interface class of the application. </p>
 <p>It provides a context for loading (multiple) icon sets and a menu to interact with. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae01b3256ca7c2de4cc6d5a7773e55354"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::displayNewIconSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIconListModel.html">IconListModel</a> *&#160;</td>
+          <td class="paramname"><em>iconModel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classClassificationTreeModel.html">ClassificationTreeModel</a> *&#160;</td>
+          <td class="paramname"><em>classificationModel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To be called when an <a class="el" href="classIconSet.html" title="The model representation of an icon set. ">IconSet</a> is to be displayed in a new Tab. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iconModel</td><td>The <a class="el" href="classIcon.html" title="Describes a single icon. ">Icon</a> data. </td></tr>
+    <tr><td class="paramname">classificationModel</td><td>The <a class="el" href="classIconClassification.html" title="Defines a way of classifying icons. ">IconClassification</a> data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Code/view/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
 <li>Code/view/mainwindow.cpp</li>
 </ul>
@@ -126,7 +185,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classMainWindow.html">MainWindow</a></li>
-    <li class="footer">Generated on Tue Aug 26 2014 14:27:01 for Icon Set Forge by
+    <li class="footer">Generated on Tue Aug 26 2014 14:35:23 for Icon Set Forge by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

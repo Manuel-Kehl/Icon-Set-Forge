@@ -94,35 +94,45 @@ $(document).ready(function(){initNavTree('mainwindow_8h_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAINWINDOW_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>Ui {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a>;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classMainWindow.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMainWindow.html">MainWindow</a>(QWidget *parent = 0);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ~<a class="code" href="classMainWindow.html">MainWindow</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> on_actionOpen_triggered();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Ui::MainWindow *ui;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // MAINWINDOW_H</span></div>
-<div class="ttc" id="classMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdoc">The main user interface class of the application. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:15</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;model/access/classificationtreemodel.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/access/iconlistmodel.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>Ui {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classMainWindow.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Ui::MainWindow *ui;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMainWindow.html">MainWindow</a>(QWidget *parent = 0);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ~<a class="code" href="classMainWindow.html">MainWindow</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#ae01b3256ca7c2de4cc6d5a7773e55354">displayNewIconSet</a>(<a class="code" href="classIconListModel.html">IconListModel</a> *iconModel,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                           <a class="code" href="classClassificationTreeModel.html">ClassificationTreeModel</a> *classificationModel);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;signals:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a4c0056a0187f3b03180496c5e6441f53">actionOpenIconSet</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif // MAINWINDOW_H</span></div>
+<div class="ttc" id="classClassificationTreeModel_html"><div class="ttname"><a href="classClassificationTreeModel.html">ClassificationTreeModel</a></div><div class="ttdoc">Provides access to the underlying IconClassification tree. </div><div class="ttdef"><b>Definition:</b> classificationtreemodel.h:14</div></div>
+<div class="ttc" id="classIconListModel_html"><div class="ttname"><a href="classIconListModel.html">IconListModel</a></div><div class="ttdoc">This class provides data from an IconSet to be displayed in a QListView widget. </div><div class="ttdef"><b>Definition:</b> iconlistmodel.h:12</div></div>
+<div class="ttc" id="classMainWindow_html_a4c0056a0187f3b03180496c5e6441f53"><div class="ttname"><a href="classMainWindow.html#a4c0056a0187f3b03180496c5e6441f53">MainWindow::actionOpenIconSet</a></div><div class="ttdeci">void actionOpenIconSet()</div><div class="ttdoc">This signal is emitted when the &quot;openIconSet&quot; action has been triggered. </div></div>
+<div class="ttc" id="classMainWindow_html_ae01b3256ca7c2de4cc6d5a7773e55354"><div class="ttname"><a href="classMainWindow.html#ae01b3256ca7c2de4cc6d5a7773e55354">MainWindow::displayNewIconSet</a></div><div class="ttdeci">void displayNewIconSet(IconListModel *iconModel, ClassificationTreeModel *classificationModel)</div><div class="ttdoc">To be called when an IconSet is to be displayed in a new Tab. </div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:20</div></div>
+<div class="ttc" id="classMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdoc">The main user interface class of the application. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_25df93d0bc8158b162e151c518337ee1.html">Code</a></li><li class="navelem"><a class="el" href="dir_4eeb526b70dc28783c107a71e06d4bee.html">view</a></li><li class="navelem"><b>mainwindow.h</b></li>
-    <li class="footer">Generated on Tue Aug 26 2014 14:27:01 for Icon Set Forge by
+    <li class="navelem"><a class="el" href="dir_b09cf65497ffb28d9c5f26abf2090a4f.html">Code</a></li><li class="navelem"><a class="el" href="dir_282f6c9569ad03c2b30bc8751f8e493b.html">view</a></li><li class="navelem"><b>mainwindow.h</b></li>
+    <li class="footer">Generated on Tue Aug 26 2014 14:35:23 for Icon Set Forge by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

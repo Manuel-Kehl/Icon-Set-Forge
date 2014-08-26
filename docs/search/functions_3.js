@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['icon',['Icon',['../classIcon.html#a12a4c2b9440a981c234862f23e32ca4d',1,'Icon']]],
-  ['iconclassification',['IconClassification',['../classIconClassification.html#a8621b2619c06819f1bcf8ca578b29760',1,'IconClassification']]],
-  ['iconcount',['iconCount',['../classIconSet.html#a092d402ad570afb80a307bca0fe65f03',1,'IconSet']]],
-  ['insertintoclassification',['insertIntoClassification',['../classIcon.html#a9fbfde0b288570bfad2853d80dc1c8ad',1,'Icon']]],
-  ['isconflicting',['isConflicting',['../classIconClassification.html#a4f06340d6fedfc8d281e1e4276adec85',1,'IconClassification']]],
-  ['isgroupedby',['isGroupedBy',['../classIconClassification.html#a22a890e1c4a0375aba058ff0c3c41924',1,'IconClassification']]],
-  ['isimmutable',['isImmutable',['../classIconClassification.html#a1c557f8d07dc9c5de5873de9ec58020f',1,'IconClassification']]],
-  ['isoflinktype',['isOfLinkType',['../classIcon.html#accc90470c939e37efedd1e929c143ee7',1,'Icon']]],
-  ['isselected',['isSelected',['../classIconClassification.html#a50f2db3ae8c599ade904782bab80653b',1,'IconClassification']]]
+  ['getchildindexof',['getChildIndexOf',['../classIconClassification.html#a73c9929f067c5b01cec9e22005ee65bd',1,'IconClassification']]],
+  ['getchildren',['getChildren',['../classIconClassification.html#a39f0a5f1d82e098657af59a6d1947941',1,'IconClassification']]],
+  ['getclassifications',['getClassifications',['../classIconSet.html#a2dd0baffc095feaeef9e252b0806fa6e',1,'IconSet']]],
+  ['geticon',['getIcon',['../classIconSet.html#a95693028ad35d465cde119d0e0d6df55',1,'IconSet']]],
+  ['getparent',['getParent',['../classIconClassification.html#a80cdc19c11ee1cc279ba916c2a6de40e',1,'IconClassification']]],
+  ['getrepresentativeimage',['getRepresentativeImage',['../classIcon.html#ae2fa48e08ef9ee7bb8b182ce5a72816e',1,'Icon::getRepresentativeImage()'],['../classIconComponent.html#ad6d063038d3f0eb2bc78e6850ed0f955',1,'IconComponent::getRepresentativeImage()'],['../classIconGroup.html#a8e23dbe0634de743cf1f9a9466578505',1,'IconGroup::getRepresentativeImage()']]]
 ];

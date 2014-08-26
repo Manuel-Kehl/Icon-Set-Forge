@@ -98,37 +98,44 @@ $(document).ready(function(){initNavTree('iconset_8h_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/icon.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;model/iconclassification.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;model/icongroup.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classIconSet.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconSet.html">IconSet</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::unique_ptr&lt;QVector&lt;Icon&gt;&gt; icons;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::unique_ptr&lt;IconClassification&gt; classifications;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::unique_ptr&lt;QVector&lt;IconGroup&gt;&gt; groups;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classIconSet.html">IconSet</a>(</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            std::unique_ptr&lt;QVector&lt;Icon&gt;&gt; icons,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            std::unique_ptr&lt;IconClassification&gt; classifications</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            );</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> <a class="code" href="classIcon.html">Icon</a> &amp;<a class="code" href="classIconSet.html#a95693028ad35d465cde119d0e0d6df55">getIcon</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIconSet.html#a092d402ad570afb80a307bca0fe65f03">iconCount</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classIconClassification.html">IconClassification</a>* <a class="code" href="classIconSet.html#a2dd0baffc095feaeef9e252b0806fa6e">getClassifications</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif // ICONSET_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;model/access/iconsetobserver.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classIconSet.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconSet.html">IconSet</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::unique_ptr&lt;QVector&lt;Icon&gt;&gt; icons;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::unique_ptr&lt;IconClassification&gt; classifications;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::unique_ptr&lt;QVector&lt;IconGroup&gt;&gt; groups;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QVector&lt;IconSetObserver*&gt; observers;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classIconSet.html">IconSet</a>(</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            std::unique_ptr&lt;QVector&lt;Icon&gt;&gt; icons,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            std::unique_ptr&lt;IconClassification&gt; classifications</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            );</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> <a class="code" href="classIcon.html">Icon</a> &amp;<a class="code" href="classIconSet.html#a95693028ad35d465cde119d0e0d6df55">getIcon</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIconSet.html#a092d402ad570afb80a307bca0fe65f03">iconCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classIconClassification.html">IconClassification</a>* <a class="code" href="classIconSet.html#a2dd0baffc095feaeef9e252b0806fa6e">getClassifications</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIconSet.html#aabf6409e7e26aea3cf0774939c923b3e">addObserver</a>(<a class="code" href="classIconSetObserver.html">IconSetObserver</a>* observer);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIconSet.html#a30f492ebd507dbe23b40641c386e95cb">notifyObservers</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // ICONSET_H</span></div>
 <div class="ttc" id="classIconSet_html_a95693028ad35d465cde119d0e0d6df55"><div class="ttname"><a href="classIconSet.html#a95693028ad35d465cde119d0e0d6df55">IconSet::getIcon</a></div><div class="ttdeci">const Icon &amp; getIcon(int index) const </div><div class="ttdoc">Returns the icon at the given index. </div><div class="ttdef"><b>Definition:</b> iconset.cpp:14</div></div>
 <div class="ttc" id="classIconSet_html_a2dd0baffc095feaeef9e252b0806fa6e"><div class="ttname"><a href="classIconSet.html#a2dd0baffc095feaeef9e252b0806fa6e">IconSet::getClassifications</a></div><div class="ttdeci">IconClassification * getClassifications()</div><div class="ttdoc">Returns a pointer to the the root classification of this IconSet. </div><div class="ttdef"><b>Definition:</b> iconset.cpp:24</div></div>
-<div class="ttc" id="classIconSet_html"><div class="ttname"><a href="classIconSet.html">IconSet</a></div><div class="ttdoc">The model representation of an icon set. </div><div class="ttdef"><b>Definition:</b> iconset.h:18</div></div>
+<div class="ttc" id="classIconSet_html"><div class="ttname"><a href="classIconSet.html">IconSet</a></div><div class="ttdoc">The model representation of an icon set. </div><div class="ttdef"><b>Definition:</b> iconset.h:19</div></div>
 <div class="ttc" id="classIconClassification_html"><div class="ttname"><a href="classIconClassification.html">IconClassification</a></div><div class="ttdoc">Defines a way of classifying icons. </div><div class="ttdef"><b>Definition:</b> iconclassification.h:15</div></div>
 <div class="ttc" id="classIcon_html"><div class="ttname"><a href="classIcon.html">Icon</a></div><div class="ttdoc">Describes a single icon. </div><div class="ttdef"><b>Definition:</b> icon.h:16</div></div>
+<div class="ttc" id="classIconSetObserver_html"><div class="ttname"><a href="classIconSetObserver.html">IconSetObserver</a></div><div class="ttdef"><b>Definition:</b> iconsetobserver.h:4</div></div>
 <div class="ttc" id="classIconSet_html_a092d402ad570afb80a307bca0fe65f03"><div class="ttname"><a href="classIconSet.html#a092d402ad570afb80a307bca0fe65f03">IconSet::iconCount</a></div><div class="ttdeci">int iconCount() const </div><div class="ttdoc">Returns the number of icons contained in the IconSet. </div><div class="ttdef"><b>Definition:</b> iconset.cpp:19</div></div>
+<div class="ttc" id="classIconSet_html_a30f492ebd507dbe23b40641c386e95cb"><div class="ttname"><a href="classIconSet.html#a30f492ebd507dbe23b40641c386e95cb">IconSet::notifyObservers</a></div><div class="ttdeci">void notifyObservers()</div><div class="ttdoc">Notifies all attachted IconSetObservers that data may have changed. </div><div class="ttdef"><b>Definition:</b> iconset.cpp:35</div></div>
+<div class="ttc" id="classIconSet_html_aabf6409e7e26aea3cf0774939c923b3e"><div class="ttname"><a href="classIconSet.html#aabf6409e7e26aea3cf0774939c923b3e">IconSet::addObserver</a></div><div class="ttdeci">void addObserver(IconSetObserver *observer)</div><div class="ttdoc">Adds an IconSetObserver to this IconSet. </div><div class="ttdef"><b>Definition:</b> iconset.cpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_25df93d0bc8158b162e151c518337ee1.html">Code</a></li><li class="navelem"><a class="el" href="dir_eefa9e7cfb50cdcab5e6e03644458118.html">model</a></li><li class="navelem"><b>iconset.h</b></li>
-    <li class="footer">Generated on Tue Aug 26 2014 14:27:01 for Icon Set Forge by
+    <li class="navelem"><a class="el" href="dir_b09cf65497ffb28d9c5f26abf2090a4f.html">Code</a></li><li class="navelem"><a class="el" href="dir_b905cfd6fe1451efb269a33726b144ae.html">model</a></li><li class="navelem"><b>iconset.h</b></li>
+    <li class="footer">Generated on Tue Aug 26 2014 14:35:23 for Icon Set Forge by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
