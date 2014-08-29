@@ -6,7 +6,7 @@
 
 class IconSetCommand : public QUndoCommand
 {
-private:
+protected:
     //! The IconSet instance to perform the command on
     IconSet* data;
 
