@@ -7,6 +7,7 @@ ClassificationTreeModel::ClassificationTreeModel(
         IconSet* dataSource) : QAbstractItemModel(parent)
 {
     root = dataSource->getClassifications();
+    dataSource->addObserver(this);
 }
 
 void ClassificationTreeModel::update()

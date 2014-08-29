@@ -6,6 +6,7 @@ IconListModel::IconListModel(QObject *parent, IconSet *dataSource)
     : QAbstractListModel(parent)
 {
     this->iconSet = dataSource;
+    dataSource->addObserver(this);
 }
 
 void IconListModel::update()

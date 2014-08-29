@@ -24,11 +24,13 @@ int IconSet::iconCount() const
 void IconSet::deleteIcon(int index, int count)
 {
     icons->remove(index, count);
+    notifyObservers();
 }
 
 void IconSet::insertIcon(int index, Icon icon)
 {
     icons->insert(index, icon);
+    notifyObservers();
 }
 
 IconClassification *IconSet::getClassifications()
