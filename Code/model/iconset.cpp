@@ -21,6 +21,11 @@ int IconSet::iconCount() const
     return icons->size();
 }
 
+void IconSet::deleteIcon(int index, int count)
+{
+    icons->remove(index, count);
+}
+
 IconClassification *IconSet::getClassifications()
 {
     // Return a pointer without releasing ownership

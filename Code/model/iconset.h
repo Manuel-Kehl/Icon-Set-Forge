@@ -39,6 +39,12 @@ public:
     //! Returns the number of icons contained in the IconSet
     int iconCount() const;
     /*!
+     * Deletes a specified number of Icons at the given position
+     * \param index The index of the first Icon to be removed
+     * \param count The amount of Icons to delete
+     */
+    void deleteIcon(int index, int count = 1);
+    /*!
      * Returns a pointer to the the root classification of this IconSet.
      * The pointer is to be considered as a weak reference, as ownership
      * of the classifications is retained by IconSet.
