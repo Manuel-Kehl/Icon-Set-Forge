@@ -45,6 +45,12 @@ public:
      */
     void deleteIcon(int index, int count = 1);
     /*!
+     * Inserts an Icon at the given position.
+     * \param index The position to insert the new Icon
+     * \param icon The Icon to insert
+     */
+    void insertIcon(int index, Icon icon);
+    /*!
      * Returns a pointer to the the root classification of this IconSet.
      * The pointer is to be considered as a weak reference, as ownership
      * of the classifications is retained by IconSet.

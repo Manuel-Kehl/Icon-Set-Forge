@@ -26,6 +26,11 @@ void IconSet::deleteIcon(int index, int count)
     icons->remove(index, count);
 }
 
+void IconSet::insertIcon(int index, Icon icon)
+{
+    icons->insert(index, icon);
+}
+
 IconClassification *IconSet::getClassifications()
 {
     // Return a pointer without releasing ownership
