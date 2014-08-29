@@ -22,6 +22,6 @@ void DeleteIconCommand::undo()
     // Iterate deletedIcons in reverse Order
     for (int i = deletedIcons->size(); i > 0; i--) {
         // Insert previously deleted Icon into IconSet
-        data->insert(i, deletedIcons->at(i));
+        data->insertIcon(i, deletedIcons->at(i));
     }
 }
