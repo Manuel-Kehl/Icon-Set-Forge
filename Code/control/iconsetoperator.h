@@ -7,6 +7,7 @@
 #include "scannerstrategies/abstractscannerstrategy.h"
 #include "model/access/classificationtreemodel.h"
 #include "model/access/iconlistmodel.h"
+#include "control/commands/iconsetcommand.h"
 
 /*!
  * Each instance of this class is responsible for loading, owning, maintaining
@@ -42,6 +43,8 @@ public:
 
     IconListModel* getIconListModel();
     ClassificationTreeModel* getClassificationTreeModel();
+
+    void performCommand(IconSetCommand *command);
 };
 
 #endif // ICONSETOPERATOR_H

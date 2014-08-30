@@ -18,3 +18,10 @@ ClassificationTreeModel *IconSetOperator::getClassificationTreeModel()
 {
     return classificationModel.get();
 }
+
+void IconSetOperator::performCommand(IconSetCommand* command)
+{
+    //TODO: Check if command will get cleared or not!
+    command->setData(iconSet.get());
+    undoStack.push(command);
+}
