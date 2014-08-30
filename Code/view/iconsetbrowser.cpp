@@ -1,6 +1,5 @@
 #include <QLabel>
 #include <QTreeView>
-#include <QListView>
 #include <memory>
 #include "iconsetbrowser.h"
 #include "model/access/classificationtreemodel.h"
@@ -13,8 +12,8 @@ IconSetBrowser::IconSetBrowser(IconListModel *iconModel,
     // TODO: A lot :-) This is basically to be considered testing code
     BorderLayout *layout = new BorderLayout(this);
 
-    // List View
-    QListView *listView = new QListView(this);
+    // List Views
+    listView = new QListView(this);
 
     // Set up List View to display Icons
     listView->setViewMode(QListView::IconMode);
@@ -35,4 +34,9 @@ IconSetBrowser::IconSetBrowser(IconListModel *iconModel,
 
     layout->addWidget(listView, BorderLayout::Center);
     layout->addWidget(treeView, BorderLayout::West);
+}
+
+QModelIndexList IconSetBrowser::getSelectedIcons()
+{
+    return listView->selectionModel()->selectedIndexes();
 }

@@ -2,6 +2,8 @@
 #define ICONSETBROWSER_H
 
 #include <QWidget>
+#include <QListView>
+#include <QModelIndexList>
 #include "layouts/borderlayout.h"
 #include "model/access/classificationtreemodel.h"
 #include "model/access/iconlistmodel.h"
@@ -15,11 +17,19 @@
 class IconSetBrowser : public QWidget
 {
     Q_OBJECT
+private:
+    //! The QListView responsible for displaying the icons
+    QListView *listView;
+
 public:
     explicit IconSetBrowser(IconListModel *iconModel,
                             ClassificationTreeModel *classificationModel,
                             QWidget *parent = 0);
 
+    /*!
+     * Returns the index of the currently selected Icon.
+     */
+    QModelIndexList getSelectedIcons();
 signals:
 
 public slots:
