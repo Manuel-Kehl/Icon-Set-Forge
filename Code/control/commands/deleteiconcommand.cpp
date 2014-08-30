@@ -10,7 +10,9 @@ void DeleteIconCommand::redo()
 {
     // Add all Icons to the list, for later reconstruction
     for (int i = index; i < (index + count); i++) {
-        deletedIcons->append(data->getIcon(i));
+        Icon icon = data->getIcon(i);
+        //TODO: Fix Segfault
+        //deletedIcons->append(icon);
     }
 
     // Delete the actual Icons

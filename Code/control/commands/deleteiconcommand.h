@@ -12,7 +12,7 @@ private:
     int index;
     //! The amount of icons to delete
     int count;
-    //! Vector to keep track of the Icon instances delted with this command
+    //! Vector to keep track of the Icon instances deleted with this command
     std::unique_ptr<QVector<Icon>> deletedIcons;
 
 
