@@ -84,8 +84,8 @@ package control {
 		QVector<IconSetOperator> openIconSets
 		+openIconSet(AbstractScannerStrategy scannerStrategy)
 		..slots..
-		+setActiveIconSet(int index);
-		+applyOperation(some action)
+		+setActiveIconSet(int index)
+		+deleteIcon(int index)
 	}
 	class IconSetOperator {
 		unique_ptr<IconSet> iconSet
@@ -94,7 +94,7 @@ package control {
 		unique_ptr<ClassificationTreeModel> classificationModel
 		QUndoStack undoStack
 		+ IconSetOperator(AbstractScannerStrategy scannerStrategy)
-		+ void applyOperation(some action)
+		+ void performCommand(IconSetCommand command)
 	}
 	
 	Coordinator *-IconSetOperator
