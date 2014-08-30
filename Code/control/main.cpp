@@ -19,6 +19,9 @@ int main(int argc, char *argv[])
                                                  ClassificationTreeModel*)),
                      &w, SLOT(displayNewIconSet(IconListModel*,
                                                 ClassificationTreeModel*)));
+    QObject::connect(&w, SIGNAL(actionDeleteIcon(int, int)),
+                     &c, SLOT(deleteIcon(int, int)));
+
 
     w.show();
 
