@@ -2,13 +2,20 @@
 #include <QFileDialog>
 #include <QString>
 #include "scannerstrategies/freedesktopscannerstrategy.h"
+#include "control/commands/deleteiconcommand.h"
+
+IconSetOperator *Coordinator::getActiveIconSet()
+{
+    return openedIconSets.at(activeIconSetIndex).get();
+}
 
 Coordinator::Coordinator(QObject *parent) :
     QObject(parent)
 {
 }
 
-void Coordinator::openIconSet(std::unique_ptr<AbstractScannerStrategy> scannerStrategy)
+void Coordinator::openIconSet(
+        std::unique_ptr<AbstractScannerStrategy> scannerStrategy)
 {
     // Create new IconSetOperator which handles all other necessary operations
     std::shared_ptr<IconSetOperator> newOperator(
@@ -30,4 +37,9 @@ void Coordinator::openIconSet()
                 new FreedesktopScannerStrategy(fileName));
 
     openIconSet(std::move(scanner));
+}
+
+void Coordinator::deleteIcon(int index, int count)
+{
+    getActiveIconSet()->performCommand(new DeleteIconCommand(index, count));
 }

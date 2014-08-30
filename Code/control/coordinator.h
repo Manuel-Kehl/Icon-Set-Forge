@@ -18,8 +18,11 @@ class Coordinator : public QObject
 {
     Q_OBJECT
 private:
-    int activeIconSetIndex;
+    int activeIconSetIndex = 0; //TODO: Hardcoded Testvalue
     QVector<std::shared_ptr<IconSetOperator>> openedIconSets;
+
+    //! Returns a pointer to the currently active IconSetOperator
+    IconSetOperator* getActiveIconSet();
 
 public:
     explicit Coordinator(QObject *parent = 0);
@@ -35,6 +38,13 @@ public slots:
      * The resulting instance is thereafter maintained by this class.
      */
     void openIconSet();
+
+    /*!
+     * This function deletes Icons from the active IconSet.
+     * \param index The index of the Icon to be deleted.
+     * \param count The amoutn of Icons to delete.
+     */
+    void deleteIcon(int index, int count = 1);
 
 signals:
     /*!
