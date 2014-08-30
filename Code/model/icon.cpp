@@ -18,12 +18,11 @@ Icon::Icon(Icon* linkTo)
     link = linkTo;
 }
 
-bool Icon::addClassification(
-        std::shared_ptr<IconClassification> newClassification)
+bool Icon::addClassification(IconClassification *newClassification)
 {
     // Check all existing classifications for possible conflicts
     for (auto classification : classifications) {
-        if(newClassification->isConflicting(classification.get())) {
+        if (newClassification->isConflicting(classification)) {
             return false;
         }
     }
@@ -32,8 +31,7 @@ bool Icon::addClassification(
     return true;
 }
 
-bool Icon::insertIntoClassification(
-            std::shared_ptr<IconClassification> newClassification)
+bool Icon::insertIntoClassification(IconClassification *newClassification)
 {
     bool success = addClassification(newClassification);
     if (success) {

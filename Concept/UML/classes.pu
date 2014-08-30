@@ -31,7 +31,7 @@ package model {
 		QString name
 		QImage image
 		Icon* link
-		QVector<shared_ptr<IconClassification>> classifications
+		QVector<IconClassification*> classifications
 		+setImage(QImage image)
 		+setLink(QLink link)
 		+isLinkType()
