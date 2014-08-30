@@ -25,7 +25,7 @@ private:
      * Ownership between the IconClassification is shared between respective
      * parent and this Icon instance. Therefore std::shared_ptr is used.
      */
-    QVector<std::shared_ptr<IconClassification>> classifications;
+    QVector<IconClassification*> classifications;
     //! Stores a link to another Icon instance for representing linked icons
     Icon* link;
 public:
@@ -45,7 +45,7 @@ public:
      * \sa Icon::insertIntoClassification()
      */
     Icon(Icon *linkTo);
-    bool addClassification(std::shared_ptr<IconClassification> newClassification);
+    bool addClassification(IconClassification *newClassification);
     /*!
      * Assigns this Icon to the specified IconClassification and performs the
      * chain of InsertCommands defined by the IconClassification.
@@ -56,8 +56,7 @@ public:
      * \param classification
      * \return Whether or not the assignment was successful.
      */
-    bool insertIntoClassification(
-            std::shared_ptr<IconClassification> classification);
+    bool insertIntoClassification(IconClassification* classification);
     /*!
      * Returns whether the Icon is of type "link" or provides own image data.
      * \return true if link; false if it has an own QImage
