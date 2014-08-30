@@ -38,8 +38,10 @@ signals:
      * This signal is emitted when the "openIconSet" action has been triggered.
      */
     void actionOpenIconSet();
-    void actionDeleteIcon();
+    void actionDeleteIcon(int index, int count);
 
+private slots:
+    void on_actionDeleteIcon_triggered();
 };
 
 #endif // MAINWINDOW_H
