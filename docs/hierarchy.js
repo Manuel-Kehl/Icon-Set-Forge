@@ -11,6 +11,7 @@ var hierarchy =
     [ "IconSet", "classIconSet.html", null ],
     [ "IconSetObserver", "classIconSetObserver.html", [
       [ "ClassificationTreeModel", "classClassificationTreeModel.html", null ],
+      [ "IconFilterProxyModel", "classIconFilterProxyModel.html", null ],
       [ "IconListModel", "classIconListModel.html", null ]
     ] ],
     [ "IconSetOperator", "classIconSetOperator.html", null ],
@@ -29,6 +30,9 @@ var hierarchy =
     ] ],
     [ "QObject", null, [
       [ "Coordinator", "classCoordinator.html", null ]
+    ] ],
+    [ "QSortFilterProxyModel", null, [
+      [ "IconFilterProxyModel", "classIconFilterProxyModel.html", null ]
     ] ],
     [ "QWidget", null, [
       [ "IconSetBrowser", "classIconSetBrowser.html", null ]

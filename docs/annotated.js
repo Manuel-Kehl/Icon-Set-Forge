@@ -9,6 +9,7 @@ var annotated =
     [ "Icon", "classIcon.html", "classIcon" ],
     [ "IconClassification", "classIconClassification.html", "classIconClassification" ],
     [ "IconComponent", "classIconComponent.html", "classIconComponent" ],
+    [ "IconFilterProxyModel", "classIconFilterProxyModel.html", "classIconFilterProxyModel" ],
     [ "IconGroup", "classIconGroup.html", "classIconGroup" ],
     [ "IconListModel", "classIconListModel.html", "classIconListModel" ],
     [ "IconSet", "classIconSet.html", "classIconSet" ],

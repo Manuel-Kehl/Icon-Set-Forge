@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Icon Set Forge: Member List</title>
+<title>Icon Set Forge: IconFilterProxyModel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('classIcon.html','');});
+$(document).ready(function(){initNavTree('classIconFilterProxyModel.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -86,27 +86,48 @@ $(document).ready(function(){initNavTree('classIcon.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classIconFilterProxyModel-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Icon Member List</div>  </div>
+<div class="title">IconFilterProxyModel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="classIcon.html">Icon</a>, including all inherited members.</p>
-<table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>addClassification</b>(std::shared_ptr&lt; IconClassification &gt; newClassification) (defined in <a class="el" href="classIcon.html">Icon</a>)</td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getName</b>() const  (defined in <a class="el" href="classIcon.html">Icon</a>)</td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIcon.html#ae2fa48e08ef9ee7bb8b182ce5a72816e">getRepresentativeImage</a>() const </td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Icon</b>() (defined in <a class="el" href="classIcon.html">Icon</a>)</td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Icon</b>(QImage image, QString name) (defined in <a class="el" href="classIcon.html">Icon</a>)</td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classIcon.html#a12a4c2b9440a981c234862f23e32ca4d">Icon</a>(Icon *linkTo)</td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>IconComponent</b>() (defined in <a class="el" href="classIconComponent.html">IconComponent</a>)</td><td class="entry"><a class="el" href="classIconComponent.html">IconComponent</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classIcon.html#a9fbfde0b288570bfad2853d80dc1c8ad">insertIntoClassification</a>(std::shared_ptr&lt; IconClassification &gt; classification)</td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIcon.html#accc90470c939e37efedd1e929c143ee7">isOfLinkType</a>() const </td><td class="entry"><a class="el" href="classIcon.html">Icon</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="dynheader">
+Inheritance diagram for IconFilterProxyModel:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classIconFilterProxyModel.png" usemap="#IconFilterProxyModel_map" alt=""/>
+  <map id="IconFilterProxyModel_map" name="IconFilterProxyModel_map">
+<area href="classIconSetObserver.html" alt="IconSetObserver" shape="rect" coords="152,0,294,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5b85a78678a42778db4c468cc56b4afd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b85a78678a42778db4c468cc56b4afd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IconFilterProxyModel</b> (QObject *parent=0)</td></tr>
+<tr class="separator:a5b85a78678a42778db4c468cc56b4afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51e9b9c055b2c4ab7e8cc37fd29b7eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad51e9b9c055b2c4ab7e8cc37fd29b7eb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>filterAcceptsRow</b> (int source_row, const QModelIndex &amp;source_parent) const </td></tr>
+<tr class="separator:ad51e9b9c055b2c4ab7e8cc37fd29b7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61227cfac72502a5d068e41ce50fd93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab61227cfac72502a5d068e41ce50fd93"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSourceModel</b> (QAbstractItemModel *sourceModel)</td></tr>
+<tr class="separator:ab61227cfac72502a5d068e41ce50fd93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a079cc04021b87c23e9fd1b321a0d634b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a079cc04021b87c23e9fd1b321a0d634b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="separator:a079cc04021b87c23e9fd1b321a0d634b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>Code/model/access/<a class="el" href="iconfilterproxymodel_8h_source.html">iconfilterproxymodel.h</a></li>
+<li>Code/model/access/iconfilterproxymodel.cpp</li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="classIconFilterProxyModel.html">IconFilterProxyModel</a></li>
     <li class="footer">Generated on Sat Sep 13 2014 14:31:58 for Icon Set Forge by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

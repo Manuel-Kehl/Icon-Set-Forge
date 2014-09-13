@@ -4,6 +4,7 @@ var searchData=
   ['iconclassification',['IconClassification',['../classIconClassification.html',1,'IconClassification'],['../classIconClassification.html#a8621b2619c06819f1bcf8ca578b29760',1,'IconClassification::IconClassification()']]],
   ['iconcomponent',['IconComponent',['../classIconComponent.html',1,'']]],
   ['iconcount',['iconCount',['../classIconSet.html#a092d402ad570afb80a307bca0fe65f03',1,'IconSet']]],
+  ['iconfilterproxymodel',['IconFilterProxyModel',['../classIconFilterProxyModel.html',1,'']]],
   ['icongroup',['IconGroup',['../classIconGroup.html',1,'']]],
   ['iconlistmodel',['IconListModel',['../classIconListModel.html',1,'']]],
   ['iconset',['IconSet',['../classIconSet.html',1,'']]],

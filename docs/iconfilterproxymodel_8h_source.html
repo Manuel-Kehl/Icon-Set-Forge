@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Icon Set Forge: Code/model/icongroup.h Source File</title>
+<title>Icon Set Forge: Code/model/access/iconfilterproxymodel.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('icongroup_8h_source.html','');});
+$(document).ready(function(){initNavTree('iconfilterproxymodel_8h_source.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -87,32 +87,39 @@ $(document).ready(function(){initNavTree('icongroup_8h_source.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">icongroup.h</div>  </div>
+<div class="title">iconfilterproxymodel.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ICONGROUP_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ICONGROUP_H</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ICONFILTERPROXYMODEL_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ICONFILTERPROXYMODEL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;iconcomponent.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classIconGroup.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconGroup.html">IconGroup</a> : <span class="keyword">public</span> <a class="code" href="classIconComponent.html">IconComponent</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classIconGroup.html">IconGroup</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// TODO Implement!</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">const</span> QImage&amp; <a class="code" href="classIconGroup.html#a8e23dbe0634de743cf1f9a9466578505">getRepresentativeImage</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif // ICONGROUP_H</span></div>
-<div class="ttc" id="classIconComponent_html"><div class="ttname"><a href="classIconComponent.html">IconComponent</a></div><div class="ttdoc">The component base class for the Icon composite pattern. </div><div class="ttdef"><b>Definition:</b> iconcomponent.h:12</div></div>
-<div class="ttc" id="classIconGroup_html_a8e23dbe0634de743cf1f9a9466578505"><div class="ttname"><a href="classIconGroup.html#a8e23dbe0634de743cf1f9a9466578505">IconGroup::getRepresentativeImage</a></div><div class="ttdeci">const QImage &amp; getRepresentativeImage() const </div><div class="ttdoc">Returns the QImage, that is used for being displayed in by the UI. </div><div class="ttdef"><b>Definition:</b> icongroup.cpp:7</div></div>
-<div class="ttc" id="classIconGroup_html"><div class="ttname"><a href="classIconGroup.html">IconGroup</a></div><div class="ttdoc">This class has no implementation yet, as there is no need for such unless the grouping mechanism is g...</div><div class="ttdef"><b>Definition:</b> icongroup.h:11</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QSortFilterProxyModel&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;model/access/iconsetobserver.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/iconset.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classIconFilterProxyModel.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIconFilterProxyModel.html">IconFilterProxyModel</a> : <span class="keyword">public</span> QSortFilterProxyModel, <a class="code" href="classIconSetObserver.html">IconSetObserver</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classIconFilterProxyModel.html">IconFilterProxyModel</a>(QObject *parent = 0);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Overrides from QSortFilterProxyModel</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">bool</span> filterAcceptsRow(</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordtype">int</span> source_row, <span class="keyword">const</span> QModelIndex &amp;source_parent) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> setSourceModel(QAbstractItemModel *sourceModel);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// IconSetObserver&#39;s update function</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif // ICONFILTERPROXYMODEL_H</span></div>
+<div class="ttc" id="classIconSetObserver_html"><div class="ttname"><a href="classIconSetObserver.html">IconSetObserver</a></div><div class="ttdef"><b>Definition:</b> iconsetobserver.h:4</div></div>
+<div class="ttc" id="classIconFilterProxyModel_html"><div class="ttname"><a href="classIconFilterProxyModel.html">IconFilterProxyModel</a></div><div class="ttdef"><b>Definition:</b> iconfilterproxymodel.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_25df93d0bc8158b162e151c518337ee1.html">Code</a></li><li class="navelem"><a class="el" href="dir_eefa9e7cfb50cdcab5e6e03644458118.html">model</a></li><li class="navelem"><b>icongroup.h</b></li>
+    <li class="navelem"><a class="el" href="dir_25df93d0bc8158b162e151c518337ee1.html">Code</a></li><li class="navelem"><a class="el" href="dir_eefa9e7cfb50cdcab5e6e03644458118.html">model</a></li><li class="navelem"><a class="el" href="dir_03408128d60d40295d576cb1537edb69.html">access</a></li><li class="navelem"><b>iconfilterproxymodel.h</b></li>
     <li class="footer">Generated on Sat Sep 13 2014 14:31:58 for Icon Set Forge by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
