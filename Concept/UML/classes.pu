@@ -17,6 +17,7 @@ package model {
 		unique_ptr<QVector<Icon>> icons
 		unique_ptr<IconClassification> classifications
 		unique_ptr<QVector<IconGroup>> groups
+		+delete/rename/insert/...Icon(int index)
 	}
 	
 	class IconComponent {
@@ -81,11 +82,15 @@ package view {
 package control {
 	class Coordinator {
 		int activeIconSetIndex;
-		QVector<IconSetOperator> openIconSets
+		QVector<IconSetOperator> openedIconSets
 		+openIconSet(AbstractScannerStrategy scannerStrategy)
 		..slots..
 		+setActiveIconSet(int index)
+<<<<<<< HEAD
 		+deleteIcon(int index)
+=======
+		+delete/rename/insert/...Icon(int index)
+>>>>>>> bd0b1c6744a09ea0fcbd8d6a709c91f4d0f00509
 	}
 	class IconSetOperator {
 		unique_ptr<IconSet> iconSet
