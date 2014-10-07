@@ -86,7 +86,11 @@ package control {
 		+openIconSet(AbstractScannerStrategy scannerStrategy)
 		..slots..
 		+setActiveIconSet(int index)
+<<<<<<< HEAD
+		+deleteIcon(int index)
+=======
 		+delete/rename/insert/...Icon(int index)
+>>>>>>> bd0b1c6744a09ea0fcbd8d6a709c91f4d0f00509
 	}
 	class IconSetOperator {
 		unique_ptr<IconSet> iconSet
