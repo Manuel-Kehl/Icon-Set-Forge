@@ -19,6 +19,7 @@ private:
      * accessed and parsed
      */
     IconClassification *root;
+    IconSet* dataSource;
 
     /*!
      * A function that gets the <i>internal pointer</i> out of a
