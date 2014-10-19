@@ -32,7 +32,8 @@ SOURCES +=\
     control/iconsetoperator.cpp \
     model/access/iconsetobserver.cpp \
     control/commands/iconsetcommand.cpp \
-    control/commands/deleteiconcommand.cpp
+    control/commands/deleteiconcommand.cpp \
+    model/access/iconfilterproxymodel.cpp
 
 HEADERS  += \
     view/iconsetbrowser.h \
@@ -52,7 +53,8 @@ HEADERS  += \
     control/iconsetoperator.h \
     model/access/iconsetobserver.h \
     control/commands/iconsetcommand.h \
-    control/commands/deleteiconcommand.h
+    control/commands/deleteiconcommand.h \
+    model/access/iconfilterproxymodel.h
 
 FORMS    += mainwindow.ui
 
