@@ -6,7 +6,7 @@
 #include <QModelIndexList>
 #include "layouts/borderlayout.h"
 #include "model/access/classificationtreemodel.h"
-#include "model/access/iconlistmodel.h"
+#include "model/access/iconfilterproxymodel.h"
 
 /*!
  * A special QWidget derivate that contains an IconSetView and a QTreeView
@@ -22,7 +22,7 @@ private:
     QListView *listView;
 
 public:
-    explicit IconSetBrowser(IconListModel *iconModel,
+    explicit IconSetBrowser(IconFilterProxyModel *iconModel,
                             ClassificationTreeModel *classificationModel,
                             QWidget *parent = 0);
 

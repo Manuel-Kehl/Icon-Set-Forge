@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "model/access/classificationtreemodel.h"
-#include "model/access/iconlistmodel.h"
+#include "model/access/iconfilterproxymodel.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,7 +31,7 @@ public slots:
      * \param iconModel The Icon data.
      * \param classificationModel The IconClassification data.
      */
-    void displayNewIconSet(IconListModel *iconModel,
+    void displayNewIconSet(IconFilterProxyModel *iconModel,
                            ClassificationTreeModel *classificationModel);
 signals:
     /*!
