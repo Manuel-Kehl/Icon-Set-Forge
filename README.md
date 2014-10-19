@@ -54,6 +54,7 @@ sets
 - A simple implementation of `AbstractScannerStrategy` to load 
 [Freedesktop Icon Themes](http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html)
 - A simple user interface that can display icon sets and classifications
+- A mechanism for filtering icons by classification
 
 ## From the original author:
 
