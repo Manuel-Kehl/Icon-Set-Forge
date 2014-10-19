@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::displayNewIconSet(IconListModel *iconModel,
+void MainWindow::displayNewIconSet(IconFilterProxyModel *iconModel,
                                    ClassificationTreeModel *classificationModel)
 {
     IconSetBrowser *newTab =

@@ -5,13 +5,20 @@ IconSetOperator::IconSetOperator(
     scannerStrategy(std::move(scannerStrategy)),
     iconSet(std::move(this->scannerStrategy->loadIconSet())),
     iconModel(new  IconListModel(nullptr, iconSet.get())),
+    proxyModel(new IconFilterProxyModel()),
     classificationModel(new ClassificationTreeModel(nullptr, iconSet.get()))
 {
+    proxyModel->setSourceModel(iconModel.get());
 }
 
 IconListModel *IconSetOperator::getIconListModel()
 {
     return iconModel.get();
+}
+
+IconFilterProxyModel *IconSetOperator::getIconFilterProxyModel()
+{
+    return proxyModel.get();
 }
 
 ClassificationTreeModel *IconSetOperator::getClassificationTreeModel()

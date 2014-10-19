@@ -3,9 +3,9 @@
 #include <memory>
 #include "iconsetbrowser.h"
 #include "model/access/classificationtreemodel.h"
-#include "model/access/iconlistmodel.h"
+#include "model/access/iconfilterproxymodel.h"
 
-IconSetBrowser::IconSetBrowser(IconListModel *iconModel,
+IconSetBrowser::IconSetBrowser(IconFilterProxyModel *iconModel,
                                ClassificationTreeModel *classificationModel,
                                QWidget *parent) :    QWidget(parent)
 {
@@ -30,7 +30,6 @@ IconSetBrowser::IconSetBrowser(IconListModel *iconModel,
     treeView->resizeColumnToContents(0);
     treeView->resizeColumnToContents(1);
     treeView->resizeColumnToContents(2);
-
 
     layout->addWidget(listView, BorderLayout::Center);
     layout->addWidget(treeView, BorderLayout::West);

@@ -61,7 +61,7 @@ private:
     //! indicates if the IconClassification is used for gropuing icons
     bool groupBy = false;
     //! indicates if icons of this IconClassification are to be displayed
-    bool selected = false;
+    bool selected = true;
     //! indicates if the IconClassification is the root node of the tree
     bool isRoot = false;
 

@@ -13,18 +13,24 @@ void IconListModel::update()
 {
     QModelIndex start = createIndex(0,0);
     QModelIndex end = createIndex(rowCount(), 0);
-    //TODO think about optmization by not emitting dataChanged for ALL icons
+    //OPTIMIZE think about optmization by not emitting dataChanged for ALL icons
     emit dataChanged(start, end);
+}
+
+IconSet *IconListModel::getIconSet()
+{
+    return iconSet;
 }
 
 QVariant IconListModel::data(const QModelIndex &index, int role) const
 {
     int i = index.row();
+    Icon icon = iconSet->getIcon(i);
 
     // DecorationRole: The Image itself
     if (role == Qt::DecorationRole) {
         // Return the requested image
-        const QImage imageData = iconSet->getIcon(i).getRepresentativeImage();
+        const QImage imageData = icon.getRepresentativeImage();
         return imageData;
     // DisplayRole: The text to be displayed under the image
     } else if (role == Qt::DisplayRole) {
@@ -32,7 +38,7 @@ QVariant IconListModel::data(const QModelIndex &index, int role) const
         return name;
     }
 
-    // Return empty QVariant if not display role
+    // Return empty QVariant if above criteria not matched
     return QVariant();
 }
 

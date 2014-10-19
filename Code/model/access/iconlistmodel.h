@@ -20,6 +20,8 @@ public:
     IconListModel(QObject *parent, IconSet *dataSource);
     //! Observer's update function, that emits the dataChanged signal
     void update();
+    //! return a pointer to the underlying IconSet instance
+    IconSet* getIconSet();
     /*
      * QAbstractItemModel <i>Overrides</i> begin here. Consult the
      * <a href="http://qt-project.org/doc/qt-4.8/qabstractitemmodel.html">

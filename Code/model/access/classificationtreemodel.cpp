@@ -8,6 +8,7 @@ ClassificationTreeModel::ClassificationTreeModel(
 {
     root = dataSource->getClassifications();
     dataSource->addObserver(this);
+    this->dataSource = dataSource;
 }
 
 void ClassificationTreeModel::update()
@@ -31,12 +32,12 @@ IconClassification *ClassificationTreeModel::indexToNode(
 QModelIndex ClassificationTreeModel::index(int row, int column,
                                            const QModelIndex &parentIndex) const
 {
-    //If no root is set or invalid row or column, return empty QModelIndex
+    // If no root is set or invalid row or column, return empty QModelIndex
     if (row < 0 || column < 0 || !root) {
         return QModelIndex();
     }
 
-    //Retrieve child classification via the row parameter
+    // Retrieve child classification via the row parameter
     IconClassification *child = indexToNode(parentIndex)->
             getChildren().value(row).get();
 
@@ -59,7 +60,7 @@ QModelIndex ClassificationTreeModel::parent(const QModelIndex &childIndex) const
         return QModelIndex();
     }
 
-    //Parent's parent is necessary for finding out the parent's row
+    // Parent's parent is necessary for finding out the parent's row
     IconClassification *grandParent = parent->getParent();
     if (!grandParent) {
         return QModelIndex();
@@ -99,7 +100,7 @@ QVariant ClassificationTreeModel::data(const QModelIndex &index, int role) const
 
     if (role == Qt::DisplayRole) {
         if (column == 0) {
-            //First Column: Classification Name
+            // First Column: Classification Name
             return indexToNode(index)->getName();
         }
     }
@@ -110,7 +111,7 @@ QVariant ClassificationTreeModel::data(const QModelIndex &index, int role) const
         if (column == 1) {
             return node->isSelected() ? Qt::Checked : Qt::Unchecked;
         } else if (column == 2) {
-            //Grouping is only reasonable, if child classifications exist
+            // Grouping is only reasonable, if child classifications exist
             if (node->hasChildren()) {
                 return node->isGroupedBy() ? Qt::Checked : Qt::Unchecked;
             }
@@ -163,8 +164,11 @@ bool ClassificationTreeModel::setData(const QModelIndex &index,
             node->setGroupedBy(checked == Qt::Checked);
         }
     }
-    //To trigger a UI refresh emit the dataChanged signal
+    // To trigger a UI refresh of the tree view, emit the dataChanged signal
     emit dataChanged(index, index);
+    // Moreover notify IconSetObservers that something has changed
+    dataSource->notifyObservers();
+
     return true;
 }
 
@@ -174,6 +178,6 @@ Qt::ItemFlags ClassificationTreeModel::flags(const QModelIndex &index) const
              return 0;
     }
 
-    //To enable user interaction with the checkboxes
+    // To enable user interaction with the checkboxes
     return Qt::ItemIsEnabled | Qt::ItemIsUserCheckable;
 }

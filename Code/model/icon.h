@@ -65,6 +65,12 @@ public:
     //! Returns an QImage that can be used for displaying this particular Icon
     const QImage &getRepresentativeImage() const;
     QString getName() const;
+    /*!
+     * Determines if the Icon is to be considered selected according to the
+     * IconClassification filter criteria that have been applied by the user.
+     * \return true if selected - false if not
+     */
+    bool isSelected() const;
 };
 
 #endif // ICON_H

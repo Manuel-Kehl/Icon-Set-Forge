@@ -21,7 +21,7 @@ void Coordinator::openIconSet(
     std::shared_ptr<IconSetOperator> newOperator(
                 new IconSetOperator(std::move(scannerStrategy)));
     openedIconSets.append(newOperator);
-    emit newIconSetOpened(newOperator->getIconListModel(),
+    emit newIconSetOpened(newOperator->getIconFilterProxyModel(),
                           newOperator->getClassificationTreeModel());
 }
 

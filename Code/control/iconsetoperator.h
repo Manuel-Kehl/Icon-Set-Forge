@@ -7,6 +7,7 @@
 #include "scannerstrategies/abstractscannerstrategy.h"
 #include "model/access/classificationtreemodel.h"
 #include "model/access/iconlistmodel.h"
+#include "model/access/iconfilterproxymodel.h"
 #include "control/commands/iconsetcommand.h"
 
 /*!
@@ -20,13 +21,15 @@
  */
 class IconSetOperator
 {
-private:    
+private:
     //! The scanner used for loading and saving the maintained IconSet
     std::unique_ptr<AbstractScannerStrategy> scannerStrategy;
     //! The IconSet maintained by this IconSetOperator
     std::unique_ptr<IconSet> iconSet;
     //! Provides acces to the icon data for the view classes
     std::unique_ptr<IconListModel> iconModel;
+    //! Provides acces to the data with sorting and filters applied
+    std::unique_ptr<IconFilterProxyModel> proxyModel;
     //! Provides acces to the classifications for the view classes
     std::unique_ptr<ClassificationTreeModel> classificationModel;
     //! Keeps track of applied actions to allow undo/redo
@@ -39,9 +42,8 @@ public:
      * the actual icon set.
      */
     IconSetOperator(std::unique_ptr<AbstractScannerStrategy> scannerStrategy);
-    //TODO: Define functions for operations on IconSets
-
     IconListModel* getIconListModel();
+    IconFilterProxyModel* getIconFilterProxyModel();
     ClassificationTreeModel* getClassificationTreeModel();
 
     void performCommand(IconSetCommand *command);

@@ -66,3 +66,20 @@ QString Icon::getName() const
 {
     return name;
 }
+
+bool Icon::isSelected() const
+{
+    // Check all IconClassifications for selection state
+    for (IconClassification* classification : classifications) {
+        // Traverse the tree up to the root IconClassification
+        do {
+            // If any ancestor is not selected, this Icon instance is not selected
+            if (!classification->isSelected()) {
+                return false;
+            }
+            // Replace classification with its parent to iterate upwards
+            classification = classification->getParent();
+        } while (!classification->isRootNode());
+    }
+    return true;
+}

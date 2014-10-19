@@ -53,7 +53,7 @@ signals:
      * \param iconModel Provides Icon data.
      * \param ClassificationModel Provices IconClassification data.
      */
-    void newIconSetOpened(IconListModel *iconModel,
+    void newIconSetOpened(IconFilterProxyModel *iconModel,
                           ClassificationTreeModel *ClassificationModel);
 
 };
