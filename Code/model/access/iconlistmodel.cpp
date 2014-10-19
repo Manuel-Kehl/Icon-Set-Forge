@@ -13,8 +13,13 @@ void IconListModel::update()
 {
     QModelIndex start = createIndex(0,0);
     QModelIndex end = createIndex(rowCount(), 0);
-    //TODO think about optmization by not emitting dataChanged for ALL icons
+    //OPTIMIZE think about optmization by not emitting dataChanged for ALL icons
     emit dataChanged(start, end);
+}
+
+IconSet *IconListModel::getIconSet()
+{
+    return iconSet;
 }
 
 QVariant IconListModel::data(const QModelIndex &index, int role) const
