@@ -1,0 +1,22 @@
+Building the Application
+========================
+
+You will first need to satisfy the build dependencies of Icon Set Forge before
+compiling. You will need to install qmake for Qt 4 and Qt 4 Designer. On Debian
+GNU/Linux and derivative systems, this can be done with the following command:
+
+    # apt-get install qt4-qmake qt4-designer
+
+You can compile the program using qmake and GNU make:
+
+    $ cd Code/
+    $ qmake-qt4
+    $ make
+
+Installing the Application
+==========================
+
+After compiling the program, you can execute the following from the Code
+directory to install Icon Set Forge:
+
+    # make install
