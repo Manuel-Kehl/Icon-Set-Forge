@@ -56,6 +56,9 @@ sets
 - A simple user interface that can display icon sets and classifications
 - A mechanism for filtering icons by classification
 
+# Installation
+If you want to quickly install and test the latest development version, you may use [rhoconlinux's](https://github.com/rhoconlinux) installation script by executing `cd /tmp && wget http://ur1.ca/k6mv9 -O isf-install.sh && sh isf-install.sh`.
+
 ## From the original author:
 
 # Personal Experience and Feedback
